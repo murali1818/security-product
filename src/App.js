@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Sidebar from './components/Sidebar/Sidebar';
+import Header from "./components/Header/Header"
 import './App.css';
+import Rotuer from './Rotuer';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+    const toggleSidebar = () => {
+        setSidebarOpen(!isSidebarOpen);
+    };
+
+    return (
+            <div className="App">
+                <Header></Header>
+                <div className="container">
+                    <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
+                    <div id="main" className={isSidebarOpen ? 'main-shrink' : 'main-expand'}>
+                        <Rotuer />
+                    </div>
+                </div>
+            </div>
+
+    );
 }
 
 export default App;
