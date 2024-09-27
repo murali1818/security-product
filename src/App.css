@@ -58,21 +58,23 @@ body {
 .container {
   display: flex;
   height: 100%;
+  margin-left: 5px;
+  /* width: 100%; */
 }
 
 #main {
   flex-grow: 1;
   transition: margin-left 0.5s;
-  padding: 15px;
+  background-color: white;
  
 }
 
 .main-expand {
-  margin: 10px 10px 10px 70px;
+  margin: 10px 10px 10px 60px;
 }
 
 .main-shrink {
-  margin: 10px 10px 10px 270px;
+  margin: 10px 10px 10px 220px;
 }
 
 

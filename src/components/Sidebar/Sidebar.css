@@ -39,7 +39,7 @@
     --gradient-bg: linear-gradient(90deg, #15F5BA, #0066ff);
   }
 .sidebar {
-    width: 60px;
+    width: 70px; 
     position: fixed;
     top: 10%;
     left: 0;
@@ -109,4 +109,10 @@
     color: var(--text-dark); /* Dark text on hover */
     background-color: var(--accent-blue); /* Light blue for closed sidebar hover */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.menu-items a:hover {
+    background-color: var(--bright-blue-light);
+    color: var(--text-light);
+    transition: background-color 0.3s ease;
 }
