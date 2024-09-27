@@ -1,0 +1,90 @@
+/* General page styling */
+.scan-container {
+    padding: 20px;
+    margin: 0 auto;
+    width: 98%;
+    background-color:var(--blue-grey-200);
+   border-radius: 5px;
+    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.525);
+    height: 70vh; /* Set the height to 90vh */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Title styling */
+
+
+/* Button group styling */
+.scan-container .button-group {
+    display: flex;
+    justify-content: start;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-shrink: 0; /* Prevent the button group from shrinking */
+}
+
+.scan-container .btn {
+    background-color: #007bff;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+}
+
+.scan-container .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Scan table container */
+.scan-container .table-container {
+    flex-grow: 1; /* Allow the table to take the remaining space */
+    overflow-y: auto; /* Make the table scrollable if needed */
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+}
+
+/* Fix table header and only scroll data */
+.scan-container .scan-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.scan-container .scan-table th,
+.scan-container .scan-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.scan-container .scan-table th {
+    background-color: var(--blue-grey-700);;
+    color: #ffffff;
+    text-align: center;
+    position: sticky;
+    top: 0; /* Fix the header at the top */
+    z-index: 2; /* Ensure it stays above the table body */
+}
+
+.scan-container .scan-table td {
+    text-align: center;
+}
+
+.scan-container .scan-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .scan-container .button-group {
+        flex-direction: column;
+    }
+
+    .scan-container .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

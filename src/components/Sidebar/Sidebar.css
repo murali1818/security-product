@@ -1,7 +1,7 @@
 :root {
     /* Base Gradient Colors */
     --neon-blue: #15F5BA;
-    --bright-blue: #0066ff;
+    --bright-blue: #06007b;
   
     /* Lighter Shades */
     --neon-blue-light: #5fffd4;
@@ -9,7 +9,7 @@
   
     /* Darker Shades */
     --neon-blue-dark: #0eb18a;
-    --bright-blue-dark: #004bb3;
+    --bright-blue-dark: #000000;
   
     /* Transparent Versions */
     --neon-blue-transparent: rgba(21, 245, 186, 0.6);
@@ -44,18 +44,18 @@
     top: 10%;
     left: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.684);
+    background:var(--blue-grey-50);
     overflow-x: hidden;
     transition: 0.5s;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     padding-top: 60px;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); 
 }
 
 .sidebar.open {
-    width: 250px;
+    width: 220px;
 }
 
 .sidebar.open .menu-items a svg {
@@ -63,7 +63,7 @@
 }
 
 .sidebar.open .menu-items a:hover {
-    color: var(--text-dark); /* Dark text on hover */
+    color: var( --bright-blue-dark); /* Dark text on hover */
 
     
 }
@@ -91,7 +91,7 @@
 .menu-items a {
     text-decoration: none;
     font-size: 20px;
-    color: var(--bright-blue-light); /* Light text for links */
+    color: var(--bright-blue-dark); /* Light text for links */
     display: flex;
     align-items: center;
     transition: 0.3s;
@@ -100,7 +100,7 @@
 }
 
 .menu-items a svg {
-    padding: 10px;
+    padding: 5px;
     font-size: 25px;
     color: var(--bright-blue); /* Neon cyan icons */
 }

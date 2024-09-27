@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaHome, FaBug, FaBullseye, FaSearch, FaFileAlt, FaCog, FaSignOutAlt } from 'react-icons/fa'; // Updated icons
+import { FaHome, FaBug, FaBullseye, FaSearch, FaFileAlt, FaCog } from 'react-icons/fa'; // Updated icons
 import './Sidebar.css'; // Ensure your CSS is correctly updated for styling
 
 function Sidebar({ isOpen, toggleSidebar }) {
@@ -32,9 +32,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
                     <FaCog /> {isOpen && 'Settings'}
                 </Link>
 
-                <Link to="/">
-                    <FaSignOutAlt /> {isOpen && 'Logout'}
-                </Link>
+                
             </div>
         </div>
     );
