@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Sidebar from './components/Sidebar/Sidebar';
-import Header from "./components/Header/Header"
+
+import Header from './components/Header/Header';
 import './App.css';
 import Rotuer from './Rotuer';
 
@@ -13,8 +14,8 @@ function App() {
 
     return (
             <div className="App">
-                <Header></Header>
                 <div className="container">
+                    <Header></Header>
                     <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
                     <div id="main" className={isSidebarOpen ? 'main-shrink' : 'main-expand'}>
                         <Rotuer />

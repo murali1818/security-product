@@ -1,81 +1,97 @@
-.header {
-    height: 10vh; /* Header height */
-    display: flex;
-    align-items: center;
-    background-color:var(--blue-grey-50); /* Light background color */
-    padding: 0 20px; /* Horizontal padding */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow effect */
-    position: fixed;
-    top:0;
-    left: 0;
-    right: 0;
-    z-index: 2;
-}
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Space between logo and user info */
-    width: 100%;
-}
-
-.logo {
-    width: 200px; /* Adjust height as needed */
-}
-
-.store-name {
-    margin-left: 20px; /* Space between logo and store name */
-    font-size: 24px; /* Adjust font size */
-    color: #333; /* Text color */
-}
-
-.user-info {
-    display: flex;
-    align-items: center;
-    position: relative; /* For positioning the dropdown */
-    cursor: pointer; /* Change cursor to pointer */
-}
-
-.username {
-    margin-left: 10px; /* Space between username and icon */
-    font-size: 16px; /* Adjust font size */
-    color: #555; /* Text color */
-}
-
-.help-icon,.user-icon {
-    font-size: 30px; /* Adjust icon size */
-    margin-left: 15px; /* Space between icons */
-    color: #333; /* Icon color */
-    transition: color 0.3s; /* Transition for hover effect */
-}
-
-.help-icon:hover {
-    color: #007BFF; /* Change color on hover */
-}
-
-.dropdown-menu {
-    position: absolute; /* Position dropdown relative to user info */
-    right: 0; /* Align dropdown to the right */
-    top: 100%; /* Position below the user info */
-    background-color: white; /* Dropdown background color */
-    border: 1px solid #ccc; /* Border around dropdown */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
-    z-index: 1000; /* Ensure dropdown is above other content */
-    margin-top: 10px; /* Space between user info and dropdown */
-    border-radius: 4px; /* Rounded corners */
-}
-
-.dropdown-menu ul {
-    list-style: none; /* Remove default list styling */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-}
-
-.dropdown-menu li {
-    padding: 10px 20px; /* Padding for menu items */
-    cursor: pointer; /* Change cursor to pointer */
-    transition: background-color 0.3s; /* Transition for hover effect */
-}
-
-.dropdown-menu li:hover {
-    background-color: #f0f0f0; /* Change background on hover */
-}
+:root {
+    --color-primary: #091F82;  /* Dark Blue */
+    --color-secondary: #074893;  /* Navy Blue */
+    --color-accent1: #03A1B7;  /* Cyan */
+    --color-accent2: #0674A5;  /* Sky Blue */
+    --color-accent3: #02A9EC;  /* Light Blue */
+    
+    --color-white: #ffffff;  /* White */
+    --color-black: #000000;  /* Black */
+    --color-gray: #333;  /* Dark gray text */
+    --color-light-gray: #adadad; /* Light gray for hover */
+    --color-border: #ccc; /* Border color */
+  }
+  
+  .header {
+      height: 10vh;
+      display: flex;
+      align-items: center;
+      background-color:#6a6a6a; /* White header background */
+      padding: 0 20px;
+      position: fixed;
+      border-radius: 10px;
+      top: 15px;
+      left:15px;
+      right: 15px;
+      z-index: 2;
+  }
+  
+  .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* Space between logo and user info */
+      width: 100%;
+  }
+  
+  .logo {
+      width: 200px; /* Adjust height as needed */
+  }
+  
+  .store-name {
+      margin-left: 20px; /* Space between logo and store name */
+      font-size: 24px; /* Adjust font size */
+      color: var(--color-gray); /* Text color */
+  }
+  
+  .user-info {
+      display: flex;
+      align-items: center;
+      position: relative; /* For positioning the dropdown */
+      cursor: pointer; /* Change cursor to pointer */
+  }
+  
+  .username {
+      margin-left: 10px; /* Space between username and icon */
+      font-size: 16px; /* Adjust font size */
+      color: var(--color-white); /* Text color */
+  }
+  
+  .help-icon, .user-icon {
+      font-size: 30px; /* Adjust icon size */
+      margin-left: 15px; /* Space between icons */
+      color: var(--color-primary); /* Icon color */
+      transition: color 0.3s; /* Transition for hover effect */
+  }
+  
+  .help-icon:hover {
+      color: var(--color-light-gray); /* Change color on hover */
+  }
+  
+  .dropdown-menu {
+      position: absolute; /* Position dropdown relative to user info */
+      right: 0; /* Align dropdown to the right */
+      top: 100%; /* Position below the user info */
+      background-color: var(--color-white); /* Dropdown background color */
+      border: 1px solid var(--color-border); /* Border around dropdown */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+      z-index: 1000; /* Ensure dropdown is above other content */
+      margin-top: 10px; /* Space between user info and dropdown */
+      border-radius: 4px; /* Rounded corners */
+  }
+  
+  .dropdown-menu ul {
+      list-style: none; /* Remove default list styling */
+      padding: 0; /* Remove default padding */
+      margin: 0; /* Remove default margin */
+  }
+  
+  .dropdown-menu li {
+      padding: 10px 20px; /* Padding for menu items */
+      cursor: pointer; /* Change cursor to pointer */
+      transition: background-color 0.3s; /* Transition for hover effect */
+  }
+  
+  .dropdown-menu li:hover {
+      background-color: var(--color-accent1); /* Change background on hover */
+  }
+  

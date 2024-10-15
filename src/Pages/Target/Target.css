@@ -1,31 +1,60 @@
 .target-container {
     width: 100%;
-    background-color: var(--blue-grey-50);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     height: 80vh;
-    /* Set the height to 90vh */
+    border-radius: 10px; 
     display: flex;
     flex-direction: column;
-    margin: 0 0 0 5px;
 }
 
-.target-container .button-container .button-group {
-    display: flex;
-    justify-content: start;
-    gap: 10px;   
-    flex-shrink: 0; /* Prevent the button group from shrinking */
-}
-.target-container .button-container{
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+.target-container .button-container{  
     display: flex;
     justify-content:space-between;
-    padding:1%;
-
+}
+.target-container .no-data{
+    color: red;
+    font-weight: 800px;
+}
+.target-container .btn-submit, 
+.target-container .btn-cancel {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
+.target-container .btn-submit {
+    background-color: #28a745;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.target-container .btn-submit:hover {
+    background-color: #218838;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.target-container .btn-cancel {
+    background-color: #dc3545;
+    color: white;
+    margin-left: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.target-container .btn-cancel:hover {
+    background-color: #c82333;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+
+
 .target-container .button-container .btn {
-    background-color: #007bff;
     border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
@@ -34,7 +63,7 @@
     font-size: 14px;
 }
 
-.target-container .button-container .scan-btn {
+.target-container .button-container .scan-btn{
     background-color: #4CAF50; /* Green */
     color: white;
 }
@@ -79,12 +108,12 @@
     background-color: #7b1fa2;
 }
 
-.target-container .button-container .csv-btn {
+.target-container .button-container .upload-btn {
     background-color: #795548; /* Brown */
     color: white;
 }
 
-.target-container .button-container .csv-btn:hover {
+.target-container .button-container .upload-btn:hover {
     background-color: #5d4037;
 }
 
@@ -97,41 +126,58 @@
     background-color: #546e7a;
 }
 
+/* Styles for the container and table */
 .target-container .table-container {
     /* Set max height for the table to make it scrollable */
     overflow-y: auto;  /* Allow vertical scroll */
-    margin: 2%;
     background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
 }
 
+/* Style for the table */
 .target-container .target-table {
     width: 100%;
+    font-size: 16px;
     border-collapse: collapse;
-    border: 1px solid #ddd;
-    
+  
 }
+
 .target-container .target-table .checkbox{
     background-color: #45a049;
+    text-align: center;
 }
 
-.target-container .target-table th, 
+
+
+ 
 .target-container .target-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: center;
+    padding: 12px 15px; /* Padding for table cells */
+    border-bottom: 1px solid rgb(111, 111, 111); /* Subtle border between rows */
+    text-align: left;
+    background-color:  #ffffff; /* Cell background */
+    font-weight: 600;
+    color: #181818;
 }
+
 .target-container .target-table th{
-    background-color: var(--blue-grey-700);;
-    text-align: center;
+    background-color: #6a6a6a; /* Header background color */
+    color: #eeeeee; /* Light text for header */
+    padding: 15px 20px; /* More padding for a spacious feel */
+    text-align: left;
+    font-weight: bold;
     position: sticky;
-    top: 0; /* Fix the header at the top */
-    z-index: 3; /* Ensure it stays above the table body */
+    top: 0;
+    z-index: 1;
+    border-bottom: 2px solid #ffffff; /* Thicker border for header separation */
     
 }
+.target-container .btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 
-.target-container .target-table th {
-    background-color: #b5b5b5;
-}
+
 
 .target-container .popup {
     position: fixed;
@@ -154,28 +200,46 @@
 
 .target-container .popup button {
     padding: 10px 20px;
-    background-color: #2196F3;
+    
     color: white;
     border: none;
     cursor: pointer;
 }
-.target-container .target-table .vulnerability-high {
-    background-color: red;
-}
 
-.target-container .target-table .vulnerability-medium {
-    background-color: orange;  /* Medium severity color */
-}
 
-.target-container .target-table .vulnerability-low {
-   background-color: green;  /* Low severity color */
-}
+.target-container  .target-table .vulnerability-medium {
+    background-color: #ffc107; /* Saturated Yellow for Medium */
+    color: #000;
+  }
+  .target-container  .target-table .vulnerability-low {
+    background-color: #32cd32; /* Saturated Green for Low */
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+
+  .target-container  .target-table .vulnerability-info {
+    background-color: #1e90ff; /* Saturated Blue for Info */
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+
+.target-container  .target-table .vulnerability-high {
+    background-color: #ff9900; /* Saturated Orange for High */
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+
+.target-container  .target-table .vulnerability-critical {
+    background-color: #ff4d4d; /* Red for Critical */
+    color: #fff;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
 
 .target-container .target-table .vulnerability-item {
     margin:0px 5px;
     color: white;
     padding: 2px 15px;
-    align-items: center;
+    text-align: left;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -244,7 +308,7 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background: #007bff; /* Button color */
+   
     color: white;
 }
 
@@ -270,6 +334,12 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    background-color: #007bff; /* Default button color */
+    
     color: white;
+}
+
+.target-container .target-table tr:hover td {
+    
+    background-color: #ededed; /* Darker background for table */
+  color: #091F82; /* Highlighted text color on hover */
 }

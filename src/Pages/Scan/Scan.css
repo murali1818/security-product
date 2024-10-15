@@ -1,0 +1,464 @@
+  /* General page styling */
+.scan-page {
+  padding: 0px 20px;
+  width: 98%;
+  height: 94vh;
+    border-radius: 0px; 
+    flex-grow: 1;
+    overflow-y: auto;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: white;
+   
+}
+
+
+/*  Button group styling */
+.scan-page .button-container {
+  margin-bottom: 20px; /* Space between button container and content */
+}
+
+/* Button group styling */
+.scan-page .button-group {
+  display: flex;
+  justify-content: start;
+  gap: 10px;
+  flex-shrink: 0; /* Prevent the button group from shrinking */
+}
+.scan-page .button-group .fas{
+  margin-right: 5px;
+}
+
+/* Button styles */
+.scan-page .button-group button {
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+}
+
+
+
+/* Specific button styles */
+.scan-page .btn-back {
+  background-color: #6c757d; /* Grey color for Back button */
+}
+
+.scan-page .btn-back:hover {
+  background-color: #5a6268; /* Darker grey on hover */
+}
+
+.scan-page .btn-stop {
+  background-color: #dc3545; /* Red color for Stop Scan */
+}
+
+.scan-page .btn-stop:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+.scan-page .btn-pause {
+  background-color: #ffc107; /* Yellow color for Pause Scan */
+}
+
+.scan-page .btn-pause:hover {
+  background-color: #e0a800; /* Darker yellow on hover */
+}
+
+.scan-page .btn-compare {
+  background-color: #28a745; /* Green color for Compare Scan */
+}
+
+.scan-page .btn-compare:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+
+.scan-page .scan-container-tab{
+  background-color: #222831;
+  padding: 20px;
+  border-radius: 10px;
+
+}
+
+/*tab-container*/
+.scan-page .tab-container{
+  border-bottom: #5a6268 solid 1px;
+  padding-bottom: 10px;
+}
+
+.scan-page .tab-container button{
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    font-size: medium;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+    transition: background-color 0.3s ease;
+
+}
+.scan-page .tab-container button:hover{
+  background-color: #ec9071;
+ 
+  color: #fff;
+}
+
+.scan-page .tab-container button.active-tab {
+ background-color: #d65a31;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.536); /* Subtle shadow for depth */
+ border-radius: 5px;
+  color: #fff;
+}
+
+
+
+/*scan and info section*/
+
+.scan-page .scan-details {
+    display: flex;  
+    gap: 20px;
+    margin: 30px 0px;
+
+  }
+
+  .scan-page .threat-level {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.scan-page .circle {
+    width: 100px;
+    height: 100px;
+    margin-top: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.scan-page .circle.low {
+    border: 20px solid green;
+}
+
+.scan-page .circle.medium {
+  border: 20px solid yellow;
+}
+
+.scan-page .circle.high {
+  border: 20px solid red;
+}
+
+.scan-page .circle.critical {
+    background-color: darkred;
+}
+
+.scan-page .threat-level {
+    flex: 1;
+    background: #393e46; 
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+  
+  .scan-page .threat-level h2 {
+    color: #ffffff;
+    font-size: 24px;
+  }
+  
+  .scan-page .threat-level p {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  /* Scan information section */
+  .scan-page .scan-info {
+    flex: 1;
+    padding: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 30px 0px;
+    background: #393e46; 
+  }
+
+  
+  .scan-page .scan-info h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+
+  .scan-page .bottom{
+    display: flex;
+    gap: 20px;
+
+  }
+  
+  /* Target Information section */
+  .scan-page .target-information {
+    flex: 1;
+    background: #393e46; 
+    padding: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    color: white;
+    border-radius: 10px;
+    text-align:center;
+    justify-content: center;
+    
+  }
+  
+  
+  .scan-page .target-information h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .scan-page .target-information ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .scan-page .target-information li {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+
+  
+  /* Activity section */
+  .scan-page .activity {
+    flex: 1;
+    background: #393e46; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+
+  .scan-page .progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.scan-page .progress-bar-fill {
+    height: 100%;
+    background-color: #18d3f8;
+    width: 0;
+    transition: width 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+  
+.scan-page .activity h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .scan-page .alerts{
+    flex: 1;
+    background: #393e46; 
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+
+  
+  .scan-page .alerts h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .scan-page .alerts div {
+    background-color: #f1a4a4;
+    border: 1px solid #f45b6a;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .scan-page .alerts p {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  
+/*vulnerabilities-section*/
+.vulnerabilities-section {
+  margin-top: 20px;
+  
+}
+
+.vulnerabilities-table-container {
+  max-height: 396px; /* Set this based on how much space you want for the table */
+  overflow-y: auto; /* Only the table content will scroll */
+  margin-top: 10px;
+}
+
+.vulnerabilities-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+ 
+.vulnerabilities-table td {
+ 
+  padding: 12px 15px; /* Padding for table cells */
+    border-bottom: 1px solid #393e46; /* Subtle border between rows */
+    text-align: left;
+    background-color:  #222831; /* Cell background */
+    color: #eeeeee;
+
+}
+
+.vulnerabilities-table th {
+  background-color: #d65a31; /* Header background color */
+  font-weight: bold;
+  position: sticky;
+    top: 0;
+    z-index: 1;
+    padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.vulnerabilities-table tr:hover td {
+  background-color: #393e46; /* Darker background for table */
+    color: #d65a31; /* Highlighted text color on hover */
+}
+
+.severity-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 50%;
+  color: white;
+}
+
+.severity-icon.low {
+  background-color: blue;
+}
+
+
+
+
+/*site structure*/
+.site-structure-container {
+    display: flex;
+    height: 100%;
+    margin-top: 10px;
+}
+
+/* Left Panel - Sidebar for site structure */
+.site-structure-sidebar {
+    width: 25%;
+    border-radius: 5px;
+    height: 365px;
+    border-right: 1px solid #ddd;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    padding: 10px;
+    background-color:#393e46;
+}
+
+.folder-structure {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.folder-structure li {
+    padding: 5px 0;
+}
+
+.folder-structure a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.folder-structure ul {
+    padding-left: 20px;
+}
+
+.folder-structure ul li a {
+    font-weight: normal;
+}
+
+/* Right Panel - Vulnerability details */
+.vulnerability-details {
+    width: 75%;
+    margin-left: 20px;
+}
+
+.url-display {
+    width: 98%;
+    padding: 10px;
+    font-size: 14px;
+    color: #d65a31;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Events Section */
+.events-section {
+  margin-top: 20px;
+}
+
+.events-table-container {
+  max-height: 335px;
+  overflow-y: auto;
+  margin-top: 10px;
+}
+
+.events-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.events-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #393e46;
+  text-align: left;
+  background-color: #222831;
+  color: #eeeeee;
+}
+
+.events-table th {
+  background-color: #d65a31;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.events-table tr:hover td {
+  background-color: #393e46;
+  color: #d65a31;
+}
+

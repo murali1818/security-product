@@ -1,8 +1,15 @@
 .footer {
+    height: 6vh; /* Footer height */
     display: flex;
-    justify-content:center;
-    align-items: center;
-    background-color: #0e0e0f;
-    color: white;
-    padding: 5px;
+    align-items: center; /* Center align vertically */
+    justify-content: center; /* Center align horizontally */
+    background: #222831; 
+    color: aliceblue; /* Text color */
+    padding: 0 20px; /* Horizontal padding */
+    box-shadow: 0 -4px 5px rgba(0, 0, 0, 0.4); /* Shadow effect at the top */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
 }

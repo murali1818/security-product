@@ -1,0 +1,317 @@
+.target-data-container {
+    width: 100%;
+    height: 80vh;
+    border-radius: 10px; 
+    display: flex;
+    flex-direction: column;
+}
+
+.target-data-container .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-right: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.target-data-container .back-btn {
+    background-color: #007BFF; /* Blue */
+}
+
+.target-data-container .back-btn:hover {
+    background-color: #0056b3; /* Darker Blue */
+}
+
+.target-data-container .scan-btn {
+    background-color: #28A745; /* Green */
+}
+
+.target-data-container .scan-btn:hover {
+    background-color: #218838; /* Darker Green */
+}
+
+.target-data-container .save-btn {
+    background-color: #FFC107; /* Yellow */
+}
+
+
+
+
+/*tab-container*/
+.target-data-container .tab-container{
+    border-bottom: #5a6268 solid 1px;
+    padding-bottom: 10px;
+  }
+  
+  .target-data-container .tab-container button{
+    
+      background-color: transparent;
+      border: none;
+      font-weight: bold;
+      font-size: medium;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-right: 5px;
+      transition: background-color 0.3s ease;
+  
+  }
+  .target-data-container .tab-container button:hover{
+    background-color: #7d71ec;
+   
+    color: #fff;
+  }
+  
+  .target-data-container .tab-container button.active-tab {
+   background-color: #313cd6;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.536); /* Subtle shadow for depth */
+   border-radius: 5px;
+    color: #fff;
+  }
+  .target-data-container  .targetdata-container-tab {
+    margin-top: 20px;
+  }
+
+  .target-data-container  .targetdata-con-div {
+    max-height: 400px; /* Set the max height you want */
+    overflow-y: auto; /* Adds vertical scrollbar if content exceeds max-height */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    padding: 20px;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .target-data-container  .general-info-container h3 {
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.5em;
+  }
+  
+  .target-data-container  .general-info-container p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+  }
+  
+  .target-data-container  .input-label {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #555;
+  }
+  
+  .target-data-container  .input-text,
+  .target-data-container  .input-select {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+  }
+  
+  .target-data-container  .radio-group {
+    margin-bottom: 20px;
+  }
+  
+  .target-data-container  .radio-label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1em;
+  }
+  
+  .target-data-container  .input-radio {
+    margin-right: 8px;
+  }
+  
+  .target-data-container .checkbox-container {
+    margin-bottom: 20px;
+  }
+  
+  .target-data-container  .checkbox-label {
+    font-size: 1em;
+  }
+  
+  .target-data-container  .input-checkbox {
+    margin-left: 10px;
+  }
+  
+  .target-data-container  .login-form {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  
+  .target-data-container  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .target-data-container  .submit-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  
+  .target-data-container  .submit-button:hover {
+    background-color: #45a049;
+  }
+
+
+  
+  .target-data-container .input-label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  
+  .target-data-container .input-select, .input-text {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .target-data-container .checkbox-label {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .target-data-container .input-checkbox {
+    margin-right: 10px;
+  }
+  
+  .target-data-container .add-btn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .target-data-container .add-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .target-data-container .file-import-container {
+    margin-top: 20px;
+  }
+  
+  .target-data-container .file-info {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-left: 4px solid #007bff;
+    margin-bottom: 15px;
+  }
+  
+  .target-data-container .file-upload {
+    display: flex;
+    align-items: center;
+  }
+  
+  .target-data-container .file-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .target-data-container .remove-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .target-data-container .remove-btn:hover {
+    color: red;
+  }
+  
+  .target-data-container {
+        .toggle-switch {
+        display: inline-flex;
+        align-items: center;
+        font-weight: bold;
+        margin-bottom: 10px;
+        margin-top: 10px;
+      }
+      
+      .toggle-switch .toggle-input {
+        display: none; /* Hide the default checkbox */
+      }
+      
+      .toggle-switch .slider {
+        position: relative;
+        width: 50px;
+        height: 25px;
+        background-color: #ccc;
+        border-radius: 25px;
+        margin:0px 10px;
+        cursor: pointer;
+        transition: background-color 0.4s;
+      }
+      
+      .toggle-switch .slider:before {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        left: 4px;
+        bottom: 2.5px;
+        background-color: white;
+        border-radius: 50%;
+        transition: transform 0.4s;
+      }
+      
+      .toggle-input:checked + .slider {
+        background-color: #4CAF50; /* Green when "on" */
+      }
+      
+      .toggle-input:checked + .slider:before {
+        transform: translateX(24px); /* Move the slider to the right */
+      }
+
+      .custom-cookies-options {
+        margin-top: 10px;
+    }
+    
+    .input-text {
+        padding: 8px;
+        margin: 5px 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .submit-btn {
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    
+    .submit-btn:hover {
+        background-color: #218838;
+    }
+    
+      
+  }
+  

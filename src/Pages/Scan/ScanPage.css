@@ -1,17 +1,65 @@
 /* General page styling */
 .scan-container {
-    padding: 20px;
-    margin: 0 auto;
+    padding: 0px 20px;
     width: 98%;
-    background-color:var(--blue-grey-200);
-   border-radius: 5px;
-    box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.525);
-    height: 70vh; /* Set the height to 90vh */
+    height: 94vh;
+    border-radius: 10px; 
     display: flex;
     flex-direction: column;
 }
 
 /* Title styling */
+.scan-container .button-container{  
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 20px;
+    
+}
+/*seacrch bar*/
+.navigation-bar {
+  display: flex;
+  justify-content: flex-start;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color:#ffffff;
+  color:rgb(95, 95, 95);
+  border: rgb(95, 95, 95) solid 1px;
+  margin-bottom: 20px;
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  display: flex;
+  align-items: center;
+  color:rgb(95, 95, 95);
+}
+
+.search-icon i {
+  margin-right: 10px;
+  font-size: 24px;
+ 
+}
+
+.search-input {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: transparent;
+  color:rgb(95, 95, 95) ;
+  outline: none;
+  width: 1000px;
+}
+
+.search-input::placeholder {
+  color: var(--color-light-gray);
+}
+
+
 
 
 /* Button group styling */
@@ -19,13 +67,15 @@
     display: flex;
     justify-content: start;
     gap: 10px;
-    margin-bottom: 20px;
-    flex-shrink: 0; /* Prevent the button group from shrinking */
+    flex-shrink: 0;
+
+    /* Prevent the button group from shrinking */
 }
 
 .scan-container .btn {
     background-color: #007bff;
     border: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
@@ -34,48 +84,80 @@
     font-size: 14px;
 }
 
-.scan-container .btn:hover {
-    background-color: #0056b3;
-}
 
 /* Scan table container */
+/* Table container styling */
 .scan-container .table-container {
-    flex-grow: 1; /* Allow the table to take the remaining space */
-    overflow-y: auto; /* Make the table scrollable if needed */
-    background-color: white;
-    border-radius: 5px;
+    flex-grow: 1;
+    overflow-y: auto; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    border-radius: 8px; /* Rounded corners for the container */    
     position: relative;
+    
+    
 }
 
-/* Fix table header and only scroll data */
+/* General table styling */
 .scan-container .scan-table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 16px; /* Increased font size for readability */
+    color: #eeeeee; /* Light text for contrast */
 }
 
-.scan-container .scan-table th,
-.scan-container .scan-table td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
 
+
+
+/* Table header styling */
 .scan-container .scan-table th {
-    background-color: var(--blue-grey-700);;
-    color: #ffffff;
-    text-align: center;
+    background-color:rgb(95, 95, 95); /* Header background color */
+    color: white; /* Light text for header */
+    padding: 15px 20px; /* More padding for a spacious feel */
+    text-align:left;
+    font-weight: bold;
     position: sticky;
-    top: 0; /* Fix the header at the top */
-    z-index: 2; /* Ensure it stays above the table body */
+    top: 0;
+    z-index: 1;
+    
 }
 
+/* Table row styling */
 .scan-container .scan-table td {
+    padding: 12px 15px; /* Padding for table cells */
+    border-bottom: 1px solid rgb(95, 95, 95); /* Subtle border between rows */
+    text-align: left;
+    background-color:  #ffffff; /* Cell background */
+    font-weight: 600;
+    color: #181818;
+}
+
+/* Row hover effect for better interactivity */
+.scan-container .scan-table tr:hover td {
+  background-color: #ededed; /* Darker background for table */
+  color: #091F82; /* Highlighted text color on hover */
+}
+
+
+/* Checkbox column specific style */
+.scan-container .scan-table .checkbox {
+    text-align: center;
+    background-color: #45a049; /* Green background for checkboxes */
+}
+
+/* Table header specific styling for checkbox column */
+.scan-container .scan-table th.checkbox {
+    background-color: #d65a31; /* Header background for checkbox column */
+}
+
+/* Vulnerability column centered text */
+.scan-container .scan-table .vul {
     text-align: center;
 }
 
-.scan-container .scan-table tr:hover {
-    background-color: #f1f1f1;
-}
+
+
+
+
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
@@ -88,3 +170,127 @@
         margin-bottom: 10px;
     }
 }
+
+
+.scan-container .btn-new-scan {
+    background-color: #28a745; /* Green color for New Scan */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+  
+  .scan-container .btn-delete-scan {
+    background-color: #dc3545; /* Red color for Delete Scan */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+  
+  .scan-container .btn-generate-report {
+    background-color: #9C27B0; /* Blue color for Generate Report */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+
+  .scan-container .btn-compare-scan {
+    background-color: #ffc107; /* Yellow color for Compare Scan */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+  
+  
+  /* Disabled button */
+  .scan-container .btn.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+
+
+
+.scan-container .scan-table .vulnerability-medium {
+    background-color: #ffd700; /* Saturated Yellow for Medium */
+    color: #000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+  .scan-container .scan-table .vulnerability-low {
+    background-color: #32cd32; /* Saturated Green for Low */
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+
+  .scan-container .scan-table .vulnerability-info {
+    background-color: #1e90ff; /* Saturated Blue for Info */
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+
+.scan-container .scan-table .vulnerability-high {
+    background-color: #ff9900; /* Saturated Orange for High */
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+
+.scan-container .scan-table .vulnerability-critical {
+    background-color: #ff4d4d; /* Red for Critical */
+    color: #fff;
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+
+.scan-container .scan-table .vulnerability-item {
+    margin:0px 5px;
+    color: white;
+    padding: 2px 15px;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.scan-container .status-completed {
+    font-weight: bold;   /* Make text bold */
+    color: green;        /* Color for completed status */
+}
+
+.scan-container .status-failed {
+    font-weight: bold; /* Normal weight for failed status */
+    color: red;          /* Color for failed status */
+}
+
+
+.scan-container .checkbox {
+    width: 20px;      /* Set width */
+    height: 20px;     /* Set height */
+    border: 2px solid #ccc; /* Default border */
+    border-radius: 3px; /* Rounded corners */
+
+}
+
+.notification-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other elements */
+  }
+  
+  .notification-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .notification-content p {
+    margin-bottom: 20px;
+  }
+  .scan-container .go-target{
+    margin: 10px;
+    background-color: #45a049;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }  
+
+  .scan-container .close{
+    margin: 10px;
+    background-color: #ff4040;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+  }
+

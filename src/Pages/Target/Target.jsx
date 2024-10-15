@@ -1,324 +1,134 @@
 import React, { useState } from 'react';
-import { FaSearch, FaPlus, FaTrash, FaUsers, FaFileAlt, FaFilter } from 'react-icons/fa'; // import the icons
-import './Target.css';
+import { useNavigate } from 'react-router-dom';
 
+import './Target.css';
 const Target = () => {
-    const [data, setData] = useState([
-        {
-            id: 1,
-            address: 'www.example.com',
-            description: 'Web Server',
-            critical: 'High',
-            status: 'Active',
-            vulnerabilities: {
-                high: 5,
-                medium: 0,
-                low: 0
+    const [data, setData] = useState(
+        [
+            {
+                id: 1728901279169,
+                address: "https://www.example32.com",
+                description: "Target 60 description",
+                critical: "Medium",
+                status: "Inactive",
+                vulnerabilities: { critical: 0, high: 0, medium: 0, low: 0, info: 0 }
+            },
+            {
+                id: 1728901280170,
+                address: "https://www.example3.com",
+                description: "Target 36 description",
+                critical: "Medium",
+                status: "Inactive",
+                vulnerabilities: { critical: 0, high: 0, medium: 0, low: 0, info: 0 }
+            },
+            {
+                id: 1728901281171,
+                address: "https://www.example7.com",
+                description: "Target 3 description",
+                critical: "Low",
+                status: "Active",
+                vulnerabilities: { critical: 0, high: 0, medium: 0, low: 0, info: 0 }
+            },
+            {
+                id: 1728901282171,
+                address: "https://www.example61.com",
+                description: "Target 11 description",
+                critical: "Low",
+                status: "Inactive",
+                vulnerabilities: { critical: 0, high: 0, medium: 0, low: 0, info: 0 }
+            },
+            {
+                id: 1728901283171,
+                address: "https://www.example36.com",
+                description: "Target 84 description",
+                critical: "Medium",
+                status: "Inactive",
+                vulnerabilities: { critical: 0, high: 0, medium: 0, low: 0, info: 0 }
+            },
+            {
+                id: 1728901284172,
+                address: "https://www.example9.com",
+                description: "Target 8 description",
+                critical: "Low",
+                status: "Active",
+                vulnerabilities: { critical: 0, high: 0, medium: 0, low: 0, info: 0 }
+            },
+            {
+                id: 1728901285173,
+                address: "https://www.example92.com",
+                description: "Target 97 description",
+                critical: "Medium",
+                status: "Inactive",
+                vulnerabilities: { critical: 0, high: 0, medium: 0, low: 0, info: 0 }
+            },
+            {
+                id: 1728901286173,
+                address: "https://www.example48.com",
+                description: "Target 71 description",
+                critical: "High",
+                status: "Active",
+                vulnerabilities: { critical: 0, high: 0, medium: 0, low: 0, info: 0 }
+            },
+            {
+                id: 1728901287175,
+                address: "https://www.example51.com",
+                description: "Target 44 description",
+                critical: "High",
+                status: "Active",
+                vulnerabilities: { critical: 0, high: 0, medium: 0, low: 0, info: 0 }
+            },
+            {
+                id: 1728901288175,
+                address: "https://www.example85.com",
+                description: "Target 38 description",
+                critical: "High",
+                status: "Inactive",
+                vulnerabilities: { critical: 0, high: 0, medium: 0, low: 0, info: 0 }
             }
-        },
-        {
-            id: 2,
-            address: 'www.database.com',
-            description: 'Database Server',
-            critical: 'Medium',
-            status: 'Inactive',
-            vulnerabilities: {
-                high: 0,
-                medium: 2,
-                low: 0
-            }
-        },
-        {
-            id: 3,
-            address: 'www.mailserver.com',
-            description: 'Mail Server',
-            critical: 'High',
-            status: 'Active',
-            vulnerabilities: {
-                high: 3,
-                medium: 0,
-                low: 0
-            }
-        },
-        {
-            id: 4,
-            address: 'www.apiserver.com',
-            description: 'API Server',
-            critical: 'Low',
-            status: 'Active',
-            vulnerabilities: {
-                high: 0,
-                medium: 0,
-                low: 1
-            }
-        },
-        {
-            id: 5,
-            address: 'www.analytics.com',
-            description: 'Analytics Platform',
-            critical: 'Medium',
-            status: 'Inactive',
-            vulnerabilities: {
-                high: 0,
-                medium: 4,
-                low: 0
-            }
-        },
-        {
-            id: 6,
-            address: 'www.cloudstorage.com',
-            description: 'Cloud Storage',
-            critical: 'High',
-            status: 'Active',
-            vulnerabilities: {
-                high: 6,
-                medium: 0,
-                low: 0
-            }
-        },
-        {
-            id: 7,
-            address: 'www.cdnserver.com',
-            description: 'CDN Server',
-            critical: 'Low',
-            status: 'Active',
-            vulnerabilities: {
-                high: 0,
-                medium: 7,
-                low: 0
-            }
-        },
-        {
-            id: 8,
-            address: 'www.filetransfer.com',
-            description: 'File Transfer Service',
-            critical: 'Medium',
-            status: 'Inactive',
-            vulnerabilities: {
-                high: 0,
-                medium: 3,
-                low: 0
-            }
-        },
-        {
-            id: 9,
-            address: 'www.paymentgateway.com',
-            description: 'Payment Gateway',
-            critical: 'High',
-            status: 'Active',
-            vulnerabilities: {
-                high: 8,
-                medium: 0,
-                low: 0
-            }
-        },
-        {
-            id: 10,
-            address: 'www.vpnserver.com',
-            description: 'VPN Server',
-            critical: 'Medium',
-            status: 'Active',
-            vulnerabilities: {
-                high: 0,
-                medium: 2,
-                low: 0
-            }
-        },
-        {
-            id: 11,
-            address: 'www.crmplatform.com',
-            description: 'CRM Platform',
-            critical: 'Medium',
-            status: 'Inactive',
-            vulnerabilities: {
-                high: 0,
-                medium: 3,
-                low: 0
-            }
-        },
-        {
-            id: 12,
-            address: 'www.billingserver.com',
-            description: 'Billing Server',
-            critical: 'High',
-            status: 'Active',
-            vulnerabilities: {
-                high: 5,
-                medium: 0,
-                low: 0
-            }
-        },
-        {
-            id: 13,
-            address: 'www.securitysystem.com',
-            description: 'Security System',
-            critical: 'High',
-            status: 'Active',
-            vulnerabilities: {
-                high: 7,
-                medium: 0,
-                low: 0
-            }
-        },
-        {
-            id: 14,
-            address: 'www.backupserver.com',
-            description: 'Backup Server',
-            critical: 'Low',
-            status: 'Inactive',
-            vulnerabilities: {
-                high: 0,
-                medium: 0,
-                low: 1
-            }
-        },
-        {
-            id: 15,
-            address: 'www.monitoring.com',
-            description: 'Monitoring Server',
-            critical: 'Medium',
-            status: 'Active',
-            vulnerabilities: {
-                high: 0,
-                medium: 4,
-                low: 0
-            }
-        },
-        {
-            id: 16,
-            address: 'www.dnsserver.com',
-            description: 'DNS Server',
-            critical: 'Low',
-            status: 'Active',
-            vulnerabilities: {
-                high: 0,
-                medium: 6,
-                low: 1
-            }
-        },
-        {
-            id: 17,
-            address: 'www.webapp.com',
-            description: 'Web Application',
-            critical: 'High',
-            status: 'Active',
-            vulnerabilities: {
-                high: 6,
-                medium: 0,
-                low: 0
-            }
-        },
-        {
-            id: 18,
-            address: 'www.authserver.com',
-            description: 'Authentication Server',
-            critical: 'Medium',
-            status: 'Inactive',
-            vulnerabilities: {
-                high: 0,
-                medium: 2,
-                low: 0
-            }
-        },
-        {
-            id: 19,
-            address: 'www.containersystem.com',
-            description: 'Container System',
-            critical: 'High',
-            status: 'Active',
-            vulnerabilities: {
-                high: 5,
-                medium: 0,
-                low: 0
-            }
-        },
-        {
-            id: 20,
-            address: 'www.streamingservice.com',
-            description: 'Streaming Service',
-            critical: 'Medium',
-            status: 'Inactive',
-            vulnerabilities: {
-                high: 0,
-                medium: 3,
-                low: 0
-            }
-        },
-        {
-            id: 21,
-            address: 'www.iotplatform.com',
-            description: 'IoT Platform',
-            critical: 'High',
-            status: 'Active',
-            vulnerabilities: {
-                high: 7,
-                medium: 0,
-                low: 0
-            }
-        },
-        {
-            id: 22,
-            address: 'www.chatserver.com',
-            description: 'Chat Server',
-            critical: 'Medium',
-            status: 'Inactive',
-            vulnerabilities: {
-                high: 0,
-                medium: 4,
-                low: 0
-            }
-        },
-        {
-            id: 23,
-            address: 'www.taskmanagement.com',
-            description: 'Task Management System',
-            critical: 'Low',
-            status: 'Active',
-            vulnerabilities: {
-                high: 3,
-                medium: 0,
-                low: 1
-            }
-        },
-        {
-            id: 24,
-            address: 'www.videoconferencing.com',
-            description: 'Video Conferencing Platform',
-            critical: 'High',
-            status: 'Active',
-            vulnerabilities: {
-                high: 5,
-                medium: 0,
-                low: 0
-            }
-        },
-        {
-            id: 25,
-            address: 'www.datacenter.com',
-            description: 'Data Center',
-            critical: 'Medium',
-            status: 'Inactive',
-            vulnerabilities: {
-                high: 1,
-                medium: 2,
-                low: 1
-            }
-        }
-    ]);
-    
+        ]
+
+    );
+    const navigate = useNavigate();
     const [selectedTargets, setSelectedTargets] = useState([]);
     const [showPopup, setShowPopup] = useState(false);
-    const [formType, setFormType] = useState(''); // can be 'add', 'upload', or 'group'
-    const [newTarget, setNewTarget] = useState({ address: '', description: '', critical: 'Medium', status: 'Inactive' });
+    const [formType, setFormType] = useState(''); // can be 'add', 'upload', or 'group'  
     const [groupName, setGroupName] = useState('');
     const [file, setFile] = useState(null);
-
+    const [targetAddress, setTargetAddress] = useState('');
+    const [targetDescription, setTargetDescription] = useState('');
+    const criticalOptions = ['Low', 'Medium', 'High'];
+    const statusOptions = ['Active', 'Inactive'];
+    const getRandomValue = (options) => {
+        return options[Math.floor(Math.random() * options.length)];
+    };
 
     const handleAddTarget = (event) => {
         event.preventDefault();
-        setData(prev => [...prev, { ...newTarget, id: Date.now(), vulnerabilities: { high: 0, medium: 0, low: 0 }}]);
-        setNewTarget({ address: '', description: '', critical: 'Medium', status: 'Inactive' });
+
+        // Randomly assign critical and status values
+        const randomCritical = getRandomValue(criticalOptions);
+        const randomStatus = getRandomValue(statusOptions);
+
+        // Create new target using the form fields and random values
+        const newTarget = {
+            id: Date.now(),
+            address: targetAddress,
+            description: targetDescription,
+            critical: randomCritical,
+            status: randomStatus,
+            vulnerabilities: { critical: 0, high: 0, medium: 0, low: 0, info: 0 }
+        };
+
+        // Update the data array
+        setData((prev) => [...prev, newTarget]);
+
+        // Reset form fields and close popup
+        setTargetAddress('');
+        setTargetDescription('');
         setShowPopup(false);
+        alert(Date.now())
+        navigate(`/target/${newTarget.id}`);
+        console.log(data); // Log the updated data array
     };
 
     const handleFileChange = (event) => {
@@ -330,18 +140,21 @@ const Target = () => {
         setSelectedTargets([]);
     };
 
+
     const handleCheckboxChange = (id) => {
-        setSelectedTargets(prev => 
+        setSelectedTargets(prev =>
             prev.includes(id) ? prev.filter(targetId => targetId !== id) : [...prev, id]
         );
     };
+
+
     const handleButtonClick = (event) => {
     }
 
     const handleCreateGroup = () => {
         // Logic to create the group with `groupName`
         const group = data.filter(item => selectedTargets.includes(item.id));
-        console.log('Creating group:', groupName, group);
+        alert('Creating group:', groupName, group);
         setGroupName('');
         setSelectedTargets([]);
         setShowPopup(false);
@@ -361,157 +174,191 @@ const Target = () => {
         }
     };
 
+    const handleNewScanClick = (id) => {
+
+    };
+
     return (
         <div className='target-container'>
-            <div className='button-container'>
-                <div className="button-group">
-                    <button className="btn scan-btn" onClick={() => handleButtonClick('Scan')}>
-                        <FaSearch /> Scan
-                    </button>
-                    <button className="btn add-btn" onClick={() => { setShowPopup(true); setFormType('add'); }}>
-                    <FaPlus /> Add Target
-                </button>
-                <button className="btn delete-btn" onClick={handleDelete}>
-                    <FaTrash /> Delete Selected
-                </button>
-                <button className="btn group-btn" onClick={() => { setShowPopup(true); setFormType('group'); }}>
-                    <FaUsers /> Add Group
-                </button>
-                    <button className="btn report-btn" onClick={() => handleButtonClick('Generate Report')}>
-                        <FaFileAlt /> Generate Report
-                    </button>
-                    <button className="btn upload-btn" onClick={() => { setShowPopup(true); setFormType('upload'); }}>
-                    Import CSV
-                </button>
-                </div>
-                <div>
-                    <button className="btn filter-btn" onClick={() => handleButtonClick('Filter')}>
-                        <FaFilter /> Filter
-                    </button>
-                </div>
-            </div>
-
-            {/* Table with Scroll */}
-            <div className='table-container'>
-                <table className='target-table'>
-                    <thead>
-                        <tr>
-                            <th>Select</th>
-                            <th>Address</th>
-                            <th>Description</th>
-                            <th>Business Critical</th>
-                            <th>Status</th>
-                            <th>Vulnerabilities</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {data.map((item) => (
-                            <tr key={item.id}>
-                                <td>
-                                    <input
-                                        className='checkbox'
-                                        type="checkbox"
-                                        checked={selectedTargets.includes(item.id)}
-                                        onChange={() => handleCheckboxChange(item.id)}
-                                    />
-                                </td>
-
-
-                                <td>{item.address}</td>
-                                <td>{item.description}</td>
-                                <td>{item.critical}</td>
-                                <td className={item.status === 'Active' ? 'status-active' : 'status-inactive'}>
-                                    {item.status}
-                                </td>
-                                <td>
-                                    {item.vulnerabilities.high > -1 && (
-                                        <span className="vulnerability-item vulnerability-high">
-                                            {item.vulnerabilities.high}
-                                        </span>
-                                    )}
-                                    {item.vulnerabilities.medium > -1 && (
-                                        <span className="vulnerability-item vulnerability-medium">
-                                            {item.vulnerabilities.medium}
-                                        </span>
-                                    )}
-                                    {item.vulnerabilities.low > -1 && (
-                                        <span className="vulnerability-item vulnerability-low">
-                                            {item.vulnerabilities.low}
-                                        </span>
-                                    )}
-                                </td>
-
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-
-            {showPopup && (
-                <div className="popup-overlay" onClick={() => setShowPopup(false)}>
-                    <div className="popup" onClick={(e) => e.stopPropagation()}>
-                        <h2>{formType === 'add' ? 'Add Target' : formType === 'upload' ? 'Upload CSV' : 'Create Group'}</h2>
-
-                        {formType === 'add' && (
-                            <form onSubmit={handleAddTarget}>
-                                <input
-                                    type="text"
-                                    placeholder="Address"
-                                    value={newTarget.address}
-                                    onChange={(e) => setNewTarget({ ...newTarget, address: e.target.value })}
-                                    required
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="Description"
-                                    value={newTarget.description}
-                                    onChange={(e) => setNewTarget({ ...newTarget, description: e.target.value })}
-                                    required
-                                />
-                                <select
-                                    value={newTarget.critical}
-                                    onChange={(e) => setNewTarget({ ...newTarget, critical: e.target.value })}
-                                >
-                                    <option value="Low">Low</option>
-                                    <option value="Medium">Medium</option>
-                                    <option value="High">High</option>
-                                </select>
-                                <select
-                                    value={newTarget.status}
-                                    onChange={(e) => setNewTarget({ ...newTarget, status: e.target.value })}
-                                >
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                </select>
-                                <button style={{ background: 'green' }} type="submit">Add Target</button>
-                            </form>
-                        )}
-
-                        {formType === 'upload' && (
-                            <div>
-                                <input type="file" onChange={handleFileChange} required />
-                                <button style={{ background: 'green' }} onClick={handleFileUpload}>Upload</button>
-                            </div>
-                        )}
-
-                        {formType === 'group' && (
-                            <form onSubmit={(e) => { e.preventDefault(); handleCreateGroup(); }}>
-                                <input
-                                    type="text"
-                                    placeholder="Group Name"
-                                    value={groupName}
-                                    onChange={(e) => setGroupName(e.target.value)}
-                                    required
-                                />
-                                <button style={{ background: 'green' }} type="submit">Create Group</button>
-                            </form>
-                        )}
-
-                        <button onClick={() => setShowPopup(false)}>Close</button>
-                    </div>
-                </div>
-            )}
+    <div className='button-container'>
+        <div className="button-group">
+            <button
+                className={`btn scan-btn ${selectedTargets.length === 0 ? 'disabled' : ''}`}
+                onClick={handleNewScanClick}
+                disabled={selectedTargets.length === 0}  // Disable if no target
+            >
+                <i className="fas fa-search"></i> Scan
+            </button>
+            <button
+                className="btn add-btn"
+                onClick={() => { setShowPopup(true); setFormType('add'); }}
+            >
+                <i className="fas fa-plus"></i> Add Target
+            </button>
+            <button
+                className={`btn delete-btn ${selectedTargets.length === 0 ? 'disabled' : ''}`}
+                onClick={handleDelete}
+                disabled={selectedTargets.length === 0}  // Disable if no target
+            >
+                <i className="fas fa-trash"></i> Delete Selected
+            </button>
+            <button
+                className={`btn group-btn ${selectedTargets.length === 0 ? 'disabled' : ''}`}
+                onClick={() => { setShowPopup(true); setFormType('group'); }}
+                disabled={selectedTargets.length === 0}  // Disable if no target
+            >
+                <i className="fas fa-users"></i> Add Group
+            </button>
+            <button
+                className={`btn report-btn ${selectedTargets.length === 0 ? 'disabled' : ''}`}
+                onClick={() => handleButtonClick('Generate Report')}
+                disabled={selectedTargets.length === 0}  // Disable if no target
+            >
+                <i className="fas fa-file-alt"></i> Generate Report
+            </button>
+            <button
+                className="btn upload-btn"
+                onClick={() => { setShowPopup(true); setFormType('upload'); }}
+            >
+                <i className="fas fa-file-import"></i> Import CSV
+            </button>
         </div>
+
+        <div>
+            <button className='btn filter-btn'>
+                <i className="fas fa-filter"></i> Filter
+            </button>
+        </div>
+    </div>
+
+    {data.length === 0 ? (
+        <div className="no-data">
+            <p>No targets available. Please add a new target.</p>
+        </div>
+    ) : (
+        <div className='table-container'>
+            <table className='target-table'>
+                <thead>
+                    <tr>
+                        <th>Select</th>
+                        <th>Target</th>
+                        <th>Description</th>
+                        <th>Business Critical</th>
+                        <th>Status</th>
+                        <th>Vulnerabilities</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data.map((item) => (
+                        <tr key={item.id}>
+                            <td>
+                                <input
+                                    className='checkbox'
+                                    type="checkbox"
+                                    checked={selectedTargets.includes(item.id)}
+                                    onChange={() => handleCheckboxChange(item.id)}
+                                />
+                            </td>
+                            <td>{item.address}</td>
+                            <td>{item.description}</td>
+                            <td>{item.critical}</td>
+                            <td className={item.status === 'Active' ? 'status-active' : 'status-inactive'}>
+                                {item.status}
+                            </td>
+                            <td className='vul'>
+                                {item.vulnerabilities.critical > -1 && (
+                                    <span className="vulnerability-item vulnerability-critical">
+                                        {item.vulnerabilities.critical}
+                                    </span>
+                                )}
+                                {item.vulnerabilities.high > -1 && (
+                                    <span className="vulnerability-item vulnerability-high">
+                                        {item.vulnerabilities.high}
+                                    </span>
+                                )}
+                                {item.vulnerabilities.medium > -1 && (
+                                    <span className="vulnerability-item vulnerability-medium">
+                                        {item.vulnerabilities.medium}
+                                    </span>
+                                )}
+                                {item.vulnerabilities.low > -1 && (
+                                    <span className="vulnerability-item vulnerability-low">
+                                        {item.vulnerabilities.low}
+                                    </span>
+                                )}
+                                {item.vulnerabilities.info > -1 && (
+                                    <span className="vulnerability-item vulnerability-info">
+                                        {item.vulnerabilities.info}
+                                    </span>
+                                )}
+                            </td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </div>
+    )}
+
+    {showPopup && (
+        <div className="popup-overlay" onClick={() => setShowPopup(false)}>
+            <div className="popup" onClick={(e) => e.stopPropagation()}>
+                <h2>
+                    {formType === 'add' ? 'Add Target' :
+                        formType === 'upload' ? 'Upload CSV' :
+                        'Create Group'}
+                </h2>
+
+                {formType === 'add' && (
+                    <form onSubmit={handleAddTarget}>
+                        <label htmlFor="address">Address:</label>
+                        <input
+                            id="address"
+                            type="text"
+                            placeholder="Enter address"
+                            value={targetAddress}
+                            onChange={(e) => setTargetAddress(e.target.value)}
+                            required
+                        />
+                        <label htmlFor="description">Description:</label>
+                        <input
+                            id="description"
+                            type="text"
+                            placeholder="Enter description"
+                            value={targetDescription}
+                            onChange={(e) => setTargetDescription(e.target.value)}
+                            required
+                        />
+                        <button className='btn-submit' type="submit">Add Target</button>
+                        <button className='btn-cancel' onClick={() => setShowPopup(false)}>Close</button>
+                    </form>
+                )}
+
+                {formType === 'upload' && (
+                    <div>
+                        <input type="file" onChange={handleFileChange} required />
+                        <button style={{ background: 'green' }} onClick={handleFileUpload}>Upload</button>
+                    </div>
+                )}
+
+                {formType === 'group' && (
+                    <form onSubmit={(e) => { e.preventDefault(); handleCreateGroup(); }}>
+                        <label htmlFor="group-name">Group Name:</label>
+                        <input
+                            id="group-name"
+                            type="text"
+                            placeholder="Enter group name"
+                            value={groupName}
+                            onChange={(e) => setGroupName(e.target.value)}
+                            required
+                        />
+                        <button style={{ background: 'green' }} type="submit">Create Group</button>
+                    </form>
+                )}
+            </div>
+        </div>
+    )}
+</div>
+
     );
 };
 

@@ -1,112 +1,169 @@
 :root {
-    /* Base Gradient Colors */
-    --neon-blue: #15F5BA;
-    --bright-blue: #06007b;
-  
-    /* Lighter Shades */
-    --neon-blue-light: #5fffd4;
-    --bright-blue-light: #3399ff;
-  
-    /* Darker Shades */
-    --neon-blue-dark: #0eb18a;
-    --bright-blue-dark: #000000;
-  
-    /* Transparent Versions */
-    --neon-blue-transparent: rgba(21, 245, 186, 0.6);
-    --bright-blue-transparent: rgba(0, 102, 255, 0.6);
-  
-    /* Accent Colors */
-    --accent-green: #24FFC9;
-    --accent-cyan: #13B8E9;
-    --accent-purple: #6D00FF;
-  
-    /* Grey Scale Colors for Backgrounds */
-    --light-grey: #f5f5f5;
-    --grey: #e0e0e0;
-    --dark-grey: #757575;
-    --blue-grey-50: #ECEFF1;
-    --blue-grey-100: #CFD8DC;
-    --blue-grey-200: #B0BEC5;
-    --blue-grey-700: #455A64;
-    --blue-grey-900: #263238;
-  
-    /* Font Colors */
-    --text-dark: #222222;
-    --text-light: #ffffff;
-    --text-muted: #757575;
-  
-    /* Gradient with Black */
-    --gradient-bg: linear-gradient(90deg, #15F5BA, #0066ff);
+    --color-primary: #091F82;  /* Dark Blue */
+    --color-secondary: #074893;  /* Navy Blue */
+    --color-accent1: #03A1B7;  /* Cyan */
+    --color-accent2: #0674A5;  /* Sky Blue */
+    --color-accent3: #02A9EC;  /* Light Blue */
+    
+    --color-white: #ffffff;  /* White */
+    --color-black: #000000;  /* Black */
+    --color-gray: #333;  /* Dark gray text */
+    --color-light-gray: #adadad; /* Light gray for hover */
+    --color-border: #ccc; /* Border color */
   }
+  
+
+
+
+
 .sidebar {
-    width: 60px;
+    width: 46px;
+    padding: 15px;
+    margin: 15px;
+    background: linear-gradient(to bottom, rgba(143, 143, 143, 0.837), rgb(76, 76, 76));
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    border-radius: 15px;
     position: fixed;
-    top: 10%;
+    top: 12%;
     left: 0;
-    bottom: 0;
-    background:var(--blue-grey-50);
+    bottom:0;
     overflow-x: hidden;
     transition: 0.5s;
     display: flex;
     flex-direction: column;
+    justify-content:space-between; /* To push the bottom section down */
     align-items: start;
-    padding-top: 60px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); 
+
+}
+.logo {
+    width: 200px; /* Adjust height as needed */
 }
 
 .sidebar.open {
-    width: 220px;
-}
-
-.sidebar.open .menu-items a svg {
-    margin-right: 10px;
-}
-
-.sidebar.open .menu-items a:hover {
-    color: var( --bright-blue-dark); /* Dark text on hover */
-
+    width: 200px;
     
+}
+.sidebar.open .menu-icon{
+    left: 225px;
 }
 
 .menu-icon {
-    font-size: 30px;
+    font-size: 20px;
     cursor: pointer;
-    border: none;
-    background: transparent;
-    margin-bottom: 20px;
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    border-radius: 5px;
-    padding: 10px 15px;
+    border: rgba(143, 143, 143, 0.837) solid 5px;
+    position: fixed;
+    top: 17%;
+    transition: left 0.3s ease-in-out, transform 0.3s ease-in-out;
+    width: 40px;
+    height: 40px;
+    left: 72px;
+    border-radius:50%;
     font-weight: bolder;
-    color: var(--bright-blue-dark); /* Darker color for the icon text */
+    background-color: var(--color-white);
+    color:rgb(95, 95, 95); /* Darker color for the icon text */
 } 
 
-.menu-items {
+.menu-items,.sidebar-bottom {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin-top: 10px;
 }
 .menu-items a {
     text-decoration: none;
-    font-size: 20px;
-    color: var(--bright-blue-dark); /* Light text for links */
+    font-size: 15px;
+    color:var(--color-white); /* Light text for links */
     display: flex;
     align-items: center;
+    font-weight: bold;
     transition: 0.3s;
-    border-radius: 10px;
-    margin: 10px;
+    border-radius: 5px;
+    margin: 0px 0px 10px 0px;
 }
 
-.menu-items a svg {
-    padding: 5px;
+.menu-items a svg { 
+    padding: 10px;
     font-size: 25px;
-    color: var(--bright-blue); /* Neon cyan icons */
+    color:var(--color-white); /* Neon cyan icons */
+}
+.sidebar.open .menu-items a{
+    width: 200px;
+}
+.sidebar.open .menu-items a svg {
+    padding: 10px;
+    
+    
+}
+/* Hover state with blue color and light opacity */
+.menu-items .menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.463);  /* Light cyan blue with 20% opacity */
+    
 }
 
-.sidebar.closed .menu-items a:hover {
-    color: var(--text-dark); /* Dark text on hover */
-    background-color: var(--accent-blue); /* Light blue for closed sidebar hover */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
+
+/* Active state with blue color and light opacity */
+.menu-item.active {
+    background-color: var(--color-secondary);  /* Light cyan blue with 30% opacity */
+    border-radius: 5px; /* Rounded corners */
+    color: white;
+    /* Glow effect */
+    box-shadow: 0 0 5px rgba(0, 0, 120, 0.851)
+                0 0 5px rgba(0, 0, 120, 0.851);; /* Soft glowing shadow with transparency */
+    transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transitions */
 }
+.menu-item.active svg{
+    color: white;
+}
+
+
+
+
+/* Sidebar Bottom Section */
+.sidebar-bottom {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 10px;
+    
+
+}
+.sidebar-bottom a{
+        text-decoration: none;
+        font-size: 15px;
+        color:var(--color-white); /* Light text for links */
+        display: flex;
+        align-items: center;
+        transition: 0.3s;
+        border-radius: 10px;
+        margin: 0px 0px 10px 0px;
+        font-weight: bold;
+}
+
+.sidebar-bottom a svg { 
+    padding: 10px;
+    font-size: 25px;
+    color:var(--color-white); /* Neon cyan icons */
+}
+
+.sidebar-bottom .copyright {
+    font-size: 12px;
+    color: var(--color-light-gray); /* Light gray text for copyright */
+    margin-top: 10px;
+    text-align: center;
+    width: 100%;
+    padding: 5px 0;
+}
+.sidebar.open .sidebar-bottom a{
+    width: 200px;
+}
+.sidebar.open .sidebar-bottom a svg {
+    padding: 10px;
+    
+}
+.sidebar-bottom .menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.463);
+   
+}
+
+
