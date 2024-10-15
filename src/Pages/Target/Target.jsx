@@ -180,184 +180,184 @@ const Target = () => {
 
     return (
         <div className='target-container'>
-    <div className='button-container'>
-        <div className="button-group">
-            <button
-                className={`btn scan-btn ${selectedTargets.length === 0 ? 'disabled' : ''}`}
-                onClick={handleNewScanClick}
-                disabled={selectedTargets.length === 0}  // Disable if no target
-            >
-                <i className="fas fa-search"></i> Scan
-            </button>
-            <button
-                className="btn add-btn"
-                onClick={() => { setShowPopup(true); setFormType('add'); }}
-            >
-                <i className="fas fa-plus"></i> Add Target
-            </button>
-            <button
-                className={`btn delete-btn ${selectedTargets.length === 0 ? 'disabled' : ''}`}
-                onClick={handleDelete}
-                disabled={selectedTargets.length === 0}  // Disable if no target
-            >
-                <i className="fas fa-trash"></i> Delete Selected
-            </button>
-            <button
-                className={`btn group-btn ${selectedTargets.length === 0 ? 'disabled' : ''}`}
-                onClick={() => { setShowPopup(true); setFormType('group'); }}
-                disabled={selectedTargets.length === 0}  // Disable if no target
-            >
-                <i className="fas fa-users"></i> Add Group
-            </button>
-            <button
-                className={`btn report-btn ${selectedTargets.length === 0 ? 'disabled' : ''}`}
-                onClick={() => handleButtonClick('Generate Report')}
-                disabled={selectedTargets.length === 0}  // Disable if no target
-            >
-                <i className="fas fa-file-alt"></i> Generate Report
-            </button>
-            <button
-                className="btn upload-btn"
-                onClick={() => { setShowPopup(true); setFormType('upload'); }}
-            >
-                <i className="fas fa-file-import"></i> Import CSV
-            </button>
-        </div>
+            <div className='button-container'>
+                <div className="button-group">
+                    <button
+                        className={`btn scan-btn ${selectedTargets.length === 0 ? 'disabled' : ''}`}
+                        onClick={handleNewScanClick}
+                        disabled={selectedTargets.length === 0}  // Disable if no target
+                    >
+                        <i className="fas fa-search"></i> Scan
+                    </button>
+                    <button
+                        className="btn add-btn"
+                        onClick={() => { setShowPopup(true); setFormType('add'); }}
+                    >
+                        <i className="fas fa-plus"></i> Add Target
+                    </button>
+                    <button
+                        className={`btn delete-btn ${selectedTargets.length === 0 ? 'disabled' : ''}`}
+                        onClick={handleDelete}
+                        disabled={selectedTargets.length === 0}  // Disable if no target
+                    >
+                        <i className="fas fa-trash"></i> Delete Selected
+                    </button>
+                    <button
+                        className={`btn group-btn ${selectedTargets.length === 0 ? 'disabled' : ''}`}
+                        onClick={() => { setShowPopup(true); setFormType('group'); }}
+                        disabled={selectedTargets.length === 0}  // Disable if no target
+                    >
+                        <i className="fas fa-users"></i> Add Group
+                    </button>
+                    <button
+                        className={`btn report-btn ${selectedTargets.length === 0 ? 'disabled' : ''}`}
+                        onClick={() => handleButtonClick('Generate Report')}
+                        disabled={selectedTargets.length === 0}  // Disable if no target
+                    >
+                        <i className="fas fa-file-alt"></i> Generate Report
+                    </button>
+                    <button
+                        className="btn upload-btn"
+                        onClick={() => { setShowPopup(true); setFormType('upload'); }}
+                    >
+                        <i className="fas fa-file-import"></i> Import CSV
+                    </button>
+                </div>
 
-        <div>
-            <button className='btn filter-btn'>
-                <i className="fas fa-filter"></i> Filter
-            </button>
-        </div>
-    </div>
-
-    {data.length === 0 ? (
-        <div className="no-data">
-            <p>No targets available. Please add a new target.</p>
-        </div>
-    ) : (
-        <div className='table-container'>
-            <table className='target-table'>
-                <thead>
-                    <tr>
-                        <th>Select</th>
-                        <th>Target</th>
-                        <th>Description</th>
-                        <th>Business Critical</th>
-                        <th>Status</th>
-                        <th>Vulnerabilities</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {data.map((item) => (
-                        <tr key={item.id}>
-                            <td>
-                                <input
-                                    className='checkbox'
-                                    type="checkbox"
-                                    checked={selectedTargets.includes(item.id)}
-                                    onChange={() => handleCheckboxChange(item.id)}
-                                />
-                            </td>
-                            <td>{item.address}</td>
-                            <td>{item.description}</td>
-                            <td>{item.critical}</td>
-                            <td className={item.status === 'Active' ? 'status-active' : 'status-inactive'}>
-                                {item.status}
-                            </td>
-                            <td className='vul'>
-                                {item.vulnerabilities.critical > -1 && (
-                                    <span className="vulnerability-item vulnerability-critical">
-                                        {item.vulnerabilities.critical}
-                                    </span>
-                                )}
-                                {item.vulnerabilities.high > -1 && (
-                                    <span className="vulnerability-item vulnerability-high">
-                                        {item.vulnerabilities.high}
-                                    </span>
-                                )}
-                                {item.vulnerabilities.medium > -1 && (
-                                    <span className="vulnerability-item vulnerability-medium">
-                                        {item.vulnerabilities.medium}
-                                    </span>
-                                )}
-                                {item.vulnerabilities.low > -1 && (
-                                    <span className="vulnerability-item vulnerability-low">
-                                        {item.vulnerabilities.low}
-                                    </span>
-                                )}
-                                {item.vulnerabilities.info > -1 && (
-                                    <span className="vulnerability-item vulnerability-info">
-                                        {item.vulnerabilities.info}
-                                    </span>
-                                )}
-                            </td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table>
-        </div>
-    )}
-
-    {showPopup && (
-        <div className="popup-overlay" onClick={() => setShowPopup(false)}>
-            <div className="popup" onClick={(e) => e.stopPropagation()}>
-                <h2>
-                    {formType === 'add' ? 'Add Target' :
-                        formType === 'upload' ? 'Upload CSV' :
-                        'Create Group'}
-                </h2>
-
-                {formType === 'add' && (
-                    <form onSubmit={handleAddTarget}>
-                        <label htmlFor="address">Address:</label>
-                        <input
-                            id="address"
-                            type="text"
-                            placeholder="Enter address"
-                            value={targetAddress}
-                            onChange={(e) => setTargetAddress(e.target.value)}
-                            required
-                        />
-                        <label htmlFor="description">Description:</label>
-                        <input
-                            id="description"
-                            type="text"
-                            placeholder="Enter description"
-                            value={targetDescription}
-                            onChange={(e) => setTargetDescription(e.target.value)}
-                            required
-                        />
-                        <button className='btn-submit' type="submit">Add Target</button>
-                        <button className='btn-cancel' onClick={() => setShowPopup(false)}>Close</button>
-                    </form>
-                )}
-
-                {formType === 'upload' && (
-                    <div>
-                        <input type="file" onChange={handleFileChange} required />
-                        <button style={{ background: 'green' }} onClick={handleFileUpload}>Upload</button>
-                    </div>
-                )}
-
-                {formType === 'group' && (
-                    <form onSubmit={(e) => { e.preventDefault(); handleCreateGroup(); }}>
-                        <label htmlFor="group-name">Group Name:</label>
-                        <input
-                            id="group-name"
-                            type="text"
-                            placeholder="Enter group name"
-                            value={groupName}
-                            onChange={(e) => setGroupName(e.target.value)}
-                            required
-                        />
-                        <button style={{ background: 'green' }} type="submit">Create Group</button>
-                    </form>
-                )}
+                <div>
+                    <button className='btn filter-btn'>
+                        <i className="fas fa-filter"></i> Filter
+                    </button>
+                </div>
             </div>
+
+            {data.length === 0 ? (
+                <div className="no-data">
+                    <p>No targets available. Please add a new target.</p>
+                </div>
+            ) : (
+                <div className='table-container'>
+                    <table className='target-table'>
+                        <thead>
+                            <tr>
+                                <th>Select</th>
+                                <th>Target</th>
+                                <th>Description</th>
+                                <th>Business Critical</th>
+                                <th>Status</th>
+                                <th>Vulnerabilities</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {data.map((item) => (
+                                <tr key={item.id}>
+                                    <td>
+                                        <input
+                                            className='checkbox'
+                                            type="checkbox"
+                                            checked={selectedTargets.includes(item.id)}
+                                            onChange={() => handleCheckboxChange(item.id)}
+                                        />
+                                    </td>
+                                    <td>{item.address}</td>
+                                    <td>{item.description}</td>
+                                    <td>{item.critical}</td>
+                                    <td className={item.status === 'Active' ? 'status-active' : 'status-inactive'}>
+                                        {item.status}
+                                    </td>
+                                    <td className='vul'>
+                                        {item.vulnerabilities.critical > -1 && (
+                                            <span className="vulnerability-item vulnerability-critical">
+                                                {item.vulnerabilities.critical}
+                                            </span>
+                                        )}
+                                        {item.vulnerabilities.high > -1 && (
+                                            <span className="vulnerability-item vulnerability-high">
+                                                {item.vulnerabilities.high}
+                                            </span>
+                                        )}
+                                        {item.vulnerabilities.medium > -1 && (
+                                            <span className="vulnerability-item vulnerability-medium">
+                                                {item.vulnerabilities.medium}
+                                            </span>
+                                        )}
+                                        {item.vulnerabilities.low > -1 && (
+                                            <span className="vulnerability-item vulnerability-low">
+                                                {item.vulnerabilities.low}
+                                            </span>
+                                        )}
+                                        {item.vulnerabilities.info > -1 && (
+                                            <span className="vulnerability-item vulnerability-info">
+                                                {item.vulnerabilities.info}
+                                            </span>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            )}
+
+            {showPopup && (
+                <div className="popup-overlay" onClick={() => setShowPopup(false)}>
+                    <div className="popup" onClick={(e) => e.stopPropagation()}>
+                        <h2>
+                            {formType === 'add' ? 'Add Target' :
+                                formType === 'upload' ? 'Upload CSV' :
+                                    'Create Group'}
+                        </h2>
+
+                        {formType === 'add' && (
+                            <form onSubmit={handleAddTarget}>
+                                <label htmlFor="address">Address:</label>
+                                <input
+                                    id="address"
+                                    type="text"
+                                    placeholder="Enter address"
+                                    value={targetAddress}
+                                    onChange={(e) => setTargetAddress(e.target.value)}
+                                    required
+                                />
+                                <label htmlFor="description">Description:</label>
+                                <input
+                                    id="description"
+                                    type="text"
+                                    placeholder="Enter description"
+                                    value={targetDescription}
+                                    onChange={(e) => setTargetDescription(e.target.value)}
+                                    required
+                                />
+                                <button className='btn-submit' type="submit">Add Target</button>
+                                <button className='btn-cancel' onClick={() => setShowPopup(false)}>Close</button>
+                            </form>
+                        )}
+
+                        {formType === 'upload' && (
+                            <div>
+                                <input type="file" onChange={handleFileChange} required />
+                                <button style={{ background: 'green' }} onClick={handleFileUpload}>Upload</button>
+                            </div>
+                        )}
+
+                        {formType === 'group' && (
+                            <form onSubmit={(e) => { e.preventDefault(); handleCreateGroup(); }}>
+                                <label htmlFor="group-name">Group Name:</label>
+                                <input
+                                    id="group-name"
+                                    type="text"
+                                    placeholder="Enter group name"
+                                    value={groupName}
+                                    onChange={(e) => setGroupName(e.target.value)}
+                                    required
+                                />
+                                <button style={{ background: 'green' }} type="submit">Create Group</button>
+                            </form>
+                        )}
+                    </div>
+                </div>
+            )}
         </div>
-    )}
-</div>
 
     );
 };

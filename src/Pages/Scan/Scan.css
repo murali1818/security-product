@@ -305,160 +305,162 @@
 
   
 /*vulnerabilities-section*/
-.vulnerabilities-section {
-  margin-top: 20px;
+.scan-page {
+  .vulnerabilities-section {
+    margin-top: 20px;
+    
+  }
   
-}
-
-.vulnerabilities-table-container {
-  max-height: 396px; /* Set this based on how much space you want for the table */
-  overflow-y: auto; /* Only the table content will scroll */
-  margin-top: 10px;
-}
-
-.vulnerabilities-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-}
-
- 
-.vulnerabilities-table td {
- 
-  padding: 12px 15px; /* Padding for table cells */
-    border-bottom: 1px solid #393e46; /* Subtle border between rows */
+  .vulnerabilities-table-container {
+    max-height: 396px; /* Set this based on how much space you want for the table */
+    overflow-y: auto; /* Only the table content will scroll */
+    margin-top: 10px;
+  }
+  
+  .vulnerabilities-table {
+    width: 100%;
+    border-collapse: collapse;
     text-align: left;
-    background-color:  #222831; /* Cell background */
+  }
+  
+   
+  .vulnerabilities-table td {
+   
+    padding: 12px 15px; /* Padding for table cells */
+      border-bottom: 1px solid #393e46; /* Subtle border between rows */
+      text-align: left;
+      background-color:  #222831; /* Cell background */
+      color: #eeeeee;
+  
+  }
+  
+  .vulnerabilities-table th {
+    font-weight: bold;
+    position: sticky;
+      top: 0;
+      z-index: 1;
+      padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .vulnerabilities-table tr:hover td {
+    background-color: #393e46; /* Darker background for table */
+      color: #d65a31; /* Highlighted text color on hover */
+  }
+  
+  .severity-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    color: white;
+  }
+  
+  .severity-icon.low {
+    background-color: blue;
+  }
+  
+  
+  
+  
+  /*site structure*/
+  .site-structure-container {
+      display: flex;
+      height: 100%;
+      margin-top: 10px;
+  }
+  
+  /* Left Panel - Sidebar for site structure */
+  .site-structure-sidebar {
+      width: 25%;
+      border-radius: 5px;
+      height: 365px;
+      border-right: 1px solid #ddd;
+      overflow-y: auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+      padding: 10px;
+      background-color:#393e46;
+  }
+  
+  .folder-structure {
+      list-style-type: none;
+      padding-left: 0;
+  }
+  
+  .folder-structure li {
+      padding: 5px 0;
+  }
+  
+  .folder-structure a {
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+  }
+  
+  .folder-structure ul {
+      padding-left: 20px;
+  }
+  
+  .folder-structure ul li a {
+      font-weight: normal;
+  }
+  
+  /* Right Panel - Vulnerability details */
+  .vulnerability-details {
+      width: 75%;
+      margin-left: 20px;
+  }
+  
+  .url-display {
+      width: 98%;
+      padding: 10px;
+      font-size: 14px;
+      color: #d65a31;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+  }
+  
+  /* Events Section */
+  .events-section {
+    margin-top: 20px;
+  }
+  
+  .events-table-container {
+    max-height: 335px;
+    overflow-y: auto;
+    margin-top: 10px;
+  }
+  
+  .events-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+  }
+  
+  .events-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #393e46;
+    text-align: left;
+    background-color: #222831;
     color: #eeeeee;
-
-}
-
-.vulnerabilities-table th {
-  background-color: #d65a31; /* Header background color */
-  font-weight: bold;
-  position: sticky;
+  }
+  
+  .events-table th {
+    background-color: #d65a31;
+    font-weight: bold;
+    position: sticky;
     top: 0;
     z-index: 1;
     padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.vulnerabilities-table tr:hover td {
-  background-color: #393e46; /* Darker background for table */
-    color: #d65a31; /* Highlighted text color on hover */
-}
-
-.severity-icon {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  text-align: center;
-  line-height: 20px;
-  border-radius: 50%;
-  color: white;
-}
-
-.severity-icon.low {
-  background-color: blue;
-}
-
-
-
-
-/*site structure*/
-.site-structure-container {
-    display: flex;
-    height: 100%;
-    margin-top: 10px;
-}
-
-/* Left Panel - Sidebar for site structure */
-.site-structure-sidebar {
-    width: 25%;
-    border-radius: 5px;
-    height: 365px;
-    border-right: 1px solid #ddd;
-    overflow-y: auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
-    padding: 10px;
-    background-color:#393e46;
-}
-
-.folder-structure {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.folder-structure li {
-    padding: 5px 0;
-}
-
-.folder-structure a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-.folder-structure ul {
-    padding-left: 20px;
-}
-
-.folder-structure ul li a {
-    font-weight: normal;
-}
-
-/* Right Panel - Vulnerability details */
-.vulnerability-details {
-    width: 75%;
-    margin-left: 20px;
-}
-
-.url-display {
-    width: 98%;
-    padding: 10px;
-    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .events-table tr:hover td {
+    background-color: #393e46;
     color: #d65a31;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+  }
+  
+  
 }
-
-/* Events Section */
-.events-section {
-  margin-top: 20px;
-}
-
-.events-table-container {
-  max-height: 335px;
-  overflow-y: auto;
-  margin-top: 10px;
-}
-
-.events-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-.events-table td {
-  padding: 12px 15px;
-  border-bottom: 1px solid #393e46;
-  text-align: left;
-  background-color: #222831;
-  color: #eeeeee;
-}
-
-.events-table th {
-  background-color: #d65a31;
-  font-weight: bold;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  padding: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.events-table tr:hover td {
-  background-color: #393e46;
-  color: #d65a31;
-}
-

@@ -1,9 +1,8 @@
 /* General page styling */
 .reports-container {
-    padding: 0px 20px;
-    width: 98%;
-    height: 94vh;
-    border-radius: 10px; 
+    width: 100%;
+    height: 80vh;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
 }
@@ -23,25 +22,46 @@
 }
 
 .reports-container .btn {
-    background-color: #007bff;
     border: none;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     color: white;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    transition: background-color 0.5s ease;
     font-size: 14px;
+    font-weight: bold;
 }
 .reports-container .btn-new-report {
-    background-color: #28a745; /* Green color for New Scan */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    background-image: linear-gradient(195deg, #66BB6A, #43A047);
+    box-shadow: 0 3px 12px rgba(102, 187, 106, 0.5); /* Light green shadow */
+  }
+  .reports-container .btn-new-report:hover {
+    background-image: linear-gradient(15deg, #66BB6A, #43A047);
+    box-shadow: 0 5px 12px rgba(102, 187, 106, 0.8); /* Stronger green shadow on hover */
   }
   
 .reports-container .btn-delete-report {
-    background-color: #dc3545; /* Red color for Delete Scan */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    background-image: linear-gradient(195deg, #EF5350, #E53935);  
+    box-shadow: 0 3px 12px rgba(239, 83, 80, 0.5); /* Light red shadow */
   }
+  .reports-container .btn-delete-report:hover {
+    background-image: linear-gradient(15deg, #EF5350, #E53935);
+    box-shadow: 0 5px 12px rgba(239, 83, 80, 0.8); /* Stronger red shadow on hover */
+  }
+  /* Filter Button */
+  .reports-container  .button-container .filter-btn {
+    background: linear-gradient(195deg, #42424a, #191919);
+    color: white;
+    box-shadow: 0 4px 8px rgba(66, 66, 74, 0.5); /* Light dark shadow */
+}
+
+.reports-container  .button-container .filter-btn:hover {
+    background: linear-gradient(15deg, #42424a, #191919);
+    box-shadow: 0 5px 12px rgba(66, 66, 74, 0.8); /* Stronger dark shadow on hover */
+}
 
   .reports-container .btn.disabled {
     opacity: 0.6;
@@ -50,68 +70,52 @@
 
 /* Styles for the reports container and table container */
 .reports-container .table-container {
-    flex-grow: 1;
-    overflow-y: auto; 
-    border-radius: 8px; /* Rounded corners for the container */
-    border: 1px solid rgb(161, 161, 255); /* Subtle border between rows */
-    position: relative;
+    overflow-y: auto;
+    background-color: #ffffff;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.215);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 10px;
 }
 
-/* Custom scrollbar for Webkit-based browsers (Chrome, Safari, Edge) */
-.reports-container .table-container::-webkit-scrollbar {
-    width: 10px; /* Set the width of the scrollbar */
-}
 
-.reports-container .table-container::-webkit-scrollbar-thumb {
-    background-color: #091F82; /* Color of the scrollbar thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
-    border: 2px solid white; /* Border around the scrollbar thumb */
-}
-
-.reports-container .table-container::-webkit-scrollbar-track {
-    background-color: #eeeeee; /* Background of the scrollbar track */
-    border-radius: 8px; /* Rounded corners for the track */
-}
 
 /* Custom scrollbar for Firefox */
 .reports-container .table-container {
-    scrollbar-width: thin; /* Set the width of the scrollbar */
-    scrollbar-color: #091F82 #eeeeee; /* Color of the thumb and the track */
-}
-
-/* Hover effect for scrollbar thumb */
-.reports-container .table-container::-webkit-scrollbar-thumb:hover {
-    background-color: #393e46; /* Darker color on hover */
+    scrollbar-width:thin; /* Set the width of the scrollbar */
+    scrollbar-color:  #1A73E8 #eeeeee; /* Color of the thumb and the track */
 }
 
 /* Fix table header and only scroll data */
 .reports-container .scan-table {
     width: 100%;
+    font-size: 16px;
+    border: rgba(111, 111, 111, 0.269) 0 solid;
     border-collapse: collapse;
-    font-size: 16px; /* Increased font size for readability */
-    background-color: #222831;
-    color: #eeeeee; /* Light text for contrast */
 }
 
 .reports-container .scan-table td {
     padding: 12px 15px;
-    border-bottom: 1px solid rgb(161, 161, 255); /* Subtle border between rows */
+    border-bottom: 1px solid rgba(111, 111, 111, 0.269);
     text-align: left;
-    background-color:  #ffffff; /* Cell background */
+    background-color: #ffffff;
     font-weight: 600;
     color: #181818;
 }
-.reports-container .scan-table {
-    width: 100%;
-    border-collapse: collapse;
-    
-    
+
+.reports-container .scan-table thead {
+    background: linear-gradient(195deg, #49a3f1, #1A73E8);
+    top: 0;
+    z-index: 1;
+    position: sticky;
+
 }
 
 .reports-container .scan-table tr:hover td {
     
     background-color: #ededed; /* Darker background for table */
-  color: #091F82; /* Highlighted text color on hover */
+    color: #1A73E8;
 }
 .reports-container .scan-table .checkbox{
     background-color: #45a049;
@@ -122,7 +126,7 @@
     text-align: center;
 }
 .reports-container .scan-table th{
-    background-color: #091F82; /* Header background color */
+    
     color: #eeeeee; /* Light text for header */
     padding: 15px 20px; /* More padding for a spacious feel */
     text-align: left;
@@ -148,34 +152,65 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: 600;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
   }
   
   .reports-container .pdf-btn {
-    background-color: #fb739c; /* Red for PDF */
+    background-image: linear-gradient(195deg, #EC407A, #D81B60);
+    box-shadow: 0 3px 12px rgba(236, 64, 122, 0.5); /* Light pink shadow */
     color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    
+  }
+  .reports-container .pdf-btn:hover {
+    background-image: linear-gradient(15deg, #EC407A, #D81B60);
+    box-shadow: 0 5px 12px rgba(236, 64, 122, 0.5); /* Light pink shadow */
+    color: white;
+    
   }
   
   .reports-container .html-btn {
-    background-color: #5b68f1; /* Blue for HTML */
-    color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+   color: white;
+   background-image: linear-gradient(195deg, #FFA726, #FB8C00); 
+   box-shadow: 0 3px 12px rgba(255, 167, 38, 0.5); /* Light orange shadow */
   }
+
+  .reports-container .html-btn:hover {
+    color: white;
+    background-image: linear-gradient(15deg, #FFA726, #FB8C00); 
+    box-shadow: 0 6px 12px rgba(255, 167, 38, 0.5); /* Light orange shadow */
+   }
+   
   
   .reports-container .download-btn:hover {
     opacity: 0.8;
   }
+
+
 .reports-container .go-report{
-    background-color: #28a745;
     margin: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    background-image: linear-gradient(195deg, #66BB6A, #43A047);
+    box-shadow: 0 3px 12px rgba(102, 187, 106, 0.5); /* Light green shadow */
+}
+.reports-container .go-report:hover{
+    margin: 10px;
+    background-image: linear-gradient(15deg, #66BB6A, #43A047);
+    box-shadow: 0 5px 12px rgba(102, 187, 106, 0.5); /* Light green shadow */
 }
 
 .reports-container .close{
     margin: 10px;
-    background-color: #ff4040;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    background-image: linear-gradient(195deg, #EF5350, #E53935);  
+    box-shadow: 0 3px 12px rgba(239, 83, 80, 0.5); /* Light red shadow */
   }
+  .reports-container .close:hover{
+    margin: 10px;
+    background-image: linear-gradient(15deg, #EF5350, #E53935);  
+    box-shadow: 0 5px 12px rgba(239, 83, 80, 0.5); /* Light red shadow */
+  }
+
   .reports-container .notification-content {
     background: white;
     padding: 20px;

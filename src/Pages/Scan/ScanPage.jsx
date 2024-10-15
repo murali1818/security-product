@@ -6,16 +6,7 @@ import './ScanPage.css';
 const ScanPage = () => {
   const [selectedTargets, setSelectedTargets] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
-  const [searchText, setSearchText] = useState("");
 
-  const handleSearchChange = (e) => {
-    setSearchText(e.target.value);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    alert(`You searched for: ${searchText}`);
-  };
 
   const data = [
     {
@@ -230,22 +221,7 @@ const ScanPage = () => {
 
   return (
     <div className="scan-container">
-      {/* Button group */}
-      <div className="navigation-bar">
-        <form className="search-form" onSubmit={handleSearchSubmit}>
-          {/* Search Icon */}
-          <div className="search-icon" onClick={handleSearchSubmit}>
-            <i className="fas fa-search"></i>
-          </div>
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search..."
-            value={searchText}
-            onChange={handleSearchChange}
-          />
-        </form>
-      </div>
+      
 
       {showNotification && (
         <div className="notification-modal">
@@ -288,7 +264,7 @@ const ScanPage = () => {
           </button>
         </div>
         <div>
-          <button className='btn'>
+          <button className='btn filter-btn'>
             <i className="fas fa-filter"></i> Filter
           </button>
         </div>

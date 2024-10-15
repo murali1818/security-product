@@ -26,7 +26,7 @@
     position: fixed;
     top: 10%;
     left: 0;
-    bottom:0;
+   height: 80vh;
     overflow-x: hidden;
     transition: 0.5s;
     display: flex;
@@ -44,7 +44,7 @@
     
 }
 .sidebar.open .menu-icon{
-    left: 228px;
+    left: 225px;
 }
 
 .sidebar .menu-icon {

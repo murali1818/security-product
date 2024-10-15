@@ -211,17 +211,15 @@ const Vulnerabilities = () => {
 
       {/* Page Header */}
       <div className='vulnerabilities-header'>
-       
         <div className='vulnerabilities-actions'>
-          {/* Action buttons that will be enabled/disabled based on selection */}
-          <button
-            className={`btn btn-scan ${selectedVulnerabilities.length === 0 ? 'disabled' : ''}`}
+        <button
+            className={`btn btn-report ${selectedVulnerabilities.length === 0 ? 'disabled' : ''}`}
             disabled={selectedVulnerabilities.length === 0}
-            onClick={handleGenerateReportClick}
             title={selectedVulnerabilities.length === 0 ? "Please choose a vulnerability" : ""}
           >
-            Generate Report
+            Send To Issue Tracker
           </button>
+          
 
           <select className={`btn btn-add ${selectedVulnerabilities.length === 0 ? 'disabled' : ''}`}
                 disabled={selectedVulnerabilities.length === 0}
@@ -245,7 +243,6 @@ const Vulnerabilities = () => {
             <option value="Ignored">Ignored</option>
             <option value="False Positive">False Positive</option>
           </select>
-
           <button
             className={`btn btn-group ${selectedVulnerabilities.length === 0 ? 'disabled' : ''}`}
             onClick={handleRetestClick}
@@ -254,14 +251,19 @@ const Vulnerabilities = () => {
           >
             Retest
           </button>
-
           <button
-            className={`btn btn-report ${selectedVulnerabilities.length === 0 ? 'disabled' : ''}`}
+            className={`btn btn-scan ${selectedVulnerabilities.length === 0 ? 'disabled' : ''}`}
             disabled={selectedVulnerabilities.length === 0}
+            onClick={handleGenerateReportClick}
             title={selectedVulnerabilities.length === 0 ? "Please choose a vulnerability" : ""}
           >
-            Send To Issue Tracker
+           <i className="fas fa-file-alt"></i> Generate Report
           </button>
+          
+
+         
+
+          
 
           <select className={`btn btn-import`}
             onChange={(e) => handleGroupByChange(e.target.value)}

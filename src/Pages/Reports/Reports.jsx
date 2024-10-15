@@ -3,17 +3,6 @@ import "./Reports.css"
 
 const Reports = () => {
   const [selectedTargets, setSelectedTargets] = useState([]);
-  const [searchText, setSearchText] = useState("");
-
-  const handleSearchChange = (e) => {
-    setSearchText(e.target.value);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    alert(`You searched for: ${searchText}`);
-  };
-
 
   const [showNotification, setShowNotification] = useState(false);
   const data = [
@@ -204,21 +193,7 @@ const Reports = () => {
 
   return (
     <div className='reports-container'>
-       <div className="navigation-bar">
-        <form className="search-form" onSubmit={handleSearchSubmit}>
-          {/* Search Icon */}
-          <div className="search-icon" onClick={handleSearchSubmit}>
-            <i className="fas fa-search"></i>
-          </div>
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search..."
-            value={searchText}
-            onChange={handleSearchChange}
-          />
-        </form>
-      </div>
+      
 
       {showNotification && (
         <div className="notification-modal">
@@ -255,7 +230,7 @@ const Reports = () => {
 
         </div>
         <div>
-          <button className='btn'>
+          <button className='btn filter-btn'>
             <i className="fas fa-filter"></i> Filter
           </button>
         </div>
