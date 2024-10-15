@@ -16,7 +16,6 @@
     display: flex;
     justify-content: start;
     gap: 10px;
-    margin-bottom: 20px;
     flex-shrink: 0;
     /* Prevent the button group from shrinking */
 }

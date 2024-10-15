@@ -9,35 +9,45 @@
 .target-data-container .btn {
     padding: 10px 20px;
     border: none;
-    border-radius: 4px;
-    margin-right: 10px;
+    border-radius: 10px;
+
     color: white;
     cursor: pointer;
+    font-size: 14px;
     transition: background-color 0.3s;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 .target-data-container .back-btn {
-    background-color: #007BFF; /* Blue */
+  background-image: linear-gradient(195deg, #EF5350, #E53935);  
+  box-shadow: 0 3px 12px rgba(239, 83, 80, 0.5); /* Light red shadow */
 }
 
 .target-data-container .back-btn:hover {
-    background-color: #0056b3; /* Darker Blue */
+  background-image: linear-gradient(15deg, #EF5350, #E53935); /* Similar gradient change as delete-btn hover */
+  box-shadow: 0 5px 12px rgba(239, 83, 80, 0.8); /* Stronger red shadow on hover */
 }
 
 .target-data-container .scan-btn {
-    background-color: #28A745; /* Green */
+  background-image: linear-gradient(195deg, #66BB6A, #43A047);
+  box-shadow: 0 3px 12px rgba(102, 187, 106, 0.5); /* Light green shadow */
 }
 
 .target-data-container .scan-btn:hover {
-    background-color: #218838; /* Darker Green */
-}
+  background-image: linear-gradient(15deg, #66BB6A, #43A047);
+  box-shadow: 0 5px 12px rgba(102, 187, 106, 0.8); /* Stronger green shadow on hover */
+} 
 
 .target-data-container .save-btn {
-    background-color: #FFC107; /* Yellow */
+  background-image: linear-gradient(195deg, #FFA726, #FB8C00); 
+  box-shadow: 0 3px 12px rgba(255, 167, 38, 0.5); /* Light orange shadow */
 }
-
-
-
+.target-data-container .save-btn:hover {
+  background-image: linear-gradient(15deg, #FFA726, #FB8C00);
+  box-shadow: 0 5px 12px rgba(255, 167, 38, 0.8); /* Stronger orange shadow on hover */
+}
 
 /*tab-container*/
 .target-data-container .tab-container{
@@ -59,25 +69,22 @@
   
   }
   .target-data-container .tab-container button:hover{
-    background-color: #7d71ec;
+    background-color:#49a3f1;
    
     color: #fff;
   }
   
   .target-data-container .tab-container button.active-tab {
-   background-color: #313cd6;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.536); /* Subtle shadow for depth */
+    background-image: linear-gradient(195deg, #49a3f1, #1A73E8);
+    box-shadow: 0 3px 12px rgba(73, 163, 241, 0.5); /* Light blue shadow */
    border-radius: 5px;
     color: #fff;
-  }
-  .target-data-container  .targetdata-container-tab {
-    margin-top: 20px;
-  }
+  }   
 
   .target-data-container  .targetdata-con-div {
     max-height: 400px; /* Set the max height you want */
     overflow-y: auto; /* Adds vertical scrollbar if content exceeds max-height */
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden; 
     padding: 20px;
     margin-top: 20px;
     background-color: #f9f9f9;
@@ -154,10 +161,11 @@
   
   .target-data-container  .submit-button {
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-image: linear-gradient(195deg, #66BB6A, #43A047);
+    box-shadow: 0 3px 12px rgba(102, 187, 106, 0.5); /* Light green shadow */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 1em;
   }
@@ -196,16 +204,19 @@
   .target-data-container .add-btn {
     margin-top: 10px;
     padding: 8px 16px;
-    background-color: #4CAF50;
+    background-image: linear-gradient(195deg, #66BB6A, #43A047);
+    box-shadow: 0 3px 12px rgba(102, 187, 106, 0.5); /* Light green shadow */
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
   }
   
   .target-data-container .add-btn:hover {
     background-color: #45a049;
   }
+
+
   
   .target-data-container .file-import-container {
     margin-top: 20px;
@@ -314,4 +325,8 @@
     
       
   }
+
+
+
+
   

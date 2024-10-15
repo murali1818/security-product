@@ -98,9 +98,24 @@ const Target = () => {
     const [targetDescription, setTargetDescription] = useState('');
     const criticalOptions = ['Low', 'Medium', 'High'];
     const statusOptions = ['Active', 'Inactive'];
+    
+    const [scheduleType, setScheduleType] = useState('');
+    const [scanType, setScanType] = useState('');
+    const [reportType, setReportType] = useState(""); // To store the selected report type
     const getRandomValue = (options) => {
         return options[Math.floor(Math.random() * options.length)];
     };
+    const handleScanSubmission = () => {
+        console.log('Selected Scan Type:', scanType);
+        console.log('Selected Report Type:', reportType);
+        console.log('Selected Schedule Type:', scheduleType);
+
+        // Logic to start scan or handle selected values
+        setShowPopup(false);
+        window.location.href = '/scan/2';
+    };
+
+
 
     const handleAddTarget = (event) => {
         event.preventDefault();
@@ -126,7 +141,6 @@ const Target = () => {
         setTargetAddress('');
         setTargetDescription('');
         setShowPopup(false);
-        alert(Date.now())
         navigate(`/target/${newTarget.id}`);
         console.log(data); // Log the updated data array
     };
@@ -148,8 +162,18 @@ const Target = () => {
     };
 
 
-    const handleButtonClick = (event) => {
-    }
+    const handleGenerateReport = () => {
+        console.log('Selected Report Type:', reportType);
+
+        // Perform any other logic (e.g., save report type)
+
+        // Close the popup
+        setShowPopup(false);
+
+        // Redirect to the reports page
+        window.location.href = '/reports';
+    };
+
 
     const handleCreateGroup = () => {
         // Logic to create the group with `groupName`
@@ -174,9 +198,7 @@ const Target = () => {
         }
     };
 
-    const handleNewScanClick = (id) => {
 
-    };
 
     return (
         <div className='target-container'>
@@ -184,7 +206,10 @@ const Target = () => {
                 <div className="button-group">
                     <button
                         className={`btn scan-btn ${selectedTargets.length === 0 ? 'disabled' : ''}`}
-                        onClick={handleNewScanClick}
+                        onClick={() => {
+                            setShowPopup(true);  // Show the popup
+                            setFormType('scan');  // Set the form type to 'report'
+                        }}
                         disabled={selectedTargets.length === 0}  // Disable if no target
                     >
                         <i className="fas fa-search"></i> Scan
@@ -211,11 +236,15 @@ const Target = () => {
                     </button>
                     <button
                         className={`btn report-btn ${selectedTargets.length === 0 ? 'disabled' : ''}`}
-                        onClick={() => handleButtonClick('Generate Report')}
-                        disabled={selectedTargets.length === 0}  // Disable if no target
+                        onClick={() => {
+                            setShowPopup(true);  // Show the popup
+                            setFormType('report');  // Set the form type to 'report'
+                        }}
+                        disabled={selectedTargets.length === 0}  // Disable if no target is selected
                     >
                         <i className="fas fa-file-alt"></i> Generate Report
                     </button>
+
                     <button
                         className="btn upload-btn"
                         onClick={() => { setShowPopup(true); setFormType('upload'); }}
@@ -305,7 +334,9 @@ const Target = () => {
                         <h2>
                             {formType === 'add' ? 'Add Target' :
                                 formType === 'upload' ? 'Upload CSV' :
-                                    'Create Group'}
+                                    formType === 'group' ? 'Create Group' :
+                                        formType === 'report' ? 'Generate Report':
+                                         formType === 'scan' ? 'Scan':''}
                         </h2>
 
                         {formType === 'add' && (
@@ -334,9 +365,12 @@ const Target = () => {
                         )}
 
                         {formType === 'upload' && (
-                            <div>
+                            <div className="file-upload-container">
                                 <input type="file" onChange={handleFileChange} required />
-                                <button style={{ background: 'green' }} onClick={handleFileUpload}>Upload</button>
+                                <div>
+                                    <button className='btn-submit' onClick={handleFileUpload}>Upload</button>
+                                    <button className='btn-cancel' onClick={() => setShowPopup(false)}>Close</button>
+                                </div>
                             </div>
                         )}
 
@@ -351,12 +385,111 @@ const Target = () => {
                                     onChange={(e) => setGroupName(e.target.value)}
                                     required
                                 />
-                                <button style={{ background: 'green' }} type="submit">Create Group</button>
+                                <button className='btn-submit' type="submit">Create Group</button>
+                                <button className='btn-cancel' onClick={() => setShowPopup(false)}>Close</button>
                             </form>
                         )}
+
+                        {formType === 'report' && (
+                            <div>
+                                <p>Select the report type:</p>
+                                <select
+                                    className='popup-dropdown'
+                                    value={reportType}
+                                    onChange={(e) => setReportType(e.target.value)}
+                                >
+                                    <option value="" disabled>Standard Reports</option>
+                                    <option value="Developer">Developer</option>
+                                    <option value="Executive Summary">Executive Summary</option>
+                                    <option value="" disabled>Compliance Reports</option>
+                                    <option value="Quick">Quick</option>
+                                    <option value="CWE 2011">CWE 2011</option>
+                                    <option value="HIPAA">HIPAA</option>
+                                    <option value="ISO 27001">ISO 27001</option>
+                                    <option value="NIST SP800 53">NIST SP800 53</option>
+                                    <option value="OWASP Top 10 2013">OWASP Top 10 2013</option>
+                                    <option value="OWASP Top 10 2017">OWASP Top 10 2017</option>
+                                    <option value="PCI DSS 3.2">PCI DSS 3.2</option>
+                                    <option value="Sarbanes Oxley">Sarbanes Oxley</option>
+                                    <option value="STIG DISA">STIG DISA</option>
+                                    <option value="WASC Threat Classification">WASC Threat Classification</option>
+                                </select>
+                                <div className='popup-buttons'>
+                                    <button className='btn-submit' onClick={handleGenerateReport}>Generate</button>
+                                    <button className='btn-cancel' onClick={() => setShowPopup(false)}>Cancel</button>
+
+                                </div>
+                            </div>
+                        )}
+
+                        {formType === 'scan' && (
+                            <form onSubmit={(e) => { e.preventDefault(); handleScanSubmission(); }}>
+                                {/* Scan Type Dropdown */}
+                                <label htmlFor="scan-type">Scan Type:</label>
+                                <select
+                                    id="scan-type"
+                                    className="popup-dropdown"
+                                    value={scanType}
+                                    onChange={(e) => setScanType(e.target.value)}
+                                    required
+                                >
+                                    <option value="" disabled>Select Scan Type</option>
+                                    <option value="Full Scan">Full Scan</option>
+                                    <option value="High Risk Vulnerabilities">High Risk Vulnerabilities</option>
+                                    <option value="Cross-site Scripting Vulnerabilities">Cross-site Scripting Vulnerabilities</option>
+                                    <option value="SQL Injection Vulnerabilities">SQL Injection Vulnerabilities</option>
+                                    <option value="Weak Passwords">Weak Passwords</option>
+                                    <option value="Crawl Only">Crawl Only</option>
+                                </select>
+
+                                {/* Report Type Dropdown */}
+                                <p>Select the report type:</p>
+                                <select
+                                    className="popup-dropdown"
+                                    value={reportType}
+                                    onChange={(e) => setReportType(e.target.value)}
+                                >
+                                    <option value="" disabled>Standard Reports</option>
+                                    <option value="Developer">Developer</option>
+                                    <option value="Executive Summary">Executive Summary</option>
+                                    <option value="" disabled>Compliance Reports</option>
+                                    <option value="Quick">Quick</option>
+                                    <option value="CWE 2011">CWE 2011</option>
+                                    <option value="HIPAA">HIPAA</option>
+                                    <option value="ISO 27001">ISO 27001</option>
+                                    <option value="NIST SP800 53">NIST SP800 53</option>
+                                    <option value="OWASP Top 10 2013">OWASP Top 10 2013</option>
+                                    <option value="OWASP Top 10 2017">OWASP Top 10 2017</option>
+                                    <option value="PCI DSS 3.2">PCI DSS 3.2</option>
+                                    <option value="Sarbanes Oxley">Sarbanes Oxley</option>
+                                    <option value="STIG DISA">STIG DISA</option>
+                                    <option value="WASC Threat Classification">WASC Threat Classification</option>
+                                </select>
+
+                                {/* Schedule Scan Dropdown */}
+                                <p>Schedule Scan:</p>
+                                <select
+                                    className="popup-dropdown"
+                                    value={scheduleType}
+                                    onChange={(e) => setScheduleType(e.target.value)}
+                                >
+                                    <option value="" disabled>Select Schedule Type</option>
+                                    <option value="Instant">Instant</option>
+                                    <option value="Future Scan">Future Scan</option>
+                                    <option value="Recurrent Scan">Recurrent Scan</option>
+                                </select>
+
+                                <button className='btn-submit' type="submit">Start Scan</button>
+                                    <button className='btn-cancel' onClick={() => setShowPopup(false)}>Cancel</button>
+                                   
+                                
+                            </form>
+                        )}
+
                     </div>
                 </div>
             )}
+
         </div>
 
     );

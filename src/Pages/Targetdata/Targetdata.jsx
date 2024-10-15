@@ -35,6 +35,42 @@ const Targetdata = () => {
     const [customHeader, setCustomHeader] = useState('');  // State to store the custom header value
     const [cookieName, setCookieName] = useState(''); // State for cookie name
     const [cookieValue, setCookieValue] = useState(''); // State for cookie value
+    const [showPopup, setShowPopup] = useState(false);
+    const [formType, setFormType] = useState(''); // can be 'add', 'upload', or 'group' 
+    const [scheduleType, setScheduleType] = useState('');
+    const [scanType, setScanType] = useState('');
+    const [reportType, setReportType] = useState(""); // To store the selected report type
+
+    const [hostName, setHostName] = useState('');
+    const [hostIP, setHostIP] = useState('');
+
+    const handlehost = () => {
+        setIsAllowedHostsEnabled(!isAllowedHostsEnabled);
+    };
+
+    const handleScanSubmission = () => {
+        console.log('Selected Scan Type:', scanType);
+        console.log('Selected Report Type:', reportType);
+        console.log('Selected Schedule Type:', scheduleType);
+
+        // Logic to start scan or handle selected values
+        setShowPopup(false);
+        window.location.href = '/scan/2';
+    };
+
+    const handleHostNameChange = (e) => {
+        setHostName(e.target.value);
+    };
+
+    const handleHostIPChange = (e) => {
+        setHostIP(e.target.value);
+    };
+
+    const handleSubmitHost = () => {
+        console.log('Host Name:', hostName);
+        console.log('Host IP:', hostIP);
+        // Logic for submitting allowed hosts
+    };
 
     // Handle the change for Technologies toggle
     const handleTechnologiesToggle = () => {
@@ -62,10 +98,6 @@ const Targetdata = () => {
     const handlecustomcookies = () => {
         setisCustomcookieson(!isCustomcookieson);
     }
-    const handlehost = () => {
-        setIsAllowedHostsEnabled(!isAllowedHostsEnabled);
-    }
-
 
     // Handle HTTP Authentication toggle
     const handleHttpAuthToggle = () => {
@@ -112,10 +144,7 @@ const Targetdata = () => {
         alert('Data saved successfully');
     };
 
-    const handleScan = () => {
-        // Implement scan logic here
-        alert('Scan started');
-    };
+
 
     return (
         <div className='target-data-container'>
@@ -125,7 +154,10 @@ const Targetdata = () => {
                         <i className="fas fa-arrow-left"></i> Back
                     </button>
 
-                    <button className="btn scan-btn" onClick={handleScan}>
+                    <button className="btn scan-btn" onClick={() => {
+                        setShowPopup(true);  // Show the popup
+                        setFormType('scan');  // Set the form type to 'report'
+                    }}>
                         <i className="fas fa-search"></i> Scan
                     </button>
 
@@ -508,10 +540,118 @@ const Targetdata = () => {
                                     />
                                     <span className="slider"></span>
                                 </label>
+
+                                {/* Allowed Hosts Options */}
+                                {isAllowedHostsEnabled && (
+                                    <div className="allowed-hosts-options">
+                                        <label>
+                                            Host Name:
+                                            <input
+                                                type="text"
+                                                value={hostName}
+                                                onChange={handleHostNameChange}
+                                                placeholder="Enter host name"
+                                                className="input-text"
+                                            />
+                                        </label>
+
+                                        <label>
+                                            Host IP:
+                                            <input
+                                                type="text"
+                                                value={hostIP}
+                                                onChange={handleHostIPChange}
+                                                placeholder="Enter host IP"
+                                                className="input-text"
+                                            />
+                                        </label>
+
+                                        <button
+                                            onClick={handleSubmitHost}
+                                            className="submit-btn"
+                                        >
+                                            Submit Allowed Host
+                                        </button>
+                                    </div>
+                                )}
                             </div>
 
                         </div>
                     )}
+
+                    {showPopup && (
+                        <div className="popup-overlay" onClick={() => setShowPopup(false)}>
+                            <div className="popup" onClick={(e) => e.stopPropagation()}>
+                                <h2>Scan:</h2>
+
+                                {formType === 'scan' && (
+                                    <form onSubmit={(e) => { e.preventDefault(); handleScanSubmission(); }}>
+                                        {/* Scan Type Dropdown */}
+                                        <label htmlFor="scan-type">Scan Type:</label>
+                                        <select
+                                            id="scan-type"
+                                            className="popup-dropdown"
+                                            value={scanType}
+                                            onChange={(e) => setScanType(e.target.value)}
+                                            required
+                                        >
+                                            <option value="" disabled>Select Scan Type</option>
+                                            <option value="Full Scan">Full Scan</option>
+                                            <option value="High Risk Vulnerabilities">High Risk Vulnerabilities</option>
+                                            <option value="Cross-site Scripting Vulnerabilities">Cross-site Scripting Vulnerabilities</option>
+                                            <option value="SQL Injection Vulnerabilities">SQL Injection Vulnerabilities</option>
+                                            <option value="Weak Passwords">Weak Passwords</option>
+                                            <option value="Crawl Only">Crawl Only</option>
+                                        </select>
+
+                                        {/* Report Type Dropdown */}
+                                        <p>Select the report type:</p>
+                                        <select
+                                            className="popup-dropdown"
+                                            value={reportType}
+                                            onChange={(e) => setReportType(e.target.value)}
+                                        >
+                                            <option value="" disabled>Standard Reports</option>
+                                            <option value="Developer">Developer</option>
+                                            <option value="Executive Summary">Executive Summary</option>
+                                            <option value="" disabled>Compliance Reports</option>
+                                            <option value="Quick">Quick</option>
+                                            <option value="CWE 2011">CWE 2011</option>
+                                            <option value="HIPAA">HIPAA</option>
+                                            <option value="ISO 27001">ISO 27001</option>
+                                            <option value="NIST SP800 53">NIST SP800 53</option>
+                                            <option value="OWASP Top 10 2013">OWASP Top 10 2013</option>
+                                            <option value="OWASP Top 10 2017">OWASP Top 10 2017</option>
+                                            <option value="PCI DSS 3.2">PCI DSS 3.2</option>
+                                            <option value="Sarbanes Oxley">Sarbanes Oxley</option>
+                                            <option value="STIG DISA">STIG DISA</option>
+                                            <option value="WASC Threat Classification">WASC Threat Classification</option>
+                                        </select>
+
+                                        {/* Schedule Scan Dropdown */}
+                                        <p>Schedule Scan:</p>
+                                        <select
+                                            className="popup-dropdown"
+                                            value={scheduleType}
+                                            onChange={(e) => setScheduleType(e.target.value)}
+                                        >
+                                            <option value="" disabled>Select Schedule Type</option>
+                                            <option value="Instant">Instant</option>
+                                            <option value="Future Scan">Future Scan</option>
+                                            <option value="Recurrent Scan">Recurrent Scan</option>
+                                        </select>
+
+                                        <button className='btn-submit' type="submit">Start Scan</button>
+                                        <button className='btn-cancel' onClick={() => setShowPopup(false)}>Cancel</button>
+
+
+                                    </form>
+                                )}
+
+                            </div>
+                        </div>
+                    )}
+
 
                 </div>
             </div>

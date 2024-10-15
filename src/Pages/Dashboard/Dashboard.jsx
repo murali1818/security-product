@@ -8,14 +8,16 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 // Register necessary elements for Chart.js
 Chart.register(ArcElement, BarElement, CategoryScale, LinearScale, PointElement, LineElement, Tooltip, Legend);
 
+
+
 const Dashboard = ({ isSidebarOpen }) => {
   // Data for the Doughnut chart
   const doughnutData = {
     labels: ['Critical', 'High', 'Medium', 'Low', 'Info'],
     datasets: [{
       data: [5, 11, 18, 14, 7],  // Updated to include Critical and Info
-      backgroundColor: ['#ff0000', '#ff5722', '#ffce56', '#36a2eb', '#009688'], // Added red for Critical, blue for Info
-      hoverBackgroundColor: ['#ff0000', '#ff5722', '#ffce56', '#36a2eb', '#009688']
+      backgroundColor: ['#ff6868', '#f7aa38', '#6cbaff', '#32cd32', '#ffe32b'], // Added #f7aa38 for Critical, #32cd32 for Info
+      hoverBackgroundColor: ['#ff6868', '#f7aa38', '#6cbaff', '#32cd32', '#ffe32b']
     }]
   };
 
@@ -28,35 +30,35 @@ const lineData = {
       label: 'Critical',
       data: [1, 2, 3, 1, 5, 6],  // New dataset for Critical
       fill: false,
-      borderColor: '#ff0000',  // Red for Critical
+      borderColor: '#ff6868',  // #f7aa38 for Critical
       tension: 0.1
     },
     {
       label: 'High',
       data: [5, 4, 3, 6, 10, 12],
       fill: false,
-      borderColor: '#ff5722',  // Saturated Orange for High
+      borderColor: '#f7aa38',  // Saturated #6cbaff for High
       tension: 0.1
     },
     {
       label: 'Medium',
       data: [6, 5, 4, 3, 6, 9],
       fill: false,
-      borderColor: '#ffce56',  // Saturated Yellow for Medium
+      borderColor: '#6cbaff',  // Saturated Yellow for Medium
       tension: 0.1
     },
     {
       label: 'Low',
       data: [2, 3, 1, 2, 5, 7],
       fill: false,
-      borderColor: '#36a2eb',  // Saturated Green for Low
+      borderColor: '#32cd32',  // Saturated Green for Low
       tension: 0.1
     },
     {
       label: 'Info',
       data: [3, 2, 2, 4, 6, 8],  // New dataset for Info
       fill: false,
-      borderColor: '#009688',  // Saturated Blue for Info
+      borderColor: '#ffe32b',  // Saturated #32cd32 for Info
       tension: 0.1
     }
   ]
@@ -69,8 +71,8 @@ const lineData = {
     datasets: [{
       label: 'Days',
       data: [600, 500, 450, 300, 100],  // Updated data for Critical and Info
-      backgroundColor: ['#ff0000', '#ff5722', '#ffce56', '#36a2eb', '#009688'], // Red for Critical, Blue for Info
-      hoverBackgroundColor: ['#ff0000', '#ff5722', '#ffce56', '#36a2eb', '#009688']
+      backgroundColor: ['#ff6868', '#f7aa38', '#6cbaff', '#32cd32', '#ffe32b'], // #f7aa38 for Critical, #32cd32 for Info
+      hoverBackgroundColor: ['#ff6868', '#f7aa38', '#6cbaff', '#32cd32', '#ffe32b']
     }]
   };
 

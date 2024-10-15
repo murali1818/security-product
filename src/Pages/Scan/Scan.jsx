@@ -7,17 +7,6 @@ const Scan = () => {
   const { id } = useParams();
   const [scanData, setScanData] = useState(null);
   const [activeTab, setActiveTab] = useState('scanInfo');
-  const [searchText, setSearchText] = useState("");
-
-  const handleSearchChange = (e) => {
-    setSearchText(e.target.value);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    alert(`You searched for: ${searchText}`);
-  };
-
   // Step 2: Define click handlers
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -157,21 +146,7 @@ const Scan = () => {
 
   return (
     <div className="scan-page">
-      <div className="navigation-bar">
-        <form className="search-form" onSubmit={handleSearchSubmit}>
-          {/* Search Icon */}
-          <div className="search-icon" onClick={handleSearchSubmit}>
-            <i className="fas fa-search"></i>
-          </div>
-          <input
-            type="text"
-            className="search-input"
-            placeholder="Search..."
-            value={searchText}
-            onChange={handleSearchChange}
-          />
-        </form>
-      </div>
+      
       <div className="button-container">
         <div className="button-group">
           <button className="btn-back">
@@ -195,7 +170,7 @@ const Scan = () => {
         <div className='scan-con-div'>
           {activeTab === 'scanInfo' && (
             <div>
-              <h3>Scan Stats & Info</h3>
+
               <div className="scan-details">
                 <div className="threat-level">
                   <div className={`circle ${scanData.threatLevel.toLowerCase()}`}>
@@ -250,7 +225,7 @@ const Scan = () => {
 
           {activeTab === 'vulnerabilities' && (
             <div className="vulnerabilities-section">
-              <h3>Vulnerabilities</h3>
+             
               <div className="vulnerabilities-table-container">
                 <table className="vulnerabilities-table">
                   <thead>
@@ -320,7 +295,6 @@ const Scan = () => {
                 </ul>
               </div>
               <div className="vulnerability-details">
-                <input className="url-display" value="https://www.bing.com/" readOnly />
                 <div className="vulnerabilities-table-container">
                   <table className="vulnerabilities-table">
                     <thead>
@@ -356,7 +330,6 @@ const Scan = () => {
 
           {activeTab === 'events' && (
             <div className="events-section">
-              <h3>Events</h3>
               <div className="events-table-container">
                 <table className="events-table">
                   <thead>

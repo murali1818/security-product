@@ -1,54 +1,94 @@
+/* Settings Container */
 .settings {
-  padding: 30px;
-  margin-top: 60px;
-  background-color: #1e1e1e; /* Black background for settings */
-  color: white;
+  margin-top: 20px;
+  color: #333; /* Darker text for readability */
 }
 
-.settings .settings-container {
-  max-width: 1400px;
-  margin: 20px auto;
-  background-color: #242424; /* Slightly lighter than the main background */
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
-  padding: 20px;
-  overflow: hidden;
+/* buttons */
+
+/* User Actions */
+.user-actions {
+  display: flex; /* Flexbox for button alignment */
+  gap: 10px; /* Space between buttons */
+  margin-top: 20px; /* Space above user actions */
 }
 
+/* Button Styles */
+.user-btn {
+  background-color: #007bff; /* Primary button color */
+  color: #fff; /* Text color */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding for button */
+  border-radius: 8px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 1rem; /* Font size */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transition for background and scale */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+/* Hover Effect */
+.user-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Disabled Button */
+.user-btn:disabled {
+  background-color: #c0c0c0; /* Grey background for disabled state */
+  color: #6c757d; /* Dark grey text */
+  cursor: not-allowed; /* Not-allowed cursor for disabled */
+  box-shadow: none; /* Remove shadow for disabled state */
+}
+
+/* Disabled Button Hover */
+.user-btn:disabled:hover {
+  background-color: #c0c0c0; /* Same color on hover for disabled */
+  transform: none; /* No transformation on hover */
+}
+
+
+
+
+/* Header */
 .settings .settings-header {
   display: flex;
   justify-content: flex-end;
   padding-bottom: 20px;
 }
 
+/* Save Button */
 .settings .save-btn {
-  background-color: #ff5722;
+  background-color: #007bff; /* Vibrant blue */
   color: white;
   border: none;
   padding: 12px 25px;
-  border-radius: 30px;
+  margin-right: 15px;
+  border-radius: 6px; /* Smooth button edges */
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s ease;
-  box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.4);
+  transition: background-color 0.3s ease, transform 0.3s;
+  box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2); /* Subtle shadow */
 }
 
 .settings .save-btn:hover {
-  background-color: #ff7043;
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight hover effect */
 }
 
+/* Tabs */
 .settings .tabs {
   display: flex;
-  border-bottom: 2px solid #333;
+  border-bottom: 2px solid #ddd; /* Light gray border */
   margin-top: 10px;
   padding-bottom: 10px;
   overflow-x: auto;
 }
 
+/* Tab Link */
 .settings .tab-link {
   background-color: transparent;
   border: none;
-  color: #888;
+  color: #666; /* Neutral gray for inactive tabs */
   padding: 10px 15px;
   cursor: pointer;
   font-size: 16px;
@@ -58,8 +98,7 @@
 }
 
 .settings .tab-link.active, .settings .tab-link:hover {
-  color: #ff5722;
- 
+  color: #007bff; /* Blue accent for active and hover */
 }
 
 .settings .tab-link::before {
@@ -69,7 +108,7 @@
   bottom: 0;
   height: 2px;
   width: 0;
-  background-color: #ff5722;
+  background-color: #007bff; /* Blue underline */
   transition: width 0.3s ease, left 0.3s ease;
 }
 
@@ -78,14 +117,9 @@
   left: 0;
 }
 
-.settings .tab-content {
-  padding: 30px;
-  background-color: #1e1e1e;
-  border-radius: 8px;
-  margin-top: 20px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
 
+
+/* Update Options */
 .settings .update-options {
   display: flex;
   flex-direction: column;
@@ -94,28 +128,29 @@
 .settings .update-options label {
   font-size: 18px;
   margin-bottom: 15px;
-  color: #ff5722;
+  color: #007bff; /* Blue for labels */
 }
 
 .settings .update-options select {
   padding: 12px;
   font-size: 16px;
   border-radius: 5px;
-  border: 1px solid #ff5722;
-  background-color: #333;
-  color: #fff;
+  border: 1px solid #ccc; /* Light border */
+  background-color: #f1f1f1; /* Light background */
+  color: #333; /* Darker text */
   outline: none;
   transition: border-color 0.3s ease;
 }
 
 .settings .update-options select:hover {
-  border-color: #ff7043;
+  border-color: #007bff; /* Blue border on hover */
 }
 
+/* Version Info */
 .settings .version-info {
   margin-top: 20px;
   font-size: 14px;
-  color: #bbb;
+  color: #666; /* Light gray for informational text */
 }
 
 .settings .version-info span {
@@ -123,165 +158,48 @@
   margin-top: 5px;
 }
 
+/* Update Button */
 .settings .update-btn {
   margin-top: 20px;
   padding: 12px 25px;
-  background-color: #ff5722;
+  background-color: #007bff; /* Blue button */
   color: white;
   border: none;
-  border-radius: 30px;
+  border-radius: 6px;
   cursor: pointer;
   font-weight: bold;
-  box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.4);
+  box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2);
   transition: background-color 0.3s ease;
 }
 
 .settings .update-btn:hover {
-  background-color: #ff7043;
+  background-color: #0056b3;
 }
 
+/* Footer */
 .settings .footer {
   margin-top: 30px;
   padding-top: 20px;
-  border-top: 1px solid #444;
+  border-top: 1px solid #ddd; /* Light divider */
   text-align: center;
 }
 
 .settings .footer p {
-  color: #888;
+  color: #888; /* Subtle gray for footer text */
   font-size: 14px;
 }
 
 
 
+
 /* Proxy settings toggle */
 .settings{
-.proxy-settings {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.proxy-settings .proxy-label {
-  font-size: 18px;
-  margin-left: 10px;
-}
-
-.proxy-settings .toggle {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 20px;
-}
-
-.proxy-settings .toggle input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.proxy-settings .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 20px;
-}
-
-.proxy-settings .slider:before {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  left: 2px;
-  bottom: 2px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-.proxy-settings input:checked + .slider {
-  background-color: #4caf50;
-}
-
-.proxy-settings input:checked + .slider:before {
-  transform: translateX(20px);
-}
-
-/* Disable and enable effect */
-.proxy-settings .settings-container {
-  opacity: 0.5;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.proxy-settings .settings-container.enabled {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* Wrapper for select dropdown */
-.proxy-com select {
-  width: 100%;
-  padding: 12px;
-  margin-top: 12px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #ffffff;
-  transition: all 0.3s ease;
-  appearance: none; /* Hides default arrow */
-  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%27http%3A//www.w3.org/2000/svg%27 viewBox%3D%270 0 4 5%27%3E%3Cpath fill%3D%27%23444444%27 d%3D%27M2 0L0 2h4zM0 3l2 2 2-2z%27/%3E%3C/svg%3E'); /* Custom arrow */
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 10px;
-  cursor: pointer;
-}
-
-.proxy-com select:focus {
-  outline: none;
-  border-color: #007BFF;
-  box-shadow: 0 0 6px rgba(0, 123, 255, 0.5);
-}
-
-/* Disabled state */
-.proxy-com select:disabled {
-  background-color: #f1f1f1;
-  border-color: #ddd;
-  cursor: not-allowed;
-}
-
-/* Hover effect */
-.proxy-com select:hover {
-  border-color: #0056b3;
-}
-
-/* Add a smooth transition */
-.proxy-com select {
-  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-/* Style for label */
-.proxy-com label {
-  font-weight: bold;
-  font-size: 15px;
-  margin-bottom: 8px;
-  color: #ffffff;
-}
-
 /* Notification Settings Styles */
-
-
-
 .notification-settings {
   width: 100%;
   margin: 20px 0;
   padding: 20px;
-  background-color: #292727;
+  background-color: #f8f9fa; /* Light background */
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -293,7 +211,7 @@
 .form-group label {
   font-weight: bold;
   font-size: 15px;
-  color: #ffffff;
+  color: #333; /* Darker text color */
   display: block;
   margin-bottom: 8px;
 }
@@ -302,14 +220,15 @@
   width: 98%;
   padding: 12px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #ccc; /* Lighter border */
   border-radius: 8px;
+  background-color: #fff; /* White background for input */
   transition: border-color 0.2s ease;
 }
 
 .form-group input:focus {
-  border-color: #007BFF;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  border-color: #007BFF; /* Blue accent on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Blue glow on focus */
   outline: none;
 }
 
@@ -317,10 +236,10 @@
   width: 100%;
   padding: 12px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid #ccc; /* Light gray border */
   border-radius: 8px;
-  background-color: #fff;
-  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%27http%3A//www.w3.org/2000/svg%27 viewBox%3D%270 0 4 5%27%3E%3Cpath fill%3D%27%23444444%27 d%3D%27M2 0L0 2h4zM0 3l2 2 2-2z%27/%3E%3C/svg%3E'); /* Custom arrow */
+  background-color: #fff; /* White background */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns%3D%27http%3A//www.w3.org/2000/svg%27 viewBox%3D%270 0 4 5%27%3E%3Cpath fill%3D%27444444%27 d%3D%27M2 0L0 2h4zM0 3l2 2 2-2z%27/%3E%3C/svg%3E');
   background-repeat: no-repeat;
   background-position: right 12px center;
   background-size: 10px;
@@ -330,25 +249,24 @@
 
 .form-group select:focus {
   outline: none;
-  border-color: #006de2;
+  border-color: #007BFF;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 
 /* Disabled state for inputs */
 .form-group input:disabled, 
 .form-group select:disabled {
-  background-color: #a9abae;
+  background-color: #e9ecef; /* Light gray for disabled inputs */
   cursor: not-allowed;
   border-color: #ddd;
 }
 
 .form-group input:enabled, 
 .form-group select:enabled {
-  background-color: #ffffff;
-  border-color: #ffffff;
-  color: #1e1e1e;
+  background-color: #ffffff; /* White background */
+  border-color: #ccc;
+  color: #333; /* Darker text */
 }
-
 
 /* Enable/Disable Toggle Button */
 .notification-com .toggle {
@@ -369,7 +287,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
+  background-color: #ddd; /* Light gray slider */
   transition: 0.4s;
   border-radius: 24px;
 }
@@ -387,7 +305,7 @@
 }
 
 .notification-com input:checked + .slider {
-  background-color: #28a745;
+  background-color: #28a745; /* Green when checked */
 }
 
 .notification-com input:checked + .slider:before {
@@ -399,699 +317,204 @@
   font-weight: bold;
 }
 
-/* user slide */
-.user-actions .user-btn{
-  background-color: #ff5722;  
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-  margin-right: 05px;
-  box-shadow: 0px 4px 15px rgba(255, 87, 34, 0.4);
-}
-
-/* Enhanced table styling with modern card-like design */
-.tab-content .user-table {
-  width: 100%;
-  border-collapse: separate; /* Separate the border for smooth rounded corners */
-  border-spacing: 0;
-  margin: 20px 0;
-  border-radius: 12px; /* Rounded corners */
-  overflow: hidden; /* Ensure the rounded corners apply */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Drop shadow for card effect */
-  background-color: #1c1c1c; /* Dark background */
-}
-
-/* Enhanced table styling with modern card-like design */
-.tab-content .user-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin: 20px 0;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  background-color: #1c1c1c;
-}
-
-/* Table header styling */
-.tab-content .user-table th {
-  background: linear-gradient(135deg, #4a4a4a, #333);
-  color: #fff;
-  font-weight: bold;
-  padding: 15px;
-  text-align: center; /* Center the header text */
-  vertical-align: middle; /* Ensure vertical centering */
-  letter-spacing: 0.05em;
-  border-bottom: 2px solid #555;
-}
-
-/* Table cell styling */
-.tab-content .user-table td {
-  padding: 15px;
-  text-align: center; /* Center the row content */
-  vertical-align: middle; /* Ensure vertical centering */
-  color: #e0e0e0;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-/* Alternating row background */
-.tab-content .user-table tr:nth-child(even) {
-  background-color: #2c2c2c;
-}
-
-.tab-content .user-table tr:nth-child(odd) {
-  background-color: #242424;
-}
-
-/* Hover effect for table rows */
-.tab-content .user-table tr:hover {
-  background-color: #555;
-  cursor: pointer;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Checkbox styling (toggle button style) */
-.tab-content .user-table input[type="checkbox"] {
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  background-color: #444;
-  border: 2px solid #ff6f61;
-  border-radius: 5px;
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.tab-content .user-table input[type="checkbox"]:checked {
-  background-color: #ff6f61;
-}
-
-.tab-content .user-table input[type="checkbox"]:checked::before {
-  content: '✔';
-  color: #fff;
-  position: absolute;
-  top: 0;
-  left: 4px;
-}
-
-/* Hover effect for checkboxes */
-.tab-content .user-table input[type="checkbox"]:hover {
-  background-color: #ff8a50;
-}
-
-/* Link styles in table */
-.tab-content .user-table a {
-  color: #ff8a50;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.tab-content .user-table a:hover {
-  text-decoration: underline;
-}
-
-/* Rounded corners on first and last table cells */
-/* .tab-content .user-table th:first-child,
-.tab-content .user-table td:first-child {
-  border-radius: 12px 0 0 12px;
-}
-
-.tab-content .user-table th:last-child,
-.tab-content .user-table td:last-child {
-  border-radius: 0 12px 12px 0;
-} */
-
-/* Target Group page */
-/* Styling for Target Group Management table */
-.target-tab-content {
-  margin-top: 20px;
-  font-family: 'Arial', sans-serif;
-}
-
-/* Styling the table */
-.target-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin: 20px 0;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-  background-color: #1c1c1c;
-}
-
-/* Styling table headers */
-.target-table th {
-  background: linear-gradient(135deg, #4a4a4a, #333);
-  color: #fff;
-  font-weight: bold;
-  padding: 15px;
-  text-align: center;
-  vertical-align: middle;
-  letter-spacing: 0.05em;
-  border-bottom: 2px solid #555;
-}
-
-/* Styling table rows */
-.target-table td {
-  padding: 15px;
-  text-align: center;
-  vertical-align: middle;
-  color: #e0e0e0;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-/* Styling the checkbox */
-.target-table input[type="checkbox"] {
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  background-color: #444;
-  border: 2px solid #ff6f61;
-  border-radius: 5px;
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.target-table input[type="checkbox"]:checked {
-  background-color: #ff6f61;
-}
-
-.target-table input[type="checkbox"]:checked::before {
-  content: '✔';
-  color: #fff;
-  position: absolute;
-  top: 0;
-  left: 4px;
-}
-
-/* Alternating row background */
-.target-table tr:nth-child(even) {
-  background-color: #2c2c2c;
-}
-
-.target-table tr:nth-child(odd) {
-  background-color: #242424;
-}
-
-/* Hover effect for table rows */
-.target-table tr:hover {
-  background-color: #555;
-  cursor: pointer;
-  transform: translateY(-3px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* Rounded corners on first and last table cells */
-/* .target-table th:first-child,
-.target-table td:first-child {
-  border-radius: 12px 0 0 12px;
-}
-
-.target-table th:last-child,
-.target-table td:last-child {
-  border-radius: 0 12px 12px 0;
-} */
-
-/* Optional styling for links or icons inside the table */
-.target-table a {
-  color: #ff8a50;
-}
-
-.target-table a:hover {
-  color: #ffab91;
-}
-
-
-
-/* button disabled */
-.user-btn:disabled {
-opacity: 0.5;
-cursor: not-allowed;
-}
-
-
-/* popup */
-/* Black theme popup styles */
-.user-slide-page .popup {
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-bottom: 0;
-background: rgba(0, 0, 0, 0.7);
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 1000;
-}
-
-.user-slide-page .popup-content {
-background: #1f1f1f;
-padding: 20px;
-border-radius: 10px;
-width: 500px;
-color: #f5f5f5;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
-}
-
-.user-slide-page .form-group {
-margin-bottom: 15px;
-}
-
-.user-slide-page .form-group label {
-display: block;
-font-weight: bold;
-margin-bottom: 5px;
-color: #ddd;
-}
-
-.user-slide-page .form-group input {
-width: 100%;
-padding: 10px;
-box-sizing: border-box;
-background-color: #333;
-color: #fff;
-border: 1px solid #555;
-border-radius: 5px;
-}
-
-.user-slide-page .form-group input::placeholder {
-color: #aaa;
-}
-
-.user-slide-page .form-actions {
-display: flex;
-justify-content: flex-end;
-}
-
-.user-slide-page .password-requirements {
-margin-top: 5px;
-padding-left: 15px;
-color: #ffffff;
-font-size: 12px;
-}
-
-.user-slide-page .password-requirements li {
-margin: 3px 0;
-}
-
-
-.user-slide-page .user-btn {
-padding: 10px 20px;
-background-color: #007bff;
-color: white;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-transition: background-color 0.3s ease;
-}
-
-.user-slide-page .user-btn:hover {
-background-color: #0056b3;
-}
-
-.user-slide-page .user-btn.cancel-btn {
-margin-left: 10px;
-background-color: #f44336;
-color: white;
-}
-
-.user-slide-page .user-btn.cancel-btn:hover {
-background-color: #d32f2f; 
-}
-
-/* Styling the role checkboxes */
-.user-slide-page input[type="checkbox"] {
-margin-right: 8px;
-}
-
-.user-slide-page .checkbox-label {
-color: #f5f5f5;
-}
-
-
-.user-slide-page .form-group select {
-width: 100%;
-padding: 10px;
-background-color: #333;
-color: #fff;
-border: 1px solid #555;
-border-radius: 5px;
-appearance: none;
-}
-
-.user-slide-page .form-group select:focus {
-outline: none;
-border-color: #007bff;
-}
-
 /* delete-notification */
 .delete-notification .popup {
-position: fixed;
-top: 20px;
-left: 50%;
-transform: translateX(-50%);
-background: rgba(0, 0, 0, 0.9);
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 1000;
-animation: slide-down 0.5s ease-in-out;
-}
-
-.delete-notification .popup .popup-content {
-padding: 20px;
-border-radius: 10px;
-color: #f5f5f5;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-text-align: center;
-}
-
-.delete-notification .user-btn {
-padding: 10px 15px;
-background-color: #007bff;
-color: white;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-transition: background-color 0.3s ease;
-margin: 5px;
-}
-
-.delete-notification .user-btn:hover {
-background-color: #0056b3;
-}
-
-.delete-notification .user-btn.cancel-btn {
-background-color: #f44336;
-}
-
-.delete-notification .user-btn.cancel-btn:hover {
-background-color: #d32f2f;
-}
-
-
-@keyframes slide-down {
-from {
-  transform: translateY(-50px);
-  opacity: 0;
-}
-to {
-  transform: translateY(0);
-  opacity: 1; 
-}
-}
-
-
-/* Responsive Adjustments */
-@media (max-width: 600px) {
-.settings-header {
-    flex-direction: column; /* Stack header elements vertically */
-    align-items: flex-start; /* Align items to the start */
-}
-
-.settings-header .save-btn {
-    width: 100%; /* Full width save button */
-}
-
-.form-group {
-    margin-bottom: 15px; /* Space between form fields */
-}
-
-.form-actions {
-    display: flex;
-    flex-direction: column; /* Stack buttons in the form */
-}
-
-.form-actions .user-btn {
-    width: 100%; /* Full width buttons in the form */
-    margin: 5px 0; /* Space between buttons */
-}
-}
-
-
-
-/* Target Group popup */
-.form-group input, .form-group textarea {
-  width: 98%;
-  padding: 8px;
-  border: 1px solid #444;
-  background-color: #2a2a2a;
-  color: #e0e0e0;
-  border-radius: 4px;
-}
-
-.form-group textarea {
-  height: 80px;
-  resize: none;
-}
-
-/* Issuse Target */
-/* Popup Modal for Adding Issue Tracker (Dark Theme) */
-.issue-tracker-popup {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.9); /* White semi-transparent background */
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.9); /* More opaque background for dark theme */
-  z-index: 9999; /* Ensures popup is above other content */
+  z-index: 1000;
+  animation: slide-down 0.5s ease-in-out;
 }
 
-.issue-tracker-popup .popup-content {
-  background-color: #1e1e1e; /* Dark background for popup */
-  width: 400px;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5); /* Darker shadow for better contrast */
-  animation: fadeIn 0.3s ease;
-}
-
-.issue-tracker-popup .popup-content h3 {
+.delete-notification .popup .popup-content {
+  padding: 20px;
+  border-radius: 10px;
+  color: #333; /* Darker text color */
+  background-color: #fff; /* White background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
   text-align: center;
-  color: #f1f1f1; /* Light text color */
-  margin-bottom: 20px;
 }
 
-/* Form styling */
-.issue-tracker-popup .issue-tracker-form .form-group {
-  margin-bottom: 15px;
-}
-
-.issue-tracker-popup .issue-tracker-form .form-group label {
-  display: block;
-  color: #f1f1f1; /* Light text color */
-  font-size: 14px;
-  margin-bottom: 5px;
-}
-
-.issue-tracker-popup .issue-tracker-form .form-group input,
-.issue-tracker-popup .issue-tracker-form .form-group select {
-  width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  background-color: #333; /* Dark background for input fields */
-  border: 1px solid #555; /* Dark border for inputs */
-  color: #f1f1f1; /* Light text inside input fields */
-  border-radius: 8px;
-  box-sizing: border-box;
-}
-
-.issue-tracker-popup .issue-tracker-form .form-group input:focus,
-.issue-tracker-popup .issue-tracker-form .form-group select:focus {
-  border-color: #3498db;
-  outline: none;
-}
-
-.issue-tracker-popup .issue-tracker-form .form-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-/* Button Styling */
-.issue-tracker-popup .user-btn {
-  background-color: #3498db;
-  color: #ffffff;
-  border: none;
+.delete-notification .user-btn {
   padding: 10px 15px;
-  border-radius: 8px;
-  font-size: 14px;
+  background-color: #007bff; /* Vibrant blue */
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 5px;
 }
 
-.issue-tracker-popup .user-btn:hover {
-  background-color: #2980b9;
+.delete-notification .user-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
 }
 
-.issue-tracker-popup .cancel-btn {
-  background-color: #e74c3c;
+.delete-notification .user-btn.cancel-btn {
+  background-color: #f44336; /* Red for cancel button */
 }
 
-.issue-tracker-popup .cancel-btn:hover {
-  background-color: #c0392b;
+.delete-notification .user-btn.cancel-btn:hover {
+  background-color: #d32f2f;
 }
 
-/* Close button */
-.issue-tracker-popup .popup-close {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 18px;
-  cursor: pointer;
-  color: #f1f1f1; /* Light color for close button */
+/* Popup Slide Animation */
+@keyframes slide-down {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .settings-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .settings-header .save-btn {
+    width: 100%;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  .form-actions {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-actions .user-btn {
+    width: 100%;
+    margin: 5px 0;
+  }
 }
 
 
-/* Scan Types Tab Content */
-.scan-types-tab-content {
-  width: 100%;
-  margin: 20px 0;
-  padding: 30px;
-  border-radius: 16px;
-  background-color: #1e1e1e; /* A slightly lighter background for contrast */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-  color: #ffffff;
-  font-family: 'Roboto', sans-serif;
-}
 
 /* Table styling */
-.scan-types-table {
+.scan-type-part .scan-types-table {
   width: 100%;
   border-collapse: collapse;
-  background-color: #282828; /* Darker background for the table */
+  background-color: #f8f9fa; /* Light grey background for the table */
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Table header styling */
-.scan-types-table th {
-  background-color: #444; /* Darker header */
-  color: #ff6f61; /* Use primary color for headers */
-  font-weight: bold;
-  padding: 20px;
-  text-align: center;
-  vertical-align: middle;
-  border-bottom: 2px solid #555; /* Slightly lighter border */
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+
+
+
+.scan-type-part .scan-types-table th {
+  background: linear-gradient(195deg, #49a3f1, #1A73E8);
+  color: #eeeeee;
+    /* Light text for header */
+    padding: 15px 20px;
+    /* More padding for a spacious feel */
+    text-align: left;
+    font-weight: bold;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    border-bottom: 2px solid #ffffff;
 }
 
 /* Table row styling */
-.scan-types-table td {
+.scan-type-part .scan-types-table td {
   padding: 15px;
   text-align: center;
   vertical-align: middle;
-  color: #ddd; /* Light grey for regular text */
-  transition: background-color 0.4s ease, transform 0.4s ease;
+  color: #495057; /* Dark grey for regular text */
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 /* Alternating row background */
-.scan-types-table tr:nth-child(even) {
-  background-color: #333; /* Even rows with darker shade */
+.scan-type-part .scan-types-table tr:nth-child(even) {
+  background-color: #f1f3f5; /* Even rows with light grey shade */
 }
 
-.scan-types-table tr:nth-child(odd) {
-  background-color: #2c2c2c; /* Odd rows slightly lighter */
+.scan-type-part .scan-types-table tr:nth-child(odd) {
+  background-color: #ffffff; /* Odd rows with white background */
 }
 
 /* Hover effect for table rows */
-.scan-types-table tr:hover {
-  background-color: #555; /* Lighter on hover */
+.scan-type-part .scan-types-table tr:hover {
+  background-color: #e9ecef; /* Lighter grey on hover */
   cursor: pointer;
   transform: translateY(-3px); /* Slight lift on hover */
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.1); /* Soft shadow on hover */
 }
 
 /* Checkbox styling */
-.scan-types-table input[type="checkbox"] {
+.scan-type-part .scan-types-table input[type="checkbox"] {
   appearance: none;
-  width: 20px; /* Increased size for easier clicking */
+  width: 20px;
   height: 20px;
-  background-color: #2a2a2a;
-  border: 2px solid #ff6f61;
+  background-color: #f8f9fa; /* Light background */
+  border: 2px solid #007bff; /* Primary color for border */
   border-radius: 5px;
   position: relative;
   cursor: pointer;
-  transition: background-color 0.4s ease, border-color 0.4s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-.scan-types-table input[type="checkbox"]:checked {
-  background-color: #ff6f61; /* Highlight when checked */
+.scan-type-part .scan-types-table input[type="checkbox"]:checked {
+  background-color: #007bff; /* Primary color when checked */
 }
 
-.scan-types-table input[type="checkbox"]:checked::before {
+.scan-type-part .scan-types-table input[type="checkbox"]:checked::before {
   content: '✔'; /* Checkmark */
-  color: #fff;
+  color: #ffffff;
   position: absolute;
   left: 3px;
 }
 
 /* Hover effect for checkboxes */
-.scan-types-table input[type="checkbox"]:hover {
-  border-color: #ff8a50; /* Slightly lighter border on hover */
+.scan-type-part .scan-types-table input[type="checkbox"]:hover {
+  border-color: #0056b3; /* Slightly darker border on hover */
 }
 
 /* Button styling */
-button {
-  background-color: #ff6f61; /* Primary button color */
+.scan-type-part button {
+  background-color: #007bff; /* Primary button color */
   color: white;
   border: none;
   padding: 12px 20px;
   border-radius: 8px;
   font-size: 14px;
   cursor: pointer;
-  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-button:hover {
-  background-color: #ff8a50; /* Lighter on hover */
-  box-shadow: 0 4px 15px rgba(255, 111, 97, 0.5); /* Shadow effect on hover */
-}
-
-/* General form input styles */
-input[type="text"], input[type="password"], input[type="email"] {
-  width: 97%;
-  padding: 12px 15px;
-  margin: 8px 0;
-  border-radius: 8px;
-  background-color: #222; /* Dark input background */
-  color: #fff;
-  border: 1px solid #444; /* Darker border */
-  transition: border-color 0.4s ease;
-}
-
-input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
-  border-color: #ff6f61; /* Highlight on focus */
-  outline: none;
+.scan-type-part button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2); /* Shadow effect on hover */
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
-  .scan-types-table {
-      font-size: 14px; /* Smaller font for mobile */
+  .scan-type-part .scan-types-table {
+    font-size: 14px; /* Smaller font for mobile */
   }
 
-  button {
-      padding: 10px; /* Adjust button size */
+  .scan-type-part button {
+    padding: 10px; /* Adjust button size */
   }
 }
 
-
-/* SCan type popup */
+/* Popup Overlay */
 /* Popup Overlay */
 .scan-type-popup {
   position: fixed;
@@ -1099,30 +522,26 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Dark transparent overlay */
+  background: rgba(0, 0, 0, 0.6); /* Dark transparent overlay */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 50px;
-
+  z-index: 1000; /* Ensures popup is above all content */
 }
 
-/* Popup Content Box */
+/* Popup Content */
 .scan-type-popup-content {
-  background-color: #121212; /* Darker background for a sleek look */
-  color: #e0e0e0; /* Light grey text for readability */
+  background-color: #fff; /* White background */
+  color: #333; /* Dark text for contrast */
   padding: 30px;
-  border-radius: 15px;
+  border-radius: 12px;
   width: 70%;
-  max-width: 1000px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6); /* Slightly stronger shadow */
+  max-width: 800px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
   animation: fadeIn 0.3s ease-out;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
 }
 
-/* Slide-in Animation for Popups */
+/* Fade-in Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -1138,23 +557,27 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 .scan-type-container {
   display: flex;
   gap: 20px;
+  justify-content: space-between; /* Keeps items on opposite sides */
+  align-items: flex-start;
+  flex-wrap: nowrap; /* Prevents wrapping to keep them side by side */
 }
 
 /* List of checks */
 .scan-list {
-  width: 50%;
-  background-color: #1c1c1c; /* Slightly lighter dark background */
+  width: 48%; /* Left side takes 48% of the container */
+  background-color: #f8f9fa; /* Light background */
   padding: 20px;
   border-radius: 10px;
   overflow-y: auto;
   max-height: 400px;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2); /* Subtle inner shadow */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
 }
 
+/* Checkbox tree */
 .checks-tree {
   list-style: none;
   padding-left: 20px;
-  color: #bdbdbd; /* Softer grey text for check labels */
+  color: #495057; /* Dark grey text */
 }
 
 .checks-tree li {
@@ -1163,45 +586,27 @@ input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focu
 
 input[type="checkbox"] {
   margin-right: 10px;
-  transform: scale(1.2); /* Slightly bigger checkboxes for a modern look */
 }
 
 /* Description Section */
 .check-description {
-  width: 50%;
-  background-color: #1c1c1c;
+  width: 48%; /* Right side takes 48% of the container */
+  background-color: #f8f9fa; /* Light background */
   padding: 20px;
   border-radius: 10px;
-  color: #bdbdbd;
-  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #495057; /* Dark grey text */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
 }
 
 .check-description h3 {
   margin-bottom: 10px;
   font-size: 1.1rem;
-  color: #ffffff; /* Stronger heading contrast */
+  color: #333; /* Stronger heading contrast */
 }
 
 .check-description p {
   font-size: 0.9rem;
-  color: #9e9e9e; /* Subtle description text color */
-}
-
-/* Input Styles */
-input.scan-input {
-  background-color: #2a2a2a; /* Darker input field */
-  color: #e0e0e0; /* Light grey text */
-  border: 1px solid #444;
-  padding: 12px;
-  width: 96%;
-  border-radius: 10px;
-  transition: all 0.2s ease-in-out;
-}
-
-input.scan-input:focus {
-  border-color: #bb86fc; /* Accent color for focus */
-  box-shadow: 0 0 10px rgba(187, 134, 252, 0.5); /* Soft purple glow */
-  outline: none;
+  color: #6c757d; /* Subtle description text color */
 }
 
 /* Button Group */
@@ -1209,45 +614,43 @@ input.scan-input:focus {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+  margin-top: 20px;
 }
 
 .close-btn {
-  background-color: #ee7336; /* Purple primary action button color */
+  background-color: #007bff; /* Primary action button color */
   color: #fff;
   border: none;
   padding: 12px 24px;
-  border-radius: 10px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s;
 }
 
 .close-btn:hover {
-  background-color: #f75808; /* Hover effect */
+  background-color: #0056b3; /* Hover effect */
 }
 
 .close-btn-alt {
-  background-color: #444; /* Secondary (close) button color */
+  background-color: #6c757d; /* Secondary (close) button color */
 }
 
 .close-btn-alt:hover {
-  background-color: #666; /* Lighter hover */
+  background-color: #5a6268; /* Lighter hover */
 }
 
-/* Scrollbar Styles */
-.scan-list::-webkit-scrollbar, .check-description::-webkit-scrollbar {
-  width: 8px;
-}
+/* Responsive Design: Adjust for smaller screens */
+@media (max-width: 768px) {
+  .scan-type-container {
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  }
 
-.scan-list::-webkit-scrollbar-thumb, .check-description::-webkit-scrollbar-thumb {
-  background-color: #444;
-  border-radius: 10px;
+  .scan-list, .check-description {
+    width: 100%; /* Full width for small screens */
+    margin-bottom: 20px; /* Add some spacing between sections */
+  }
 }
-
-.scan-list::-webkit-scrollbar-thumb:hover, .check-description::-webkit-scrollbar-thumb:hover {
-  background-color: #666;
-}
-
 
 
 /* Excluded Hours */
@@ -1270,65 +673,115 @@ input.radiobutton[type="checkbox"]:hover {
   border-color: #ff8a50;
 }
 
-/* Excluded Hours popup */
-
-/* Container for the entire popup */
-.popup-container {
-  position: fixed;        /* Fixed positioning to cover the entire screen */
-  top: 0;                /* Align to the top */
-  left: 0;               /* Align to the left */
-  width: 100%;           /* Full width */
-  height: 100%;          /* Full height */
-  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-  display: flex;         /* Flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center;   /* Center vertically */
-  z-index: 1000;        /* Ensure it's on top of other elements */
-}
-
-/* Popup content styling */
-.popup-content {
-  background-color: #2c2c2c; /* Dark background for popup */
-  border-radius: 12px;      /* Rounded corners */
-  padding: 20px;             /* Padding inside the popup */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Shadow for depth */
-  max-width: 500px;         /* Max width of popup */
-  width: 90%;               /* Responsive width */
-  color: #fff;              /* Text color */
-}
-
-/* Close button styling */
-.close-btn {
-  background-color: #ff6f61; /* Color for the button */
-  color: #fff;              /* Text color for the button */
-  border: none;             /* Remove border */
-  padding: 10px 15px;      /* Padding */
-  border-radius: 5px;      /* Rounded corners */
-  cursor: pointer;          /* Pointer on hover */
-  transition: background-color 0.3s ease; /* Transition effect */
-}
-
-/* Hover effect for close button */
-.close-btn:hover {
-  background-color: #ff8a50; /* Change color on hover */
-}
-
-
-
-/* Events */
-.engine-details-table {
+/* Excluded Hours Table */
+.ExcludedHours {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  background-color: #ffffff; /* White background for the table */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border-radius: 10px; /* Rounded corners for the table */
+  overflow: hidden; /* Ensure rounded corners are visible */
 }
 
-.engine-details-table td {
-  padding: 10px;
-  border: 1px solid #ddd;
+.ExcludedHours th, .ExcludedHours td {
+  padding: 15px; /* Padding for table cells */
+  text-align: left; /* Align text to the left */
+  border-bottom: 1px solid #e0e0e0; /* Light grey border for rows */
 }
 
-.engine-details-table td:first-child {
-  font-weight: bold;
+.ExcludedHours th {
+  background: linear-gradient(195deg, #49a3f1, #1A73E8);
+  color: #ffffff; /* Dark text for contrast */
+  font-weight: bold; /* Bold text for header */
 }
 
+.ExcludedHours tr:hover {
+  background-color: #f1f1f1; /* Light hover effect for rows */
+}
+
+/* Checkbox styles */
+input[type="checkbox"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background-color: #f8f9fa; /* Light background */
+  border: 2px solid #007bff; /* Primary color for border */
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Radiobutton styles */
+input.radiobutton[type="checkbox"] {
+  appearance: none; /* Remove default checkbox appearance */
+  width: 20px; /* Width for custom checkbox */
+  height: 20px; /* Height for custom checkbox */
+  background-color: #fff; /* White background */
+  border: 2px solid #007bff; /* Blue border */
+  border-radius: 50%; /* Circular shape */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Transition for hover and check */
+}
+
+input.radiobutton[type="checkbox"]:checked {
+  background-color: #007bff; /* Blue when checked */
+}
+
+input.radiobutton[type="checkbox"]:hover {
+  border-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Popup styles */
+.popup-container {
+  position: fixed; /* Cover the entire screen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9); /* White with slight transparency */
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  z-index: 1000; /* On top of other elements */
+}
+
+/* Popup content */
+.popup-content {
+  background-color: #fff; /* White background for popup */
+  border-radius: 12px; /* Rounded corners */
+  padding: 20px; /* Padding inside the popup */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  max-width: 500px; /* Max width for popup */
+  width: 90%; /* Responsive width */
+  color: #333; /* Dark text color */
+}
+
+/* Close button */
+.close-btn {
+  background-color: #007bff; /* Primary button color */
+  color: #fff; /* Text color */
+  border: none; /* Remove border */
+  padding: 10px 15px; /* Padding for button */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s ease; /* Transition for hover effect */
+}
+
+/* Close button hover */
+.close-btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Optional: Add responsiveness */
+@media (max-width: 768px) {
+  .ExcludedHours th, .ExcludedHours td {
+    padding: 10px; /* Reduce padding on smaller screens */
+  }
+
+  .popup-content {
+    padding: 15px; /* Reduce padding in the popup */
+  }
+}
 }

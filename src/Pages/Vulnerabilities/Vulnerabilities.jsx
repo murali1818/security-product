@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import "../Vulnerabilities/Vulnerabilities.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -259,12 +260,6 @@ const Vulnerabilities = () => {
           >
            <i className="fas fa-file-alt"></i> Generate Report
           </button>
-          
-
-         
-
-          
-
           <select className={`btn btn-import`}
             onChange={(e) => handleGroupByChange(e.target.value)}
             defaultValue="">
@@ -295,6 +290,7 @@ const Vulnerabilities = () => {
               <tr key={item.id}>
                 <td>
                   <input
+                   className='checkbox'
                     type="checkbox"
                     checked={selectedVulnerabilities.includes(item.id)}
                     onChange={() => handleCheckboxChange(item.id)}

@@ -21,8 +21,6 @@ const Settings = () => {
     const [selectedExcludedHours, setSelectedExcludedHours] = useState([]);
     console.log(selectedExcludedHours);
     
-
-
     const [isDeleteUserPopupOpen, setIsDeleteUserPopupOpen] = useState(false);
     const [isDeleteExcluserPopOpen,setisDeleteExcluserPopOpen] = useState(false);
 
@@ -77,7 +75,7 @@ const handleSingleExcludedHourChecked = (id) => {
 
 
     // Check if the selected tab is one of the specific tabs to show Save button
-    const showSaveButton = ['Product Updates', 'Notification Settings', 'Scan Types'].includes(selectedTab);
+    const showSaveButton = ['Product Updates', 'Notification Settings'].includes(selectedTab);
     
     const showScanTypesButton = selectedTab === 'Scan Types';
 
@@ -178,6 +176,7 @@ const handleSave = () => {
             
                     {showScanTypesButton && (
                         <div className="user-actions">
+                            <button className="save-btn" onClick={handleSave}>Save</button> 
                             <button className="user-btn" style={{ marginLeft: '5px' }} onClick={handleAddScanType}>New</button>
                             <button className="user-btn" disabled={!isScanTypeSelected} onClick={handleDeleteOpenPopup}> Delete Selected</button>
                         </div>
@@ -297,7 +296,8 @@ const handleSave = () => {
 
 
                     {selectedTab === 'Scan Types' && (
-                        <table className="scan-types-table">
+                        <div className='scan-type-part'>
+                            <table className="scan-types-table">
                             <thead>
                                 <tr>
                                     <th>Select</th>
@@ -324,11 +324,13 @@ const handleSave = () => {
                                 ))}
                             </tbody>
                         </table>
+                        </div>
 
                     )}
 
                   {selectedTab === 'Excluded Hours' && (
-    <table className="scan-types-table">
+                    <div className='ExludedHours_part'>
+                        <table className="ExcludedHours">
         <thead>
             <tr>
                 <th>Select</th>
@@ -359,6 +361,7 @@ const handleSave = () => {
             ))}
         </tbody>
     </table>
+                    </div>
 )}
 
                 </div>
@@ -486,10 +489,6 @@ const handleSave = () => {
                     </div>
                 )}
 
-
-                <footer className="footer">
-                    <p>© 2024 Infoziant</p>
-                </footer>
             </div>
         </div>
     );

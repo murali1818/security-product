@@ -18,41 +18,57 @@
     font-weight: 800px;
 }
 
-.target-container .btn-submit,
-.target-container .btn-cancel {
+/* Submit Button */
+.popup .btn-submit {
+    background-image: linear-gradient(195deg, #28a745, #218838); /* Similar gradient as add-btn */
+    box-shadow: 0 3px 12px rgba(40, 167, 69, 0.5); /* Light green shadow */
+    color: white;
     padding: 12px 24px;
     font-size: 16px;
     font-weight: bold;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
-.target-container .btn-submit {
-    background-color: #28a745;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.target-container .btn-submit:hover {
-    background-color: #218838;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.popup .btn-submit:hover {
+    background-image: linear-gradient(15deg, #28a745, #218838); /* Similar gradient change as add-btn hover */
+    box-shadow: 0 5px 12px rgba(40, 167, 69, 0.8); /* Stronger green shadow on hover */
     transform: translateY(-2px);
 }
 
-.target-container .btn-cancel {
-    background-color: #dc3545;
+/* Cancel Button */
+.popup .btn-cancel {
+    background-image: linear-gradient(195deg, #EF5350, #E53935);  
+    box-shadow: 0 3px 12px rgba(239, 83, 80, 0.5); /* Light red shadow */
     color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
     margin-left: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
-.target-container .btn-cancel:hover {
-    background-color: #c82333;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+.popup .btn-cancel:hover {
+    background-image: linear-gradient(15deg, #EF5350, #E53935); /* Similar gradient change as delete-btn hover */
+    box-shadow: 0 5px 12px rgba(239, 83, 80, 0.8); /* Stronger red shadow on hover */
     transform: translateY(-2px);
 }
+
+
+
+/* Optional: Styling for the file input field */
+.target-container .file-upload-container input[type="file"] {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 
 
 
@@ -187,6 +203,15 @@
     z-index: 1;
     position: sticky;
 
+}
+
+
+.target-container .target-table tr:hover td {
+
+    background-color: #ededed;
+    /* Darker background for table */
+    color: #1A73E8;
+    /* Highlighted text color on hover */
 }
 
 .target-container .target-table th {
@@ -329,7 +354,7 @@
 
 }
 
-.target-container .popup-overlay {
+ .popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -344,7 +369,7 @@
     /* Ensure it's on top */
 }
 
-.target-container .popup {
+.popup {
     background: white;
     padding: 20px;
     border-radius: 5px;
@@ -353,18 +378,18 @@
     /* Adjust width as needed */
 }
 
-.target-container .popup h2 {
+ .popup h2 {
     margin: 0 0 15px;
 }
 
-.target-container .popup label {
+ .popup label {
     display: block;
     margin-bottom: 10px;
 }
 
-.target-container .popup input[type="text"],
-.target-container .popup input[type="number"],
-.target-container .popup select {
+.popup input[type="text"],
+.popup input[type="number"],
+.popup select {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
@@ -372,48 +397,40 @@
     border-radius: 4px;
 }
 
-.target-container .popup button {
+.popup button {
     margin-top: 15px;
     padding: 10px 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
 
     color: white;
 }
 
-.target-container .popup button[type="button"] {
+.popup button[type="button"] {
     background: #dc3545;
     /* Cancel button color */
     margin-left: 10px;
     /* Space between buttons */
 }
 
-.target-container .button-container {
+ .button-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.target-container .button-group {
+ .button-group {
     display: flex;
     gap: 10px;
 }
 
-.target-container .btn {
+.btn {
     padding: 10px 15px;
     border: none;
-    border-radius: 4px;
+    border-radius: 10px;
     cursor: pointer;
 
     color: white;
-}
-
-.target-container .target-table tr:hover td {
-
-    background-color: #ededed;
-    /* Darker background for table */
-    color: #1A73E8;
-    /* Highlighted text color on hover */
 }
