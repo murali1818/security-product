@@ -1,20 +1,24 @@
 .target-container {
     width: 100%;
-    height: 80vh;
-    border-radius: 10px; 
+    height: 83vh;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
+
 }
 
-.target-container .button-container{  
+.target-container .button-container {
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
+
 }
-.target-container .no-data{
+
+.target-container .no-data {
     color: red;
     font-weight: 800px;
 }
-.target-container .btn-submit, 
+
+.target-container .btn-submit,
 .target-container .btn-cancel {
     padding: 12px 24px;
     font-size: 16px;
@@ -54,85 +58,108 @@
 
 .target-container .button-container .btn {
     border: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.5s ease;
     font-size: 14px;
+    font-weight: bold;
 }
-
-.target-container .button-container .scan-btn{
-    background-color: #4CAF50; /* Green */
-    color: white;
+/* Scan Button */
+.target-container .button-container .scan-btn {
+    background-image: linear-gradient(195deg, #49a3f1, #1A73E8);
+    box-shadow: 0 3px 12px rgba(73, 163, 241, 0.5); /* Light blue shadow */
 }
 
 .target-container .button-container .scan-btn:hover {
-    background-color: #45a049;
+    background-image: linear-gradient(15deg, #49a3f1, #1A73E8);
+    box-shadow: 0 5px 12px rgba(73, 163, 241, 0.8); /* Stronger blue shadow on hover */
 }
 
+/* Add Button */
 .target-container .button-container .add-btn {
-    background-color: #2196F3; /* Blue */
-    color: white;
+    background-image: linear-gradient(195deg, #66BB6A, #43A047);
+    box-shadow: 0 3px 12px rgba(102, 187, 106, 0.5); /* Light green shadow */
 }
 
 .target-container .button-container .add-btn:hover {
-    background-color: #0b7dda;
+    background-image: linear-gradient(15deg, #66BB6A, #43A047);
+    box-shadow: 0 5px 12px rgba(102, 187, 106, 0.8); /* Stronger green shadow on hover */
 }
 
+/* Delete Button */
 .target-container .button-container .delete-btn {
-    background-color: #f44336; /* Red */
-    color: white;
+    background-image: linear-gradient(195deg, #EF5350, #E53935);  
+    box-shadow: 0 3px 12px rgba(239, 83, 80, 0.5); /* Light red shadow */
 }
 
 .target-container .button-container .delete-btn:hover {
-    background-color: #da190b;
+    background-image: linear-gradient(15deg, #EF5350, #E53935);
+    box-shadow: 0 5px 12px rgba(239, 83, 80, 0.8); /* Stronger red shadow on hover */
 }
 
+/* Group Button */
 .target-container .button-container .group-btn {
-    background-color: #ff9800; /* Orange */
-    color: white;
+    background-image: linear-gradient(195deg, #FFA726, #FB8C00); 
+    box-shadow: 0 3px 12px rgba(255, 167, 38, 0.5); /* Light orange shadow */
 }
 
-.group-btn:hover {
-    background-color: #e68a00;
+.target-container .button-container .group-btn:hover {
+    background-image: linear-gradient(15deg, #FFA726, #FB8C00);
+    box-shadow: 0 5px 12px rgba(255, 167, 38, 0.8); /* Stronger orange shadow on hover */
 }
 
+/* Report Button */
 .target-container .button-container .report-btn {
-    background-color: #9C27B0; /* Purple */
-    color: white;
+    background-image: linear-gradient(195deg, #747b8a, #495361);
+    box-shadow: 0 3px 12px rgba(116, 123, 138, 0.5); /* Light gray-blue shadow */
 }
 
 .target-container .button-container .report-btn:hover {
-    background-color: #7b1fa2;
+    background-image: linear-gradient(15deg, #747b8a, #495361);
+    box-shadow: 0 5px 12px rgba(116, 123, 138, 0.8); /* Stronger gray-blue shadow on hover */
 }
 
+/* Upload Button */
 .target-container .button-container .upload-btn {
-    background-color: #795548; /* Brown */
-    color: white;
+    background-image: linear-gradient(195deg, #EC407A, #D81B60);
+    box-shadow: 0 3px 12px rgba(236, 64, 122, 0.5); /* Light pink shadow */
 }
 
 .target-container .button-container .upload-btn:hover {
-    background-color: #5d4037;
+    background-image: linear-gradient(15deg, #EC407A, #D81B60);
+    box-shadow: 0 5px 12px rgba(236, 64, 122, 0.8); /* Stronger pink shadow on hover */
 }
 
+/* Filter Button */
 .target-container .button-container .filter-btn {
-    background-color: #607D8B; /* Greyish-blue */
+    background: linear-gradient(195deg, #42424a, #191919);
     color: white;
+    box-shadow: 0 4px 8px rgba(66, 66, 74, 0.5); /* Light dark shadow */
 }
 
 .target-container .button-container .filter-btn:hover {
-    background-color: #546e7a;
+    background: linear-gradient(15deg, #42424a, #191919);
+    box-shadow: 0 5px 12px rgba(66, 66, 74, 0.8); /* Stronger dark shadow on hover */
 }
+
 
 /* Styles for the container and table */
 .target-container .table-container {
     /* Set max height for the table to make it scrollable */
-    overflow-y: auto;  /* Allow vertical scroll */
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
+    overflow-y: auto;
+    /* Allow vertical scroll */
+    background-color: #ffffff;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.105);
+    /* Subtle shadow for depth */
+    border: 0 solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.75rem;
 }
 
 /* Style for the table */
@@ -140,42 +167,56 @@
     width: 100%;
     font-size: 16px;
     border-collapse: collapse;
-  
+
 }
 
-.target-container .target-table .checkbox{
+.target-container .target-table .checkbox {
     background-color: #45a049;
     text-align: center;
 }
 
-
-
- 
 .target-container .target-table td {
-    padding: 12px 15px; /* Padding for table cells */
-    border-bottom: 1px solid rgb(111, 111, 111); /* Subtle border between rows */
+    padding: 12px 15px;
+    /* Padding for table cells */
+    border-bottom: 1px solid rgba(111, 111, 111, 0.269);
+    /* Subtle border between rows */
     text-align: left;
-    background-color:  #ffffff; /* Cell background */
+    background-color: #ffffff;
+    /* Cell background */
     font-weight: 600;
     color: #181818;
 }
 
-.target-container .target-table th{
-    background-color: #6a6a6a; /* Header background color */
-    color: #eeeeee; /* Light text for header */
-    padding: 15px 20px; /* More padding for a spacious feel */
+.target-container .target-table thead {
+    background: linear-gradient(195deg, #49a3f1, #1A73E8);
+    top: 0;
+    z-index: 1;
+    position: sticky;
+
+}
+
+.target-container .target-table th {
+
+    color: #eeeeee;
+    /* Light text for header */
+    padding: 15px 20px;
+    /* More padding for a spacious feel */
     text-align: left;
     font-weight: bold;
     position: sticky;
     top: 0;
     z-index: 1;
-    border-bottom: 2px solid #ffffff; /* Thicker border for header separation */
-    
+    border-bottom: 2px solid #ffffff;
+    /* Thicker border for header separation */
+
 }
+
 .target-container .btn.disabled {
     opacity: 0.6;
     cursor: not-allowed;
-  }
+}
+
+/*end*/
 
 
 
@@ -200,43 +241,66 @@
 
 .target-container .popup button {
     padding: 10px 20px;
-    
+
     color: white;
     border: none;
     cursor: pointer;
 }
 
 
-.target-container  .target-table .vulnerability-medium {
-    background-color: #ffc107; /* Saturated Yellow for Medium */
-    color: #000;
-  }
-  .target-container  .target-table .vulnerability-low {
-    background-color: #32cd32; /* Saturated Green for Low */
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
-  }
+/* Medium Vulnerability */
+.target-container .target-table .vulnerability-medium {
+    background: linear-gradient(195deg, #ffe32b, #d4b822); /* Yellow gradient */
+    transition: background 0.3s ease; /* Smooth transition */
+}
 
-  .target-container  .target-table .vulnerability-info {
-    background-color: #1e90ff; /* Saturated Blue for Info */
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
-  }
+.target-container .target-table .vulnerability-medium:hover {
+    background: linear-gradient(15deg, #ffe32b, #d4b822); /* Shift gradient on hover */
+}
 
-.target-container  .target-table .vulnerability-high {
-    background-color: #ff9900; /* Saturated Orange for High */
-    color: #fff;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
-  }
+/* Low Vulnerability */
+.target-container .target-table .vulnerability-low {
+    background: linear-gradient(195deg, #32cd32, #28a428); /* Green gradient */
+    transition: background 0.3s ease;
+}
 
-.target-container  .target-table .vulnerability-critical {
-    background-color: #ff4d4d; /* Red for Critical */
-    color: #fff;
-     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
-  }
+.target-container .target-table .vulnerability-low:hover {
+    background: linear-gradient(15deg, #32cd32, #28a428); /* Shift gradient on hover */
+}
+
+/* Info Vulnerability */
+.target-container .target-table .vulnerability-info {
+    background: linear-gradient(195deg, #6cbaff, #4495ff); /* Blue gradient */
+    transition: background 0.3s ease;
+}
+
+.target-container .target-table .vulnerability-info:hover {
+    background: linear-gradient(15deg, #6cbaff, #4495ff); /* Shift gradient on hover */
+}
+
+/* High Vulnerability */
+.target-container .target-table .vulnerability-high {
+    background: linear-gradient(195deg, #f7aa38, #d98c2c); /* Orange gradient */
+    transition: background 0.3s ease;
+}
+
+.target-container .target-table .vulnerability-high:hover {
+    background: linear-gradient(15deg, #f7aa38, #d98c2c); /* Shift gradient on hover */
+}
+
+/* Critical Vulnerability */
+.target-container .target-table .vulnerability-critical {
+    background: linear-gradient(195deg, #ff6868, #d95b5b); /* Red gradient */
+    transition: background 0.3s ease;
+}
+
+.target-container .target-table .vulnerability-critical:hover {
+    background: linear-gradient(15deg, #ff6868, #d95b5b); /* Shift gradient on hover */
+}
+
 
 .target-container .target-table .vulnerability-item {
-    margin:0px 5px;
+    margin: 0px 5px;
     color: white;
     padding: 2px 15px;
     text-align: left;
@@ -245,34 +309,45 @@
 }
 
 .target-container .status-active {
-    font-weight: bold;  /* Make text bold */
-    color: green;       /* Color for active status */
+    font-weight: bold;
+    /* Make text bold */
+    color: green;
+    /* Color for active status */
 }
 
 .target-container .status-inactive {
-    font-weight: normal; /* Normal weight for inactive */
-    color: red;         /* Color for inactive status */
+    font-weight: normal;
+    /* Normal weight for inactive */
+    color: red;
+    /* Color for inactive status */
 }
 
 .target-container .checkbox {
-   
-    width: 20px;      /* Set width */
-    height: 20px;     /* Set height */
-    border: 2px solid #ccc; /* Default border */
-    border-radius: 3px; /* Rounded corners */
+
+    width: 20px;
+    /* Set width */
+    height: 20px;
+    /* Set height */
+    border: 2px solid #ccc;
+    /* Default border */
+    border-radius: 3px;
+    /* Rounded corners */
 
 }
+
 .target-container .popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* Black background with low opacity */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Black background with low opacity */
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensure it's on top */
+    z-index: 1000;
+    /* Ensure it's on top */
 }
 
 .target-container .popup {
@@ -280,7 +355,8 @@
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    width: 400px; /* Adjust width as needed */
+    width: 400px;
+    /* Adjust width as needed */
 }
 
 .target-container .popup h2 {
@@ -308,13 +384,15 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-   
+
     color: white;
 }
 
 .target-container .popup button[type="button"] {
-    background: #dc3545; /* Cancel button color */
-    margin-left: 10px; /* Space between buttons */
+    background: #dc3545;
+    /* Cancel button color */
+    margin-left: 10px;
+    /* Space between buttons */
 }
 
 .target-container .button-container {
@@ -334,12 +412,14 @@
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    
+
     color: white;
 }
 
 .target-container .target-table tr:hover td {
-    
-    background-color: #ededed; /* Darker background for table */
-  color: #091F82; /* Highlighted text color on hover */
+
+    background-color: #ededed;
+    /* Darker background for table */
+    color: #1A73E8;
+    /* Highlighted text color on hover */
 }

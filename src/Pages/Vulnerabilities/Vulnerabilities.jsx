@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import "../Vulnerabilities/Vulnerabilities.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
-
-
-
 const vulnerabilitiesData = [
   {
     id: 1,

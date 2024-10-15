@@ -155,6 +155,7 @@
 
 
 /* Proxy settings toggle */
+.settings{
 .proxy-settings {
   display: flex;
   align-items: center;
@@ -1328,4 +1329,6 @@ input.radiobutton[type="checkbox"]:hover {
 
 .engine-details-table td:first-child {
   font-weight: bold;
+}
+
 }
