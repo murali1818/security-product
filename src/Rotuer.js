@@ -10,6 +10,7 @@ import Scan from "./Pages/Scan/Scan";
 import Targetdata from './Pages/Targetdata/Targetdata';
 import Vulnerabilities from './Pages/Vulnerabilities/Vulnerabilities';
 import Settings from './Pages/Settings/Settings';
+import Profile from './Pages/Profile/Profile';
 
 
 const Rotuer = () => {
@@ -24,7 +25,7 @@ const Rotuer = () => {
       <Route path='target/:id' element={<Targetdata></Targetdata>}/>
       <Route path='/vulnerabilities' element={<Vulnerabilities></Vulnerabilities>}/>
       <Route path='/settings' element={<Settings></Settings>}/>
-      
+      <Route path='/profile' element={<Profile />}/>
 
 
     </Routes>

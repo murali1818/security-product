@@ -2,83 +2,61 @@
 .settings {
   margin-top: 20px;
   color: #333; /* Darker text for readability */
+  
 }
 
 /* buttons */
 
 /* User Actions */
 .user-actions {
-  display: flex; /* Flexbox for button alignment */
-  gap: 10px; /* Space between buttons */
-  margin-top: 20px; /* Space above user actions */
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-/* Button Styles */
-.user-btn {
-  background-color: #007bff; /* Primary button color */
-  color: #fff; /* Text color */
-  border: none; /* No border */
-  padding: 10px 20px; /* Padding for button */
-  border-radius: 8px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor on hover */
-  font-size: 1rem; /* Font size */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transition for background and scale */
+/* Gradient Button Styles */
+.user-btn, .save-btn {
+  background: linear-gradient(135deg, #56ccf2, #2f80ed); /* Light teal to bright blue */
+ 
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600px;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
 }
 
 /* Hover Effect */
-.user-btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-  transform: translateY(-2px); /* Slight lift effect */
+.user-btn:hover, .save-btn:hover {
+  background: linear-gradient(135deg, #004080, #1C51A3); /* Darker gradient on hover */
+  transform: translateY(-3px); /* Lift effect */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
 }
 
 /* Disabled Button */
-.user-btn:disabled {
-  background-color: #c0c0c0; /* Grey background for disabled state */
-  color: #6c757d; /* Dark grey text */
-  cursor: not-allowed; /* Not-allowed cursor for disabled */
-  box-shadow: none; /* Remove shadow for disabled state */
+.user-btn:disabled, .save-btn:disabled {
+  background: #d3d3d3; /* Grey background for disabled state */
+  color: #6c757d;
+  cursor: not-allowed;
+  box-shadow: none; /* Remove shadow */
 }
 
 /* Disabled Button Hover */
-.user-btn:disabled:hover {
-  background-color: #c0c0c0; /* Same color on hover for disabled */
-  transform: none; /* No transformation on hover */
-}
-
-
-
-
-/* Header */
-.settings .settings-header {
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: 20px;
-}
-
-/* Save Button */
-.settings .save-btn {
-  background-color: #007bff; /* Vibrant blue */
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  margin-right: 15px;
-  border-radius: 6px; /* Smooth button edges */
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.3s;
-  box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2); /* Subtle shadow */
-}
-
-.settings .save-btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-  transform: translateY(-2px); /* Slight hover effect */
+.user-btn:disabled:hover, .save-btn:disabled:hover {
+  background: #d3d3d3;
+  transform: none;
 }
 
 /* Tabs */
 .settings .tabs {
   display: flex;
-  border-bottom: 2px solid #ddd; /* Light gray border */
+  border-bottom: 2px solid #ddd;
   margin-top: 10px;
   padding-bottom: 10px;
   overflow-x: auto;
@@ -88,17 +66,20 @@
 .settings .tab-link {
   background-color: transparent;
   border: none;
-  color: #666; /* Neutral gray for inactive tabs */
+  color: #666;
   padding: 10px 15px;
   cursor: pointer;
   font-size: 16px;
   position: relative;
-  font-weight: 500;
-  transition: color 0.3s ease;
+  font-weight: 600;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .settings .tab-link.active, .settings .tab-link:hover {
-  color: #007bff; /* Blue accent for active and hover */
+  color: #1C51A3; /* Match primary gradient */
 }
 
 .settings .tab-link::before {
@@ -108,13 +89,23 @@
   bottom: 0;
   height: 2px;
   width: 0;
-  background-color: #007bff; /* Blue underline */
+  background-color: #1C51A3;
   transition: width 0.3s ease, left 0.3s ease;
 }
 
 .settings .tab-link.active::before {
   width: 100%;
   left: 0;
+}
+
+/* Header Message */
+.header-message {
+  font-size: 1.2rem;
+  color: #333;
+  font-weight: 600;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 
@@ -129,6 +120,10 @@
   font-size: 18px;
   margin-bottom: 15px;
   color: #007bff; /* Blue for labels */
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600px;
 }
 
 .settings .update-options select {
@@ -140,6 +135,10 @@
   color: #333; /* Darker text */
   outline: none;
   transition: border-color 0.3s ease;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600px;
 }
 
 .settings .update-options select:hover {
@@ -167,7 +166,10 @@
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600px;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.2);
   transition: background-color 0.3s ease;
 }
@@ -187,6 +189,10 @@
 .settings .footer p {
   color: #888; /* Subtle gray for footer text */
   font-size: 14px;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600;
 }
 
 
@@ -209,8 +215,11 @@
 }
 
 .form-group label {
-  font-weight: bold;
+  font-weight:600;
   font-size: 15px;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   color: #333; /* Darker text color */
   display: block;
   margin-bottom: 8px;
@@ -220,6 +229,10 @@
   width: 98%;
   padding: 12px;
   font-size: 16px;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600;
   border: 1px solid #ccc; /* Lighter border */
   border-radius: 8px;
   background-color: #fff; /* White background for input */
@@ -236,6 +249,10 @@
   width: 100%;
   padding: 12px;
   font-size: 16px;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600;
   border: 1px solid #ccc; /* Light gray border */
   border-radius: 8px;
   background-color: #fff; /* White background */
@@ -314,7 +331,10 @@
 
 .notification-com .notification-label {
   margin-left: 10px;
-  font-weight: bold;
+  font-weight: 600px;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
 /* delete-notification */
@@ -410,51 +430,57 @@
   background-color: #f8f9fa; /* Light grey background for the table */
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer shadow for a clean look */
 }
 
-/* Table header styling */
-
-
+/* Table header (thead) styling with gradient */
+.scan-type-part .scan-types-table thead {
+  background: linear-gradient(195deg, #49a3f1, #1A73E8); /* Gradient for header */
+  color: #ffffff; /* White text for better contrast */
+}
 
 .scan-type-part .scan-types-table th {
-  background: linear-gradient(195deg, #49a3f1, #1A73E8);
-  color: #eeeeee;
-    /* Light text for header */
-    padding: 15px 20px;
-    /* More padding for a spacious feel */
-    text-align: left;
-    font-weight: bold;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    border-bottom: 2px solid #ffffff;
+  padding: 16px 20px; /* Padding for better spacing */
+  text-align: left;
+  font-weight:600;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  text-transform: uppercase; /* Professional uppercase text */
+  letter-spacing: 1px; /* Spaced out text for clarity */
+  border-bottom: 2px solid #ffffff;
 }
 
-/* Table row styling */
+/* Table row styling (tbody) */
 .scan-type-part .scan-types-table td {
-  padding: 15px;
-  text-align: center;
+  padding: 16px 20px; /* More padding for a cleaner, spacious look */
+  text-align: left;
   vertical-align: middle;
   color: #495057; /* Dark grey for regular text */
+  border-bottom: 1px solid #dee2e6; /* Soft bottom border for separation */
+  font-size: 15px; /* Slightly larger font size */
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 /* Alternating row background */
-.scan-type-part .scan-types-table tr:nth-child(even) {
-  background-color: #f1f3f5; /* Even rows with light grey shade */
+.scan-type-part .scan-types-table tbody tr:nth-child(even) {
+  background-color: #f1f3f5; /* Light grey for even rows */
 }
 
-.scan-type-part .scan-types-table tr:nth-child(odd) {
-  background-color: #ffffff; /* Odd rows with white background */
+.scan-type-part .scan-types-table tbody tr:nth-child(odd) {
+  background-color: #ffffff; /* White background for odd rows */
 }
 
 /* Hover effect for table rows */
-.scan-type-part .scan-types-table tr:hover {
-  background-color: #e9ecef; /* Lighter grey on hover */
+.scan-type-part .scan-types-table tbody tr:hover {
+  background-color: rgba(25, 118, 210, 0.2); /* Light blue overlay on hover */
   cursor: pointer;
-  transform: translateY(-3px); /* Slight lift on hover */
-  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.1); /* Soft shadow on hover */
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.15); /* Soft shadow on hover */
 }
 
 /* Checkbox styling */
@@ -462,8 +488,8 @@
   appearance: none;
   width: 20px;
   height: 20px;
-  background-color: #f8f9fa; /* Light background */
-  border: 2px solid #007bff; /* Primary color for border */
+  background-color: #f8f9fa;
+  border: 2px solid #49a3f1; /* Border matching gradient color */
   border-radius: 5px;
   position: relative;
   cursor: pointer;
@@ -471,11 +497,11 @@
 }
 
 .scan-type-part .scan-types-table input[type="checkbox"]:checked {
-  background-color: #007bff; /* Primary color when checked */
+  background-color: #49a3f1; /* Match checked color to header */
 }
 
 .scan-type-part .scan-types-table input[type="checkbox"]:checked::before {
-  content: '✔'; /* Checkmark */
+  content: '✔';
   color: #ffffff;
   position: absolute;
   left: 3px;
@@ -483,34 +509,42 @@
 
 /* Hover effect for checkboxes */
 .scan-type-part .scan-types-table input[type="checkbox"]:hover {
-  border-color: #0056b3; /* Slightly darker border on hover */
+  border-color: #1A73E8; /* Slightly darker on hover */
 }
 
 /* Button styling */
 .scan-type-part button {
-  background-color: #007bff; /* Primary button color */
+  background-color: #49a3f1; /* Primary button color */
   color: white;
   border: none;
-  padding: 12px 20px;
+  padding: 14px 24px;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
+  font-weight: 600;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(37, 117, 252, 0.2); /* Soft shadow for depth */
 }
 
 .scan-type-part button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2); /* Shadow effect on hover */
+  background-color: #1A73E8; /* Darker blue on hover */
+  box-shadow: 0 6px 15px rgba(25, 118, 210, 0.3); /* Enhanced shadow on hover */
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
   .scan-type-part .scan-types-table {
     font-size: 14px; /* Smaller font for mobile */
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
   }
 
   .scan-type-part button {
-    padding: 10px; /* Adjust button size */
+    padding: 12px 18px; /* Adjust button size */
   }
 }
 
@@ -601,11 +635,19 @@ input[type="checkbox"] {
 .check-description h3 {
   margin-bottom: 10px;
   font-size: 1.1rem;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600;
   color: #333; /* Stronger heading contrast */
 }
 
 .check-description p {
   font-size: 0.9rem;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600;
   color: #6c757d; /* Subtle description text color */
 }
 
@@ -625,6 +667,10 @@ input[type="checkbox"] {
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600;
   transition: background-color 0.3s;
 }
 
@@ -653,24 +699,24 @@ input[type="checkbox"] {
 }
 
 
-/* Excluded Hours */
+/* Excluded Hours Radio Button Styling */
 input.radiobutton[type="checkbox"] {
   appearance: none;
   width: 20px;
   height: 20px;
-  background-color: #444;
-  border: 2px solid #ff6f61;
-  border-radius: 50%;
-  cursor: pointer;
+  background-color:  #ffffff; /* Dark grey for the background */
+  border: 2px solid #007bff; /* Light red border */
+  border-radius: 50%; /* Circular shape */
+  cursor: pointer; /* Pointer cursor */
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 input.radiobutton[type="checkbox"]:checked {
-  background-color: #ff6f61;
+  background-color:  #007bff; /* Red background when checked */
 }
 
 input.radiobutton[type="checkbox"]:hover {
-  border-color: #ff8a50;
+  border-color: #2bd8ff; /* Lighter red on hover */
 }
 
 /* Excluded Hours Table */
@@ -684,104 +730,105 @@ input.radiobutton[type="checkbox"]:hover {
   overflow: hidden; /* Ensure rounded corners are visible */
 }
 
-.ExcludedHours th, .ExcludedHours td {
-  padding: 15px; /* Padding for table cells */
-  text-align: left; /* Align text to the left */
-  border-bottom: 1px solid #e0e0e0; /* Light grey border for rows */
+
+/* Table Header (thead) with Gradient */
+.ExcludedHours thead {
+  background: linear-gradient(195deg, #49a3f1, #1A73E8); /* Gradient for header */;
 }
 
+
+/* Table Header (thead) with Gradient */
 .ExcludedHours th {
-  background: linear-gradient(195deg, #49a3f1, #1A73E8);
-  color: #ffffff; /* Dark text for contrast */
-  font-weight: bold; /* Bold text for header */
+  color: #ffffff; /* White text for contrast */
+  padding: 15px;
+  text-align: left;
+  font-weight: bold;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-.ExcludedHours tr:hover {
-  background-color: #f1f1f1; /* Light hover effect for rows */
+/* Table Rows */
+.ExcludedHours td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0; /* Light grey border for rows */
+  color: #444; /* Dark grey text color */
 }
 
-/* Checkbox styles */
+/* General Checkbox Styles */
 input[type="checkbox"] {
   appearance: none;
   width: 20px;
   height: 20px;
-  background-color: #f8f9fa; /* Light background */
-  border: 2px solid #007bff; /* Primary color for border */
+  background-color: #f8f9fa; /* Light grey background */
+  border: 2px solid #007bff; /* Primary blue border */
   border-radius: 5px;
-  position: relative;
   cursor: pointer;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Radiobutton styles */
-input.radiobutton[type="checkbox"] {
-  appearance: none; /* Remove default checkbox appearance */
-  width: 20px; /* Width for custom checkbox */
-  height: 20px; /* Height for custom checkbox */
-  background-color: #fff; /* White background */
-  border: 2px solid #007bff; /* Blue border */
-  border-radius: 50%; /* Circular shape */
-  cursor: pointer; /* Pointer cursor on hover */
-  transition: background-color 0.3s ease, border-color 0.3s ease; /* Transition for hover and check */
+input[type="checkbox"]:checked {
+  background-color: #007bff; /* Blue background when checked */
 }
 
-input.radiobutton[type="checkbox"]:checked {
-  background-color: #007bff; /* Blue when checked */
-}
-
-input.radiobutton[type="checkbox"]:hover {
+/* Hover effect for checkboxes */
+input[type="checkbox"]:hover {
   border-color: #0056b3; /* Darker blue on hover */
 }
 
-/* Popup styles */
+/* Popup Container */
 .popup-container {
-  position: fixed; /* Cover the entire screen */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9); /* White with slight transparency */
-  display: flex; /* Flexbox for centering */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  z-index: 1000; /* On top of other elements */
+  background-color: rgba(255, 255, 255, 0.9); /* Slight transparency */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* On top of everything */
 }
 
-/* Popup content */
+/* Popup Content */
 .popup-content {
-  background-color: #fff; /* White background for popup */
-  border-radius: 12px; /* Rounded corners */
-  padding: 20px; /* Padding inside the popup */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-  max-width: 500px; /* Max width for popup */
-  width: 90%; /* Responsive width */
-  color: #333; /* Dark text color */
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  width: 90%;
+  color: #333;
 }
 
-/* Close button */
+/* Close Button Styling */
 .close-btn {
-  background-color: #007bff; /* Primary button color */
-  color: #fff; /* Text color */
-  border: none; /* Remove border */
-  padding: 10px 15px; /* Padding for button */
-  border-radius: 5px; /* Rounded corners */
-  cursor: pointer; /* Pointer cursor */
-  transition: background-color 0.3s ease; /* Transition for hover effect */
+  background-color: #007bff; /* Primary blue */
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-/* Close button hover */
+/* Close Button Hover Effect */
 .close-btn:hover {
   background-color: #0056b3; /* Darker blue on hover */
 }
 
-/* Optional: Add responsiveness */
+/* Responsive Table Styling */
 @media (max-width: 768px) {
   .ExcludedHours th, .ExcludedHours td {
-    padding: 10px; /* Reduce padding on smaller screens */
+    padding: 10px; /* Reduced padding for smaller screens */
   }
 
   .popup-content {
-    padding: 15px; /* Reduce padding in the popup */
+    padding: 15px; /* Reduced padding in the popup */
   }
 }
+
 }

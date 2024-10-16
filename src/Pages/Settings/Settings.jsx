@@ -172,32 +172,31 @@ const handleSave = () => {
             <div className="settings-container">
                 {/* Conditionally render the Save button or a custom message */}
                 <div className="settings-header">
-                    {showSaveButton &&<button className="save-btn" onClick={handleSave}>Save</button>}
-            
-                    {showScanTypesButton && (
-                        <div className="user-actions">
-                            <button className="save-btn" onClick={handleSave}>Save</button> 
-                            <button className="user-btn" style={{ marginLeft: '5px' }} onClick={handleAddScanType}>New</button>
-                            <button className="user-btn" disabled={!isScanTypeSelected} onClick={handleDeleteOpenPopup}> Delete Selected</button>
-                        </div>
-                    )}
+  {showSaveButton && (
+    <button className="save-btn" onClick={handleSave}>Save</button>
+  )}
 
-                    {showExcluedHoursButton && (
-                        <div className="user-actions">
-                            <button className="user-btn" style={{ marginLeft: '5px' }} onClick={handleCreateExcludedProfile}>Create Excluded Hours Profile</button>
-                            <button className="user-btn" disabled={!isSelectedExcludedHours} onClick={handleSaveExcludedHours}>Save Excluded Hours</button>
-                            
-                            <button className="user-btn" disabled={selectedExcludedHours.length === 0} onClick={handleDeleteExcludedHours}>
-                                Delete Selected
-                            </button>
-                        </div>
-                    )}
+  {showScanTypesButton && (
+    <div className="user-actions">
+      <button className="save-btn" onClick={handleSave}>Save</button> 
+      <button className="user-btn" onClick={handleAddScanType}>New</button>
+      <button className="user-btn" disabled={!isScanTypeSelected} onClick={handleDeleteOpenPopup}>Delete Selected</button>
+    </div>
+  )}
 
-                    
-                    {!showSaveButton && !showScanTypesButton && !showExcluedHoursButton &&(
-                        <p className="header-message">{`You are on the ${selectedTab} tab`}</p>  // Custom message for other tabs
-                    )}
-                </div>
+  {showExcluedHoursButton && (
+    <div className="user-actions">
+      <button className="user-btn" onClick={handleCreateExcludedProfile}>Create Excluded Hours Profile</button>
+      <button className="user-btn" disabled={!isSelectedExcludedHours} onClick={handleSaveExcludedHours}>Save Excluded Hours</button>
+      <button className="user-btn" disabled={selectedExcludedHours.length === 0} onClick={handleDeleteExcludedHours}>Delete Selected</button>
+    </div>
+  )}
+
+  {!showSaveButton && !showScanTypesButton && !showExcluedHoursButton && (
+    <p className="header-message">{`You are on the ${selectedTab} tab`}</p>
+  )}
+</div>
+
 
                 <div className="tabs">
                     {['Product Updates', 'Notification Settings', 'Scan Types', 'Excluded Hours'].map((tab) => (
@@ -297,7 +296,7 @@ const handleSave = () => {
 
                     {selectedTab === 'Scan Types' && (
                         <div className='scan-type-part'>
-                            <table className="scan-types-table">
+                              <table className="scan-types-table">
                             <thead>
                                 <tr>
                                     <th>Select</th>
@@ -489,6 +488,10 @@ const handleSave = () => {
                     </div>
                 )}
 
+
+                <footer className="footer">
+                    <p>© 2024 Infoziant</p>
+                </footer>
             </div>
         </div>
     );

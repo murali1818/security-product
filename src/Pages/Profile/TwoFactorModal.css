@@ -1,0 +1,221 @@
+.twostepverification{
+    /* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Modal Container */
+  .modal-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    width: 400px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Modal Title */
+  .modal-title {
+    font-size: 22px;
+    color: #1C51A3;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+  }
+  
+  /* Input Group */
+  .modal-input-group {
+    margin: 15px 0;
+    text-align: left;
+  }
+  
+  .modal-input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .modal-input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* QR Code Section */
+  .qr-code-section {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .qr-code {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 150px;
+    height: 150px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .qr-code-section p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  /* Buttons */
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .enable-btn {
+    background-color: #1C51A3;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .enable-btn:hover {
+    background-color: #163d7f;
+  }
+  
+  .cancel-btn {
+    background-color: #e6e6e6;
+    color: #555;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #ccc;
+  }
+
+  /* Success Notification */
+.success-notification {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+  }
+  
+  /* Modal Overlay */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* Modal Container */
+  .modal-container {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    width: 400px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Input Group */
+  .modal-input-group {
+    margin: 15px 0;
+    text-align: left;
+  }
+  
+  .modal-input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .modal-input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  /* QR Code Section */
+  .qr-code-section {
+    margin: 20px 0;
+    text-align: center;
+  }
+  
+  .qr-code {
+    display: block;
+    margin: 0 auto 15px auto;
+    width: 150px;
+    height: 150px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  /* Buttons */
+  .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .enable-btn {
+    background-color: #1C51A3;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .enable-btn:hover {
+    background-color: #163d7f;
+  }
+  
+  .cancel-btn {
+    background-color: #e6e6e6;
+    color: #555;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #ccc;
+  }
+    
+}
