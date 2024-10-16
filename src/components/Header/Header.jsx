@@ -30,7 +30,7 @@ function Header() {
                     <FaBell /> 
                 </NavLink>
                 <NavLink 
-                    to="/logout" 
+                    to="/" 
                     activeClassName="active"
                     className="menu-item closed"
                 >
