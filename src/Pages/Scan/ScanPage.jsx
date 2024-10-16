@@ -1,180 +1,31 @@
 import React, { useState } from 'react';
 import './ScanPage.css';
+import { Link } from 'react-router-dom';
+
 
 
 
 const ScanPage = () => {
   const [selectedTargets, setSelectedTargets] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+  const [formType, setFormType] = useState(''); 
+  const [reportType, setReportType] = useState(""); // To store the selected report type
 
 
   const data = [
     {
       id: 1,
-      target: 'https://www.example.com',
+      target: 'http://testphp.vulnweb.com/',
       scanType: 'Full Scan',
-      schedule: 'lastRun Sep 30, 2024 5:12:33 PM',
-      status: 'Completed',
-      vulnerabilities: {
-        critical: 2,
-        high: 5,
-        medium: 0,
-        low: 0,
-        info: 3
-      }
-    },
-    {
-      id: 2,
-      target: 'https://www.database.com',
-      scanType: 'High Risk Vulnerabilities',
-      schedule: 'lastRun Sep 30, 2024 6:18:45 PM',
-      status: 'Failed',
-      vulnerabilities: {
-        critical: 0,
-        high: 0,
-        medium: 2,
-        low: 0,
-        info: 1
-      }
-    },
-    {
-      id: 3,
-      target: 'https://www.mailserver.com',
-      scanType: 'Cross-site Scripting Vulnerabilities',
-      schedule: 'lastRun Oct 1, 2024 7:18:24 PM',
-      status: 'Completed',
-      vulnerabilities: {
-        critical: 1,
-        high: 3,
-        medium: 0,
-        low: 0,
-        info: 2
-      }
-    },
-    {
-      id: 4,
-      target: 'https://www.apiserver.com',
-      scanType: 'SQL Injection Vulnerabilities',
-      schedule: 'lastRun Oct 1, 2024 8:00:00 PM',
-      status: 'Failed',
-      vulnerabilities: {
-        critical: 0,
-        high: 0,
-        medium: 0,
-        low: 1,
-        info: 0
-      }
-    },
-    {
-      id: 5,
-      target: 'https://www.analytics.com',
-      scanType: 'Weak Passwords',
-      schedule: 'lastRun Oct 2, 2024 9:12:12 AM',
-      status: 'Completed',
-      vulnerabilities: {
-        critical: 0,
-        high: 0,
-        medium: 4,
-        low: 0,
-        info: 1
-      }
-    },
-    {
-      id: 6,
-      target: 'https://www.cloudstorage.com',
-      scanType: 'Crawl Only',
-      schedule: 'lastRun Oct 2, 2024 10:45:09 AM',
-      status: 'Completed',
-      vulnerabilities: {
-        critical: 3,
-        high: 6,
-        medium: 0,
-        low: 0,
-        info: 0
-      }
-    },
-    {
-      id: 7,
-      target: 'https://www.cdnserver.com',
-      scanType: 'Full Scan',
-      schedule: 'lastRun Oct 2, 2024 12:32:44 PM',
-      status: 'Failed',
-      vulnerabilities: {
-        critical: 0,
-        high: 0,
-        medium: 7,
-        low: 0,
-        info: 3
-      }
-    },
-    {
-      id: 8,
-      target: 'https://www.filetransfer.com',
-      scanType: 'High Risk Vulnerabilities',
-      schedule: 'lastRun Oct 3, 2024 1:45:22 PM',
-      status: 'Completed',
-      vulnerabilities: {
-        critical: 0,
-        high: 0,
-        medium: 3,
-        low: 0,
-        info: 2
-      }
-    },
-    {
-      id: 9,
-      target: 'https://www.paymentgateway.com',
-      scanType: 'Cross-site Scripting Vulnerabilities',
-      schedule: 'lastRun Oct 3, 2024 2:34:11 PM',
+      schedule: 'lastRun Oct 1, 2024 8:30:35 PM',
       status: 'Completed',
       vulnerabilities: {
         critical: 5,
-        high: 8,
-        medium: 0,
-        low: 0,
-        info: 0
-      }
-    },
-    {
-      id: 10,
-      target: 'https://www.vpnserver.com',
-      scanType: 'SQL Injection Vulnerabilities',
-      schedule: 'lastRun Oct 3, 2024 3:30:50 PM',
-      status: 'Failed',
-      vulnerabilities: {
-        critical: 0,
-        high: 0,
-        medium: 2,
-        low: 0,
-        info: 1
-      }
-    },
-    {
-      id: 11,
-      target: 'https://www.crmplatform.com',
-      scanType: 'Weak Passwords',
-      schedule: 'lastRun Oct 4, 2024 4:45:15 PM',
-      status: 'Completed',
-      vulnerabilities: {
-        critical: 0,
-        high: 0,
-        medium: 3,
-        low: 0,
-        info: 0
-      }
-    },
-    {
-      id: 12,
-      target: 'https://www.billingserver.com',
-      scanType: 'Crawl Only',
-      schedule: 'lastRun Oct 4, 2024 5:20:00 PM',
-      status: 'Completed',
-      vulnerabilities: {
-        critical: 2,
         high: 5,
-        medium: 0,
-        low: 0,
-        info: 0
+        medium: 5,
+        low: 5,
+        info: 5
       }
     }
   ];
@@ -196,7 +47,6 @@ const ScanPage = () => {
   };
   const handleGenerateReport = () => {
     if (selectedTargets.length > 0) {
-      alert(`Generating report for targets: ${selectedTargets.join(', ')}`);
       window.location.href = '/reports';
     }
   };
@@ -251,7 +101,10 @@ const ScanPage = () => {
           <button
             className={`btn btn-generate-report ${selectedTargets.length === 0 ? 'disabled' : ''}`}
             disabled={selectedTargets.length === 0}
-            onClick={handleGenerateReport}
+            onClick={() => {
+              setShowPopup(true);  // Show the popup
+              setFormType('report');  // Set the form type to 'report'
+          }}
           >
             <i className="fas fa-file-alt"></i> Generate Report
           </button>
@@ -302,38 +155,80 @@ const ScanPage = () => {
                 </td>
 
                 <td className='vul'>
-                  {item.vulnerabilities.critical > -1 && (
-                    <span className="vulnerability-item vulnerability-critical">
-                      {item.vulnerabilities.critical}
-                    </span>
-                  )}
-                  {item.vulnerabilities.high > -1 && (
-                    <span className="vulnerability-item vulnerability-high">
-                      {item.vulnerabilities.high}
-                    </span>
-                  )}
-                  {item.vulnerabilities.medium > -1 && (
-                    <span className="vulnerability-item vulnerability-medium">
-                      {item.vulnerabilities.medium}
-                    </span>
-                  )}
-                  {item.vulnerabilities.low > -1 && (
-                    <span className="vulnerability-item vulnerability-low">
-                      {item.vulnerabilities.low}
-                    </span>
-                  )}
-                  {item.vulnerabilities.info > -1 && (
-                    <span className="vulnerability-item vulnerability-info">
-                      {item.vulnerabilities.info}
-                    </span>
-                  )}
-                </td>
+  {item.vulnerabilities.critical > -1 && (
+    <Link to={`/vulnerabilities`} className="vulnerability-item vulnerability-critical">
+      {item.vulnerabilities.critical}
+    </Link>
+  )}
+  {item.vulnerabilities.high > -1 && (
+    <Link to={`/vulnerabilities`} className="vulnerability-item vulnerability-high">
+      {item.vulnerabilities.high}
+    </Link>
+  )}
+  {item.vulnerabilities.medium > -1 && (
+    <Link to={`/vulnerabilities`} className="vulnerability-item vulnerability-medium">
+      {item.vulnerabilities.medium}
+    </Link>
+  )}
+  {item.vulnerabilities.low > -1 && (
+    <Link to={`/vulnerabilities`} className="vulnerability-item vulnerability-low">
+      {item.vulnerabilities.low}
+    </Link>
+  )}
+  {item.vulnerabilities.info > -1 && (
+    <Link to={`/vulnerabilities`} className="vulnerability-item vulnerability-info">
+      {item.vulnerabilities.info}
+    </Link>
+  )}
+</td>
 
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      {showPopup && (
+                <div className="popup-overlay" onClick={() => setShowPopup(false)}>
+                    <div className="popup" onClick={(e) => e.stopPropagation()}>
+                        <h2>
+                            Report
+                        </h2>
+
+                        {formType === 'report' && (
+                            <div>
+                                <p>Select the report Template:</p>
+                                <select
+                                    className='popup-dropdown'
+                                    value={reportType}
+                                    onChange={(e) => setReportType(e.target.value)}
+                                >
+                                    <option value="" disabled>Standard Reports</option>
+                                    <option value="Developer">Developer</option>
+                                    <option value="Executive Summary">Executive Summary</option>
+                                    <option value="" disabled>Compliance Reports</option>
+                                    <option value="Quick">Quick</option>
+                                    <option value="CWE 2011">CWE 2011</option>
+                                    <option value="HIPAA">HIPAA</option>
+                                    <option value="ISO 27001">ISO 27001</option>
+                                    <option value="NIST SP800 53">NIST SP800 53</option>
+                                    <option value="OWASP Top 10 2013">OWASP Top 10 2013</option>
+                                    <option value="OWASP Top 10 2017">OWASP Top 10 2017</option>
+                                    <option value="PCI DSS 3.2">PCI DSS 3.2</option>
+                                    <option value="Sarbanes Oxley">Sarbanes Oxley</option>
+                                    <option value="STIG DISA">STIG DISA</option>
+                                    <option value="WASC Threat Classification">WASC Threat Classification</option>
+                                </select>
+                                <div className='popup-buttons'>
+                                    <button className='btn-submit' onClick={handleGenerateReport}>Generate</button>
+                                    <button className='btn-cancel' onClick={() => setShowPopup(false)}>Cancel</button>
+
+                                </div>
+                            </div>
+                        )}
+
+                    </div>
+                </div>
+            )}
     </div>
 
   );

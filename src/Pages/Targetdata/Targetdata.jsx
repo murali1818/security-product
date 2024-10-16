@@ -4,12 +4,31 @@ import { useNavigate } from 'react-router-dom';
 
 const Targetdata = () => {
     const userAgents = [
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36",
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:87.0) Gecko/20100101 Firefox/87.0",
-        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36 Edg/89.0.774.57",
-        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0.1 Safari/605.1.15",
-        "Mozilla/5.0 (Linux; Android 10; SM-G950F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.72 Mobile Safari/537.36"
+        "Chrome/118.0.5993.70",
+        "Chrome/117.0.5938.88",
+        "Chrome/116.0.5845.111",
+        
+        "Firefox/118.0",
+        "Firefox/117.0",
+        "Firefox/116.0",
+        
+        "Edge/118.0.2088.61",
+        "Edge/117.0.2045.43",
+        "Edge/116.0.1938.62",
+        
+        "Safari/16.6",
+        "Safari/16.5",
+        "Safari/15.6",
+    
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:118.0) Gecko/20100101 Firefox/118.0",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:117.0) Gecko/20100101 Firefox/117.0",
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:116.0) Gecko/20100101 Firefox/116.0",
+        
+        "Opera/102.0.4880.56",
+        "Opera/101.0.4843.25",
+        "Opera/100.0.4815.76"
     ];
+    
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState('general');
     const [businessCriticality, setBusinessCriticality] = useState('Normal');
@@ -18,7 +37,7 @@ const Targetdata = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [continuousScan, setContinuousScan] = useState('');
-    const [description, setDescription] = useState('Enter descrption');
+    const [description, setDescription] = useState('Testing');
     const [selectedUserAgent, setSelectedUserAgent] = useState(userAgents[0]);
     const [caseSensitivePaths, setCaseSensitivePaths] = useState('Yes');
     const [limitCrawl, setLimitCrawl] = useState(false);
@@ -55,7 +74,7 @@ const Targetdata = () => {
 
         // Logic to start scan or handle selected values
         setShowPopup(false);
-        window.location.href = '/scan/2';
+        window.location.href = '/scan/1';
     };
 
     const handleHostNameChange = (e) => {
@@ -177,7 +196,7 @@ const Targetdata = () => {
                     {activeTab === 'general' && (
                         <div className="general-info-container">
                             <h3>General Information</h3>
-                            <p>Address: <a href="http://vulnweb.com" target="_blank" rel="noopener noreferrer">http://vulnweb.com</a></p>
+                            <p>Address: <a href="http://testphp.vulnweb.com/" target="_blank" rel="noopener noreferrer">http://testphp.vulnweb.com/</a></p>
 
                             <label className="input-label">
                                 Description:

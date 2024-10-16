@@ -1,31 +1,41 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import WebsiteScanner from '../../components/WebsiteScanner/WebsiteScanner'
 import './Scan.css';
+
 
 const Scan = () => {
   const { id } = useParams();
   const [scanData, setScanData] = useState(null);
   const [activeTab, setActiveTab] = useState('scanInfo');
+  const [showScanner, setShowScanner] = useState(true);
   // Step 2: Define click handlers
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowScanner(false);
+    }, 5000); // 4000 milliseconds = 4 seconds
+
+    return () => clearTimeout(timer); // cleanup timer on unmount
+  }, []);
 
   // Static data for the scans
   const scanDetails = {
     1: {
-      threatLevel: 'LOW',
+      threatLevel: 'MEDIUM',
       threatDescription: 'One or more low-severity type vulnerabilities have been discovered by the scanner.',
       duration: '57s',
       requests: 2112,
       responseTime: '135ms',
       locations: 39,
-      progress: 30,
-      target: 'www.bing.com',
+      progress: 70,
+      target: 'http://testphp.vulnweb.com/',
       startTime: 'Oct 1, 2024 7:58:58 AM',
       targetInfo: {
-        address: 'www.bing.com',
+        address: 'http://testphp.vulnweb.com/',
         server: 'Apache/2.4.41 (Ubuntu)',
         operatingSystem: 'Linux',
         technologies: 'PHP 7.4.3, MySQL 5.7',
@@ -38,12 +48,33 @@ const Scan = () => {
         { id: 4, message: 'Insecure SSL/TLS configuration', time: 'Oct 1, 2024 8:22:55 AM' }
       ],
       vulnerabilities: [
-        { severity: 'HIGH', message: 'CORS (Cross-Origin Resource Sharing) origin validation error', url: 'https://www.bing.com/ck', parameter: 'ck' },
-        { severity: 'MEDIUM', message: 'Directory traversal', url: 'https://www.bing.com/search', parameter: 'q' },
-        { severity: 'LOW', message: 'Cookie(s) without HttpOnly flag set', url: 'https://www.bing.com', parameter: null },
-        { severity: 'LOW', message: 'Cookie(s) without Secure flag set', url: 'https://www.bing.com/', parameter: null },
-        { severity: 'LOW', message: 'Content type is not specified', url: 'https://www.bing.com/aclk', parameter: null }
+        { severity: 'CRITICAL', message: 'Stored Cross Site Scripting', url: 'http://testphp.vulnweb.com/xss', parameter: null },
+        { severity: 'CRITICAL', message: 'Account Take Over Via Bypassing Old Password Functionality', url: 'http://testphp.vulnweb.com/account', parameter: null },
+        { severity: 'CRITICAL', message: 'Insecure Direct Object Reference (IDOR)', url: 'http://testphp.vulnweb.com/id', parameter: 'id' },
+        { severity: 'CRITICAL', message: 'Sensitive Information Disclosed Through Insecure Object References', url: 'http://testphp.vulnweb.com/info', parameter: null },
+        { severity: 'CRITICAL', message: 'Account Takeover In Staff Portal Through Default Password', url: 'http://testphp.vulnweb.com/staff', parameter: null },
+        { severity: 'HIGH', message: 'Broken Access Control', url: 'http://testphp.vulnweb.com/access', parameter: null },
+        { severity: 'HIGH', message: 'Improper OTP Validation', url: 'http://testphp.vulnweb.com/otp', parameter: null },
+        { severity: 'HIGH', message: 'Cross Site Request Forgery (CSRF)', url: 'http://testphp.vulnweb.com/csrf', parameter: null },
+        { severity: 'HIGH', message: 'Session Hijacking', url: 'http://testphp.vulnweb.com/session-hijack', parameter: null },
+        { severity: 'HIGH', message: 'Stored Html Injection', url: 'http://testphp.vulnweb.com/html-injection', parameter: null },
+        { severity: 'MEDIUM', message: 'Weak Logout Mechanism', url: 'http://testphp.vulnweb.com/logout', parameter: null },
+        { severity: 'MEDIUM', message: 'Weak Lockout Mechanism', url: 'http://testphp.vulnweb.com/lockout', parameter: null },
+        { severity: 'MEDIUM', message: 'CSS Injection', url: 'http://testphp.vulnweb.com/css', parameter: null },
+        { severity: 'MEDIUM', message: 'Sensitive Session ID In URL', url: 'http://testphp.vulnweb.com/session', parameter: 'session_id' },
+        { severity: 'MEDIUM', message: 'Verb Tampering', url: 'http://testphp.vulnweb.com/verb', parameter: null },
+        { severity: 'LOW', message: 'Clickjacking Vulnerability', url: 'http://testphp.vulnweb.com/clickjack', parameter: null },
+        { severity: 'LOW', message: 'Cookie Without Same Site', url: 'http://testphp.vulnweb.com/cookie', parameter: null },
+        { severity: 'LOW', message: 'Unrestricted File Upload', url: 'http://testphp.vulnweb.com/upload', parameter: null },
+        { severity: 'LOW', message: 'Strict-Transport-Security Header (HSTS) Is Missing', url: 'http://testphp.vulnweb.com/hsts', parameter: null },
+        { severity: 'LOW', message: 'Server Banner Disclosure', url: 'http://testphp.vulnweb.com/banner', parameter: null },
+        { severity: 'INFO', message: 'Improper Attendance Functionality', url: 'http://testphp.vulnweb.com/attendance', parameter: null },
+        { severity: 'INFO', message: 'Default Server Page Exposed', url: 'http://testphp.vulnweb.com/default', parameter: null },
+        { severity: 'INFO', message: 'Login Page Is Vulnerable To Brute Force Attack', url: 'http://testphp.vulnweb.com/login', parameter: null },
+        { severity: 'INFO', message: 'Missing Captcha Implementation', url: 'http://testphp.vulnweb.com/captcha', parameter: null },
+        { severity: 'INFO', message: 'Missing Change Password Functionality (Staff Portal)', url: 'http://testphp.vulnweb.com/change-password', parameter: null }
       ]
+
     },
     2: {
       threatLevel: 'HIGH',
@@ -122,16 +153,21 @@ const Scan = () => {
 
   const getSeverityIcon = (severity) => {
     switch (severity) {
+      case 'CRITICAL':
+        return <i className="fas fa-skull-crossbones" style={{ color: 'darkred' }}></i>; // Skull icon for Critical
       case 'HIGH':
-        return '❗'; // Or use an icon component if available
+        return <i className="fas fa-exclamation-triangle" style={{ color: 'red' }}></i>; // Danger icon for High
       case 'MEDIUM':
-        return '⚠️';
+        return <i className="fas fa-exclamation-circle" style={{ color: 'orange' }}></i>; // Warning icon for Medium
       case 'LOW':
-        return 'ℹ️';
+        return <i className="fas fa-info-circle" style={{ color: 'green' }}></i>;
+      case 'INFO':
+        return <i className="fas fa-info-circle" style={{ color: 'blue' }}></i>; // Info icon for Low/Weak
       default:
-        return 'ℹ️';
+        return null; // Return null for unknown severity
     }
   };
+
 
 
   // Fetch the scan data when the component mounts (using static data)
@@ -146,8 +182,10 @@ const Scan = () => {
 
   return (
     <div className="scan-page">
-      
-      <div className="button-container">
+      {showScanner && <WebsiteScanner />}
+      {!showScanner && (
+        <>
+        <div className="button-container">
         <div className="button-group">
           <button className="btn-back">
             <i className="fas fa-arrow-left"></i> Back
@@ -159,8 +197,8 @@ const Scan = () => {
             <i className="fas fa-pause-circle"></i> Pause Scan
           </button>
         </div>
-      </div>
-      <div className='scan-container-tab'>
+        </div>
+        <div className='scan-container-tab'>
         <div className='tab-container'>
           <button onClick={() => handleTabClick('scanInfo')} className={activeTab === 'scanInfo' ? 'active-tab' : ''}>Scan Stats & Info</button>
           <button onClick={() => handleTabClick('vulnerabilities')} className={activeTab === 'vulnerabilities' ? 'active-tab' : ''}>Vulnerabilities</button>
@@ -225,7 +263,7 @@ const Scan = () => {
 
           {activeTab === 'vulnerabilities' && (
             <div className="vulnerabilities-section">
-             
+
               <div className="vulnerabilities-table-container">
                 <table className="vulnerabilities-table">
                   <thead>
@@ -241,9 +279,7 @@ const Scan = () => {
                     {scanData.vulnerabilities.map((vulnerability, index) => (
                       <tr key={index}>
                         <td>
-                          <span className={`severity-icon ${vulnerability.severity.toLowerCase()}`}>
-                            {getSeverityIcon(vulnerability.severity)}
-                          </span>
+                          {getSeverityIcon(vulnerability.severity)}{vulnerability.severity.toLowerCase()} {/* Display severity icon */}
                         </td>
                         <td>{vulnerability.message}</td>
                         <td>{vulnerability.url}</td>
@@ -262,7 +298,7 @@ const Scan = () => {
             <div className="site-structure-container">
               <div className="site-structure-sidebar">
                 <ul className="folder-structure">
-                  <li><a href="#1">https://www.bing.com/</a>
+                  <li><a href="#1">http://testphp.vulnweb.com/</a>
                     <ul>
                       <li><a href="#11">account</a></li>
                       <li><a href="#1">api</a></li>
@@ -502,7 +538,9 @@ const Scan = () => {
 
           )}
         </div>
-      </div>
+        </div>
+        </>
+      )};
     </div>
   );
 };

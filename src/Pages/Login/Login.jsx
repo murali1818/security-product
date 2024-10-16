@@ -11,7 +11,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     // Replace with your login logic
-    if (email === 'test@example.com' && password === 'password') {
+    if (email === '123' && password === '123') {
       navigate('/dashboard'); // Navigate to dashboard after login
     } else {
       alert('Invalid login details');
@@ -24,13 +24,13 @@ const Login = () => {
         <div className="logo-container">
           <img src={logo} alt="Infoziant Logo" className="logo" />
         </div>
-        <h2>Login</h2>
+        <h2>LOGIN</h2>
        
         <form onSubmit={handleLogin}>
           <div className="input-field">
             <input
-              type="email"
-              placeholder="Email"
+              type="text"
+              placeholder="Id"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required

@@ -133,8 +133,8 @@
 }
 
 .scan-page .circle {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     margin-top: 20px;
     border-radius: 50%;
     display: flex;
@@ -151,7 +151,8 @@
 }
 
 .scan-page .circle.medium {
-  border: 20px solid yellow;
+  border: 20px solid #FFA726;
+  
 }
 
 .scan-page .circle.high {

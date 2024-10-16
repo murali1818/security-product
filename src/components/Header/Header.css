@@ -9,7 +9,7 @@
     top: 15px;
     left: 15px;
     right: 15px;
-    color: #344767; /* Text color for the header */
+    color:  #42424a; /* Text color for the header */
     border-radius: 10px;
     z-index: 2; /* Ensures header stays above other content */
     box-shadow: 0px 1px 10px #42424a48; /* Soft shadow for a modern look */
@@ -47,12 +47,12 @@
 .sidebar-bottom a svg {
     padding: 10px;
     font-size: 20px;
-    color: #344767; /* Icon color */
+    color: #42424a; /* Icon color */
     transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and hover effects */
 }
 
 /* Sidebar Icons on Hover */
 .sidebar-bottom .menu-item:hover svg {
-    color: #000; /* Darken icon on hover */
+    color: #191919; /* Darken icon on hover */
     transform: scale(1.3); /* Slight scaling for emphasis */
 }
