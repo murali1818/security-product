@@ -1,6 +1,9 @@
   /* General page styling */
 .scan-page {
   width: 100%;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
   height: 80vh;
     border-radius: 0px; 
     flex-grow: 1;
@@ -81,6 +84,7 @@
 }
 
 .scan-page .scan-container-tab{
+
   border-radius: 10px;
 }
 

@@ -69,6 +69,7 @@
   top: 0;
   z-index: 1;
   position: sticky;
+  text-align: center;
 
 }
 
@@ -78,7 +79,7 @@
 .scan-container .scan-table th { 
   color: #eeeeee;
   padding: 15px 20px;
-  text-align: left;
+  text-align: center;
   font-weight: bold;
   position: sticky;
   top: 0;
@@ -91,7 +92,7 @@
 .scan-container .scan-table td {
   padding: 12px 15px;
   border-bottom: 1px solid rgba(111, 111, 111, 0.269);
-  text-align: left;
+  text-align: center;
   background-color: #ffffff;
   font-weight: 600;
   color: #181818;
@@ -286,6 +287,70 @@
     background-color: #45a049;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
   }  
+/* View button */
+.btn-view {
+  background-color: #28a745; /* Green */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0px 10px;
+}
+
+.scan-container .btn {
+  border: none;
+ 
+  font-size: 14px;
+  color: white;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-view .fas {
+  margin-right: 5px;
+}
+
+.btn-view:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Delete button */
+.btn-delete {
+  background-color: #dc3545; /* Red */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-delete .fas {
+  margin-right: 5px;
+}
+
+.btn-delete:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+/* Link inside buttons */
+.btn-view .view-link,
+.btn-delete {
+  text-decoration: none;
+  color: white;
+}
+
 
   .scan-container .close{
     margin: 10px;
@@ -293,3 +358,16 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Subtle shadow for depth */
   }
 
+
+
+  .scanspageUrl{
+    color: #2600ff; /* Blue color like traditional links */
+  text-decoration: none;
+  cursor: pointer;
+  }
+
+  .scanspageUrl:hover{
+    color: #0033d9;
+  }
+
+  

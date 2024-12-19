@@ -1,0 +1,86 @@
+/* Overall container for the page */
+.website-health-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.website-health-icon {
+  font-size: 2rem;
+  margin-right: 15px;
+}
+
+.website-health-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.website-health-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 280px;
+  margin-bottom: 20px;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.website-health-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.website-health-head {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.website-health-card-icon {
+  font-size: 1.5rem;
+  margin-right: 10px;
+  color: #888;
+}
+
+/* Specific styles for different icons */
+.website-health-card-icon-basic {
+  color: #ff6347; /* Tomato color for Basic Checks */
+}
+
+.website-health-card-icon-dns {
+  color: #1e90ff; /* Dodger Blue for DNS Checks */
+}
+
+.website-health-card-icon-performance {
+  color: #32cd32; /* LimeGreen for Performance */
+}
+
+.website-health-card-content p {
+  font-size: 14px;
+  margin: 5px 0;
+  color: #333; /* Ensure text is visible on white background */
+}
+
+.website-health-card-content p strong {
+  color: #333;
+}
+
+.website-health-card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #333;
+}
+
+.website-health-card-content {
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .website-health-container {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,69 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+.vulnerability-scanner-section {
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.scanner-title {
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-between;
+  color: #333;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.scan-message {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  margin: 0;
+  color: #333;
+  background-color:rgb(186, 233, 186);
+  padding: 0px 10px;
+  border-radius: 10px;
+  border: solid 1px green;
+}
+
+.scan-message-icon {
+  font-size: 1.3rem;
+  color: #28a745; /* Green for success */
+  margin-right: 10px;
+}
+
+.scanner-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 6px;
+}
+
+.scanner-url-box {
+  background-color: #eaeaea;
+  border-radius: 8px;
+  padding: 10px 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.scanner-url {
+  color: #0366d6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.scanner-icon {
+  font-size: 1rem;
+  color: #666;
+}
+
+
+
+
+

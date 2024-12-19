@@ -1,58 +1,131 @@
+/* Main Container */
 .web-scan-container {
-    max-width: 800px;
-    margin: 50px auto;
+    max-width: 700px;
+    margin: 40px auto;
     padding: 20px;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: center;
-    color: black;
-}
-
-.web-scan-container h1 {
-    color: #ff6f61;
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.web-scan-container h2 {
+    font-family: Arial, sans-serif;
+    background-color: #f9fafe;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title */
+  .web-scan-title {
+    font-size: 28px;
     color: #1a73e8;
-    font-size: 20px;
     margin-bottom: 20px;
-}
-
-.web-scan-target {
-    background-color: #e3f2fd;
-    padding: 15px;
-    border-radius: 5px;
-    margin: 20px 0;
-    font-size: 16px;
-}
-
-.web-scan-progress-bar {
+    font-weight: bold;
+  }
+  
+  /* Scanning Card */
+  .web-scan-progress-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 10px;
+  }
+  
+  /* Progress Bar */
+  .web-scan-progress-bar {
+    height: 10px;
     background-color: #e0e0e0;
     border-radius: 5px;
     overflow: hidden;
-    margin: 20px 0;
-    height: 20px;
-}
-
-.web-scan-progress {
+    margin: 20px auto;
+    width: 90%;
+  }
+  
+  .web-scan-progress {
     height: 100%;
-    background-image: linear-gradient(195deg, #49a3f1, #1A73E8);
-    transition: width 0.5s;
-}
-
-.web-scan-info {
-    background-color: #e3f2fd;
-    padding: 15px;
-    border-radius: 5px;
-    margin-top: 20px;
-    text-align: left;
-    font-size: 14px;
-}
-
-.web-scan-info h3 {
-    margin-top: 0;
+    background: linear-gradient(to right, #1a73e8, #007bff);
+    transition: width 0.5s ease;
+  }
+  
+  /* Progress Percentage */
+  .web-scan-percentage {
+    margin: 10px 0;
     font-size: 16px;
-}
+    color: #333;
+    font-weight: bold;
+  }
+  
+  /* Step Circles */
+  .web-scan-steps-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+  }
+  
+  .web-scan-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .circle-svg {
+    width: 60px;
+    height: 60px;
+    transform: rotate(-90deg);
+  }
+  
+  .circle-back {
+    stroke: #e6e6e6;
+  }
+  
+  .circle-front {
+    stroke-linecap: round;
+    transition: stroke-dasharray 25s ease;
+  }
+  
+  /* Step Text */
+  .web-scan-step p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 8px;
+  }
+  
+  .web-scan-step svg {
+    transform: rotate(-90deg);
+  }
+  
+  /* Highlighted Steps */
+  .web-scan-step:nth-child(1) .circle-front {
+    stroke: #28a745;
+  }
+  
+  .web-scan-step:nth-child(2) .circle-front {
+    stroke: #ffc107;
+  }
+  
+  .web-scan-step:nth-child(3) .circle-front {
+    stroke: #007bff;
+  }
+  
+  .web-scan-step:nth-child(4) .circle-front {
+    stroke: #6f42c1;
+  }
+
+
+  .web-scan-did-you-know {
+    background-color: #f0f9ff;
+    border-left: 5px solid #007bff;
+    margin: 20px 0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: #333;
+  }
+  
+  .did-you-know-heading {
+    font-weight: bold;
+    color: #0056b3;
+    margin: 0 0 5px;
+  }
+  
+  .did-you-know-content {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  

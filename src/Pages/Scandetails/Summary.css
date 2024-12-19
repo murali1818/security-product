@@ -1,0 +1,94 @@
+/* Summary.css */
+.summary-container {
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-leftSection {
+    flex: 1;
+    padding-right: 20px;
+    
+  }
+  .summary-leftSection,.summary-rightSection h3{
+    font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin-bottom: 20px;
+  }
+  
+  .summary-rightSection {
+    flex: 1;
+    border-left: 1px solid #ddd;
+    padding-left: 10px;
+    
+    
+  }
+  
+  .summary-progressBarContainer {
+    margin-bottom: 10px;
+  }
+  
+  .summary-progressBarBackground {
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .summary-progressBar {
+    height: 100%;
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+  }
+  
+  .summary-label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .summary-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .summary-card {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .summary-card-icon {
+    margin-right: 15px;
+    font-size: 20px;
+    color: #888;
+  }
+  
+  .summary-card-text {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .summary-card .value {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .summary-card:hover {
+    background-color: #f7f7f7;
+    border-color: #ccc;
+    cursor: pointer;
+  }
+  

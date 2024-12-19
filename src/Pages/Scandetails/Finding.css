@@ -1,0 +1,132 @@
+.findings-container {
+  display: block; /* Full-width layout */
+  padding: 20px;
+  
+ 
+}
+
+.finding-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px 30px; /* Add more padding for a spacious feel */
+  margin-bottom: 30px; /* Increase spacing between cards */
+  border-left: 6px solid;
+  
+  line-height: 1.5; /* Increase line spacing */
+  width: 90%;
+}
+
+.finding-card.low {
+  border-color: #4caf50; /* Green for low severity */
+}
+
+.finding-card.medium {
+  border-color: #ff9800; /* Orange for medium severity */
+}
+
+.finding-card.high {
+  border-color: #f44336; /* Red for high severity */
+}
+
+.finding-card.info {
+  border-color: #2196f3; /* Blue for info severity */
+}
+
+.finding-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px; /* Add space below the header */
+}
+
+.finding-header h3 {
+  font-size: 20px; /* Larger font size for titles */
+  margin: 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.severity {
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 12px;
+  color: #fff;
+}
+
+.finding-card.low .severity {
+  background-color: #4caf50;
+}
+
+.finding-card.medium .severity {
+  background-color: #ff9800;
+}
+
+.finding-card.high .severity {
+  background-color: #f44336;
+}
+
+.finding-card.info .severity {
+  background-color: #2196f3;
+}
+
+.finding-content {
+  margin-top: 15px; /* Add space above the content */
+}
+
+.finding-field {
+  margin-bottom: 12px; /* Space between fields */
+  display: flex; /* Ensures elements align horizontally */
+  align-items: flex-start; /* Aligns text properly */
+  gap: 10px; /* Adds space between the label and value */
+}
+
+.finding-field strong {
+  color: #555;
+  flex-shrink: 0; /* Prevents the label from shrinking */
+}
+
+.field-value {
+  color: black;
+  flex-grow: 1; /* Allows the value to take remaining space */
+  white-space: nowrap; /* Prevents wrapping of the value */
+  overflow: hidden; /* Hides overflowing content */
+  text-overflow: ellipsis; /* Adds ellipsis for overflowing content */
+}
+
+.finding-field p {
+  margin: 0;
+  padding: 0 10px; /* Add padding inside text fields */
+  color: #333; /* Darker text for readability */
+}
+
+.additional-text {
+  margin-top: 20px;
+  font-style: italic;
+  color: #666;
+  font-size: 14px;
+  border-top: 1px solid #e0e0e0; /* Add a separator above the text */
+  padding-top: 10px;
+}
+.description-section {
+  margin-top: 10px;
+  
+  font-size: 1rem;
+  color: #333;
+}
+
+.vulnerability-flag {
+  margin-left: 10px;
+  padding: 2px 6px;
+  background-color: red;
+  color: white;
+  font-size: 0.8rem;
+  border-radius: 4px;
+}
+
+.descrp-contain{
+  border-top: 1px solid #e0e0e0;
+
+}

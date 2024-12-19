@@ -4,9 +4,11 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Header from './components/Header/Header';
 import './App.css';
 import Rotuer from './Rotuer';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 function App() {
-    const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [isSidebarOpen, setSidebarOpen] = useState(true);
 
     const toggleSidebar = () => {
         setSidebarOpen(!isSidebarOpen);
