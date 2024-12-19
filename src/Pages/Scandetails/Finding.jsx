@@ -30,7 +30,7 @@ const FindingCard = ({ title, data, severity }) => {
   }
   const isVulnerable = 
   data?.vulnerable === true || 
-  data?.vulnerable === "Yes"
+  data?.vulnerable === "Yes"||
   Object.values(data?.cookies_data || {}).some(
     (cookie) => cookie?.vulnerable === true || cookie?.vulnerable === "Yes"
   );
