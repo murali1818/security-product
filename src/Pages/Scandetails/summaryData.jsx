@@ -14,8 +14,8 @@ const severityColors = {
 
 // Helper function to calculate counts
 const calculateSeverities = (summary) => {
-  const validSeverities = ["low", "medium", "info", "critical", "high"];
-  const severityCounts = { low: 0, medium: 0, info: 0, critical: 0, high: 0 };
+  const validSeverities = [ "critical", "high","medium","low","info"];
+  const severityCounts = {  critical: 0,high: 0 ,medium: 0,  low: 0, info: 0};
   let totalScans = 0;
 
   if (!summary || typeof summary !== "object") return { severityCounts, totalScans };

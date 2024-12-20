@@ -28,14 +28,17 @@ const FindingCard = ({ title, data, severity }) => {
   if (excludedTitles.includes(formatTitle(title))) {
     return null;
   }
+  //console.log(data.vulnerable,data);
   const isVulnerable = 
-  data?.vulnerable === true || 
-  data?.vulnerable === "Yes"||
-  Object.values(data?.cookies_data || {}).some(
-    (cookie) => cookie?.vulnerable === true || cookie?.vulnerable === "Yes"
-  );
+  data?.vulnerable === true ||
+  data?.Vulnerable === true || 
+  data?.Vulnerable === "Yes"||
+  data?.vulnerable === "Yes"
+  // Object.values(data?.cookies_data || {}).some(
+  //   (cookie) => cookie?.vulnerable === true || cookie?.vulnerable === "Yes"
+  // );
 
-console.log(isVulnerable); // Will return true if either condition is met.
+  console.log(isVulnerable,title,data); // Will return true if either condition is met.
 
   const descriptionDetails = description[title] || {};
 
@@ -83,7 +86,7 @@ console.log(isVulnerable); // Will return true if either condition is met.
       <p className="additional-text">{additionalText}</p>
     </div>
   ) : (
-    <p className="additional-text">No severity found</p>
+    <p className="additional-text">Nothing found</p>
   )
 }
 
