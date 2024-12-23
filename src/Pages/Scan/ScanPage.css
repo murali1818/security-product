@@ -304,7 +304,6 @@
 
 .scan-container .btn {
   border: none;
- 
   font-size: 14px;
   color: white;
   padding: 8px 12px;
@@ -342,6 +341,26 @@
 
 .btn-delete:hover {
   background-color: #c82333; /* Darker red on hover */
+}
+.btn-download {
+  background-color: #353ddc; /* Red */
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0px 10px;
+}
+.btn-download:hover {
+  background-color: #121ecc98; /* Darker red on hover */
+}
+
+.btn-delete .fas {
+  margin-right: 5px;
 }
 
 /* Link inside buttons */

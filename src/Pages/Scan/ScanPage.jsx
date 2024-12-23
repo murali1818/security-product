@@ -3,10 +3,13 @@ import axios from 'axios';
 import './ScanPage.css';
 import { Link } from 'react-router-dom';
 import { useUser } from '../../contexts/UserContext';
+const { handleDownload } = require('./download');
 
 const ScanPage = () => {
   const { user, loading } = useUser();
   const [targets, setTargets] = useState([]); // Holds fetched API data
+
+
 
   useEffect(() => {
     if (loading) return; // Avoid fetching if user context is still loading
@@ -15,11 +18,11 @@ const ScanPage = () => {
       axios
         .get(`https://securityapi-production-973d.up.railway.app/fuser?u=${user.$id}`)
         .then((response) => {
-          console.log('User targets fetched successfully:', response.data);
+          //console.log('User targets fetched successfully:', response.data);
           setTargets(response.data.data || []); // Ensure it falls back to an empty array
         })
         .catch((error) => {
-          console.error('Error fetching user targets:', error);
+          //console.error('Error fetching user targets:', error);
           alert('Failed to fetch targets. Please try again.');
         });
     }
@@ -42,6 +45,10 @@ const ScanPage = () => {
     }
   };
 
+   
+  
+
+
   if (loading) {
     return <div className="loading">Loading user data...</div>; // Display while loading
   }
@@ -55,7 +62,7 @@ const ScanPage = () => {
       {/* Table Container */}
       <div className="table-container">
         {targets.length === 0 ? (
-          <p className="no-data">No targets available for this user.</p>
+          <p>No targets available for this user.</p>
         ) : (
           <table className="scan-table">
             <thead>
@@ -64,7 +71,7 @@ const ScanPage = () => {
                 <th>Scan Duration</th>
                 <th>Last Scan</th>
                 <th>Action</th>
-                
+
               </tr>
             </thead>
             <tbody>
@@ -93,8 +100,15 @@ const ScanPage = () => {
                     >
                       <i className="fas fa-trash-alt"></i> Delete
                     </button>
+                    <button
+                      className="btn btn-download"
+                      onClick={() => handleDownload(user.$id, item.targetId)}
+                    >
+                      <i className="fas fa-download"></i> Download
+                    </button>
+
                   </td>
-                  
+
                 </tr>
               ))}
             </tbody>
