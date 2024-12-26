@@ -298,8 +298,7 @@
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  margin: 0px 10px;
+ 
 }
 
 .scan-container .btn {
@@ -332,7 +331,7 @@
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  
 }
 
 .btn-delete .fas {
@@ -343,7 +342,7 @@
   background-color: #c82333; /* Darker red on hover */
 }
 .btn-download {
-  background-color: #353ddc; /* Red */
+  background-color: #353ddc; 
   color: white;
   border: none;
   padding: 5px 10px;
@@ -352,11 +351,9 @@
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  margin: 0px 10px;
 }
 .btn-download:hover {
-  background-color: #121ecc98; /* Darker red on hover */
+  background-color: #121ecc98; 
 }
 
 .btn-delete .fas {

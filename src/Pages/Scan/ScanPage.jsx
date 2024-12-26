@@ -3,7 +3,9 @@ import axios from 'axios';
 import './ScanPage.css';
 import { Link } from 'react-router-dom';
 import { useUser } from '../../contexts/UserContext';
+import DownloadButton from './Downloadbutton';
 const { handleDownload } = require('./download');
+
 
 const ScanPage = () => {
   const { user, loading } = useUser();
@@ -45,8 +47,8 @@ const ScanPage = () => {
     }
   };
 
-   
-  
+
+
 
 
   if (loading) {
@@ -84,7 +86,7 @@ const ScanPage = () => {
                   </td>
                   <td>{item.time_taken} ms</td>
                   <td>{item.end_time}</td>
-                  <td>
+                  <td style={{ display: 'flex', justifyContent:'center', gap: '10px' }}>
                     {item.targetId ? (
                       <button className="btn btn-view">
                         <Link to={`/scandetail?u=${user.$id}&t=${item.targetId}`} className="view-link">
@@ -100,12 +102,17 @@ const ScanPage = () => {
                     >
                       <i className="fas fa-trash-alt"></i> Delete
                     </button>
-                    <button
+                    {/* <button
                       className="btn btn-download"
                       onClick={() => handleDownload(user.$id, item.targetId)}
                     >
                       <i className="fas fa-download"></i> Download
-                    </button>
+                    </button> */}
+                    <DownloadButton
+                      userId={user.$id}
+                      targetId={item.targetId}
+
+                    />
 
                   </td>
 

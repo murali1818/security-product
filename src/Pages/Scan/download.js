@@ -1,6 +1,7 @@
 import { jsPDF } from "jspdf";
 import description from "../Scandetails/description";
 
+
 let report = {
   domain: 'Unknown Domain',
   vulnerableFindings: [],
@@ -29,98 +30,126 @@ const saveDataToFile = (data) => {
 // Utility function to generate PDF with styling
 const generatePDF = () => {
   const doc = new jsPDF();
+  let yPosition = 20; // Top margin
+  const pageHeight = doc.internal.pageSize.height;
   const pageWidth = doc.internal.pageSize.width;
-  let yPosition = 10;
+  const margin = 20;
+  const contentWidth = pageWidth - 2 * margin;
+  const lineSpacing = 6;
+  const subtopicIndent = 5;
 
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(14);
-  
-  // Add domain title
-  doc.setTextColor(0, 0, 255);  // Blue color for title
-  doc.text(`Domain: ${report.domain}`, 10, yPosition);
-  yPosition += 15;
+  // Set the global font to 'Arial' and increase base font size for better readability
+  doc.setFont("arial", "normal");
+  doc.setFontSize(12);
 
-  // Iterate through vulnerable findings
   report.vulnerableFindings.forEach((finding) => {
-    // Set color based on severity
     let severityColor;
     switch (finding.severity.toLowerCase()) {
       case "high":
-        severityColor = [255, 0, 0];  // Red
+        severityColor = [255, 0, 0]; // Red
         break;
       case "medium":
-        severityColor = [255, 165, 0];  // Orange
+        severityColor = [255, 165, 0]; // Orange
         break;
       case "low":
-        severityColor = [34, 139, 34];  // Green
+        severityColor = [34, 139, 34]; // Green
         break;
       case "info":
-        severityColor = [0, 0, 255];  // Blue
+        severityColor = [0, 0, 255]; // Blue
         break;
       default:
-        severityColor = [0, 0, 0];  // Default black
+        severityColor = [0, 0, 0]; // Default black
     }
 
-    // Heading: Title
-    doc.setTextColor(...severityColor); // Set color based on severity
-    doc.setFontSize(12);
-    doc.text(`Title: ${finding.title}`, 10, yPosition);
-    yPosition += 8;
+    // Format and add the title
+    const formattedTitle = finding.title
+      .replace(/_/g, " ")
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+    const titleLines = doc.splitTextToSize(formattedTitle, contentWidth);
+    
+    doc.setFontSize(16); // Increase font size for title
+    doc.setTextColor(0, 102, 204); // Set the title color to blue
+    titleLines.forEach((line) => {
+      if (yPosition + lineSpacing > pageHeight - margin) {
+        doc.addPage();
+        yPosition = margin;
+      }
+      doc.text(line, margin, yPosition);
+      yPosition += lineSpacing;
+    });
 
-    // Severity
-    doc.setFontSize(10);
-    doc.setTextColor(0, 0, 0); // Set text color to black for the severity description
-    doc.text(`Severity: ${finding.severity}`, 10, yPosition);
-    yPosition += 8;
-
-    // Description (if available)
-    doc.setFontSize(10);
-    if (finding.description?.vulnerabilitiesdescription) {
-      doc.text(`Description: ${finding.description.vulnerabilitiesdescription}`, 10, yPosition);
-      yPosition += 8;
-    } else {
-      doc.text("Description: No description available", 10, yPosition);
-      yPosition += 8;
-    }
-
-    // Risk (if available)
-    if (finding.description?.riskDescription) {
-      doc.text(`Risk: ${finding.description.riskDescription}`, 10, yPosition);
-      yPosition += 8;
-    }
-
-    // Recommendation (if available)
-    if (finding.description?.recommendation) {
-      doc.text(`Recommendation: ${finding.description.recommendation}`, 10, yPosition);
-      yPosition += 8;
-    }
-
-    // Add a table for additional subtopics if available
-    if (finding.data && typeof finding.data === "object") {
-      doc.setFontSize(10);
-      doc.text("Additional Information:", 10, yPosition);
-      yPosition += 8;
-
-      // Draw a table-like structure
-      Object.entries(finding.data).forEach(([key, value], index) => {
-        doc.text(`${key}: ${value}`, 10, yPosition);
-        yPosition += 6;
-      });
-    }
-
-    // Add a space between findings
-    yPosition += 10;
-
-    // Check if we need to add more space or create a new page
-    if (yPosition > 270) {  // Close to the bottom of the page
+    // Add severity block with rounded corners and box-shadow effect
+    if (yPosition + 14 > pageHeight - margin) {
       doc.addPage();
-      yPosition = 10;
+      yPosition = margin;
+    }
+    doc.setFillColor(...severityColor);
+    doc.roundedRect(margin, yPosition - 4, contentWidth, 14, 5, 5, 'F'); // Rounded rectangle with fill
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(10);
+    doc.text(`Severity: ${finding.severity}`, margin + 2, yPosition + 8); // Adjust position to center text
+    yPosition += 14;
+    doc.setTextColor(0, 0, 0); // Reset color back to black for the content
+
+    // Function to add content blocks with styling
+    const addContentBlock = (title, content, isSubtopic = false) => {
+      if (content) {
+        if (yPosition + lineSpacing > pageHeight - margin) {
+          doc.addPage();
+          yPosition = margin;
+        }
+        doc.setFontSize(isSubtopic ? 12 : 11);
+        doc.setTextColor(isSubtopic ? 51 : 0, 102, 153); // Set color for subtopics (blue)
+        doc.text(title, margin + subtopicIndent, yPosition);
+        yPosition += lineSpacing;
+
+        const contentLines = doc.splitTextToSize(content, contentWidth - subtopicIndent);
+        contentLines.forEach((line) => {
+          if (yPosition + lineSpacing > pageHeight - margin) {
+            doc.addPage();
+            yPosition = margin;
+          }
+          doc.text(line, margin + subtopicIndent, yPosition);
+          yPosition += lineSpacing;
+        });
+        yPosition += lineSpacing;
+      }
+    };
+
+    // Add description, risk, and recommendation with custom styling
+    addContentBlock("Description:", finding.description?.vulnerabilitiesdescription || "N/A", true);
+    addContentBlock("Risk:", finding.description?.riskDescription || "N/A", true);
+    addContentBlock("Recommendation:", finding.description?.recommendation || "N/A", true);
+    
+
+    if (finding.data && typeof finding.data === "object") {
+          doc.setFontSize(10);
+          doc.text("Additional Information:", 10, yPosition);
+          yPosition += 8;
+    
+          // Draw a table-like structure
+          Object.entries(finding.data).forEach(([key, value], index) => {
+            doc.text(`${key}: ${value}`, 10, yPosition);
+            yPosition += 6;
+          });
+    }
+          
+
+    yPosition += 10; // Add spacing before the next finding
+    if (yPosition > pageHeight - margin) {
+      doc.addPage();
+      yPosition = margin;
     }
   });
 
-  // Save the PDF file
-  doc.save('vulnerable_findings.pdf');
+  doc.save("vulnerable_findings.pdf");
 };
+
+
+
+
 
 // Add the function to process findings and trigger both downloads (PDF and JSON)
 const processFindings = (findingsData) => {
@@ -139,6 +168,7 @@ const processFindings = (findingsData) => {
       }
     });
   }
+  console.log(report);
   generatePDF();  // Download PDF
   saveDataToFile(report);  // Download JSON file
 };
