@@ -16,6 +16,19 @@ const formatTitle = (title) => {
 };
 
 const DownloadButton = ({ userId, targetId }) => {
+    // const [pdfUrl, setPdfUrl] = useState(null); // State to hold PDF blob URL for preview
+ 
+    // const savePDF = async (report) => {
+    //     // Generate the PDF as a blob
+    //     const blob = await pdf(<MyPDFDocument report={report} />).toBlob();
+    //     const url = URL.createObjectURL(blob);
+       
+    //     setPdfUrl(url); // Set the URL for preview
+       
+    //     // Open PDF in a new tab
+    //     window.open(url, '_blank');
+    // };
+
     const savePDF = async (report) => {
         const blob = await pdf(<MyPDFDocument report={report} />).toBlob();
         const url = URL.createObjectURL(blob);
@@ -120,6 +133,29 @@ const DownloadButton = ({ userId, targetId }) => {
             {/* Render a download button if pdfUrl is available */}
             
         </div>
+        // <div>
+        //     <button
+        //         className="btn btn-download"
+        //         onClick={() => handleDownload(userId, targetId)}
+        //     >
+        //     Preview PDF
+        //     </button>
+ 
+        //     {/* Render a download button if pdfUrl is available */}
+        //     {pdfUrl && (
+        //         <button
+        //             className="btn btn-download"
+        //             onClick={() => {
+        //                 const link = document.createElement('a');
+        //                 link.href = pdfUrl;
+        //                 link.download = 'vulnerability_report.pdf';
+        //                 link.click();
+        //             }}
+        //         >
+        //             <FaDownload /> Download PDF
+        //         </button>
+        //     )}
+        // </div>
     );
 };
 

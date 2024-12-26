@@ -4,7 +4,6 @@ import './ScanPage.css';
 import { Link } from 'react-router-dom';
 import { useUser } from '../../contexts/UserContext';
 import DownloadButton from './Downloadbutton';
-const { handleDownload } = require('./download');
 
 
 const ScanPage = () => {
