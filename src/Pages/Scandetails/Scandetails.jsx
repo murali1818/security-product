@@ -12,6 +12,7 @@ const Scandetails = () => {
   const [error, setError] = useState(null);
   const [copySuccess, setCopySuccess] = useState(false);
   const [activeTab, setActiveTab] = useState("websiteHealth");
+  const download=true;
 
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -30,7 +31,7 @@ const Scandetails = () => {
           return response.json();
         })
         .then((data) => {
-          console.log(data.data[0]);
+          //console.log(data.data[0]);
           setScanData(data.data[0]);
          
           setLoading(false);
@@ -125,7 +126,7 @@ const Scandetails = () => {
               <Summary summaryData={scanData} />
             )}
             {activeTab === "Findings" && (
-              <Finding findingsData={scanData} />
+              <Finding findingsData={scanData} download={download} />
             )}
           </div>
         </div>

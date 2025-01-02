@@ -1,162 +1,317 @@
-/* Profile.css */
-.profile-page{
-    body {
-        background-color: #f4f6f9; /* Light grey background */
-        font-family: 'Roboto', sans-serif;
-      }                                                                                     
-      
-      .profile-container {
-        max-width: 800px;                       
-        margin: 50px auto;
-        padding: 20px;
-      }
-      
-      .profile-header {
-        display: flex;
-      align-items: center;
-        justify-content: space-between;
-        margin-bottom: 30px;
-      }
-      
-      .profile-header h2 {
-        color: #1C51A3;
-        font-size: 28px;
-      }
-      
-      .profile-header .user-info {
-        display: flex;
-        align-items: center;
-      }
-      
-      .profile-header .user-info img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        margin-right: 15px;
-      }
-      
-      .profile-card {
-        background-color: #fff;
-        border-radius: 10px;
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-        padding: 30px;
-        margin-bottom: 20px;
-      }
-      
-      .profile-card h3 {
-        font-size: 22px;
-        margin-bottom: 15px;
-        color: #333;
-        border-bottom: 2px solid #f1f1f1;
-        padding-bottom: 10px;
-      }
-      
-      .profile-input-group {
-        margin-bottom: 20px;
-      }
-      
-      .profile-input-group label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 8px;
-        color: #555;
-      }
-      
-      .profile-input-group input {
-        width: 100%;
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #ddd;
-        transition: border-color 0.3s ease;
-      }
-      
-      .profile-input-group input:focus {
-        border-color: #1C51A3;
-        outline: none;
-      }
-      
-      .toggle-switch {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding-top: 15px;
-        border-top: 1px solid #e6e6e6;
-        margin-top: 20px;
-      }
-      
-      .toggle-label {
-        font-weight: bold;
-        color: #555;
-      }
-      
-      .toggle-btn {
-        position: relative;
-        display: inline-block;
-        width: 40px;
-        height: 20px;
-      }
-      
-      .toggle-btn input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-      
-      .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 20px;
-      }
-      
-      .slider:before {
-        position: absolute;
-        content: "";
-        height: 14px;
-        width: 14px;
-        left: 3px;
-        bottom: 3px;
-        background-color: white;
-        transition: .4s;
-        border-radius: 50%;
-      }
-      
-      input:checked + .slider {
-        background-color: #1C51A3;
-      }
-      
-      input:checked + .slider:before {
-        transform: translateX(20px);
-      }
-      
-      .save-btn {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #1C51A3;
-        color: white;
-        font-size: 16px;
-        font-weight: bold;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        margin-top: 20px;
-      }
-      
-      .save-btn:hover {
-        background-color: #163d7f;
-      }
-      
-      .footer {
-        text-align: center;
-        color: #999;
-        font-size: 12px;
-        margin-top: 40px;
-      }
-    
-}  
+/* Main Profile Page Styling */
+.profile-page {
+  min-height: 100vh;
+
+  color: #333;
+}
+
+.profile-container {
+  
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #f1f1f1;
+  padding-bottom: 20px;
+}
+
+.profile-header h2 {
+  font-size: 28px;
+  color: #333;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-info img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #1e88e5;
+  object-fit: cover;
+}
+
+.user-info div {
+  font-size: 16px;
+}
+
+.updateProfButt {
+  background-color: #1e88e5;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.updateProfButt:hover {
+  background-color: #87c7ff;
+}
+
+.cancel-btn {
+  background-color:#ff4747;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+ 
+.cancel-btn:hover {
+  background-color:red ;
+}
+/* Profile Info Card */
+.profile-card {
+  background-color: #f8f8f8;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.profile-card h3 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.profile-input-group {
+  margin-bottom: 20px;
+}
+
+.profile-input-group label {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.profile-input-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.profile-input-group input:focus {
+  background-color: #ffffff;
+  border-color: #1e88e5;
+  outline: none;
+}
+
+/* Save Button */
+.saveProfButt {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.saveProfButt:hover {
+  background-color: #218838;
+}
+
+/* Popup Form */
+.popup-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Two-Factor Modal */
+.save-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+}
+
+.save-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #777;
+}
+
+
+/* Toggle Switch Styling */
+.toggle-switch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.toggle-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.toggle-btn {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-btn input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  border-radius: 50px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+/* When the switch is checked */
+input:checked + .slider {
+  background-color: #1e88e5;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+/* Hover effect for the toggle button */
+.toggle-btn:hover .slider {
+  background-color: #ff7e5f;
+}
+
+
+.profile-input-group {
+  margin-bottom: 20px;
+}
+
+.profile-input-group label {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.profile-input-group input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.profile-input-group input:focus {
+  background-color: #ffffff;
+  border-color: #1e88e5;
+  outline: none;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.edit-btn:hover {
+  background-color: #0056b3;
+}
+
+.saveProfButt {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.saveProfButt:hover {
+  background-color: #218838;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #f00;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
