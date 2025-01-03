@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { pdf } from '@react-pdf/renderer';
 import description from '../Scandetails/description';
@@ -16,34 +16,34 @@ const formatTitle = (title) => {
 };
 
 const DownloadButton = ({ userId, targetId }) => {
-    // const [pdfUrl, setPdfUrl] = useState(null); // State to hold PDF blob URL for preview
+    const [pdfUrl, setPdfUrl] = useState(null); // State to hold PDF blob URL for preview
  
-    // const savePDF = async (report) => {
-    //     // Generate the PDF as a blob
-    //     const blob = await pdf(<MyPDFDocument report={report} />).toBlob();
-    //     const url = URL.createObjectURL(blob);
-       
-    //     setPdfUrl(url); // Set the URL for preview
-       
-    //     // Open PDF in a new tab
-    //     window.open(url, '_blank');
-    // };
-
     const savePDF = async (report) => {
+        // Generate the PDF as a blob
         const blob = await pdf(<MyPDFDocument report={report} />).toBlob();
         const url = URL.createObjectURL(blob);
-    
-        const link = document.createElement('a');
-        link.href = url;
-        link.download = 'vulnerability_report.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    
-        // Reset the report data after download
-        report.domain = 'Unknown Domain';
-        report.vulnerableFindings = [];
+       
+        setPdfUrl(url); // Set the URL for preview
+       
+        // Open PDF in a new tab
+        window.open(url, '_blank');
     };
+
+    // const savePDF = async (report) => {
+    //     const blob = await pdf(<MyPDFDocument report={report} />).toBlob();
+    //     const url = URL.createObjectURL(blob);
+    
+    //     const link = document.createElement('a');
+    //     link.href = url;
+    //     link.download = 'vulnerability_report.pdf';
+    //     document.body.appendChild(link);
+    //     link.click();
+    //     document.body.removeChild(link);
+    
+    //     // Reset the report data after download
+    //     report.domain = 'Unknown Domain';
+    //     report.vulnerableFindings = [];
+    // };
     const processFindings = (findingsData) => {
         //console.log(findingsData);
         report.domain = findingsData?.domain || 'Unknown Domain';
@@ -122,40 +122,41 @@ const DownloadButton = ({ userId, targetId }) => {
     };
 
     return (
-        <div>
-            <button
-                className="btn btn-download"
-                onClick={() => handleDownload(userId, targetId)}
-            >
-           <FaDownload /> Download PDF
-            </button>
-
-            {/* Render a download button if pdfUrl is available */}
-            
-        </div>
         // <div>
         //     <button
         //         className="btn btn-download"
         //         onClick={() => handleDownload(userId, targetId)}
         //     >
-        //     Preview PDF
+        //    <FaDownload /> Download PDF
         //     </button>
- 
+
         //     {/* Render a download button if pdfUrl is available */}
-        //     {pdfUrl && (
-        //         <button
-        //             className="btn btn-download"
-        //             onClick={() => {
-        //                 const link = document.createElement('a');
-        //                 link.href = pdfUrl;
-        //                 link.download = 'vulnerability_report.pdf';
-        //                 link.click();
-        //             }}
-        //         >
-        //             <FaDownload /> Download PDF
-        //         </button>
-        //     )}
+            
         // </div>
+        
+        <div>
+            <button
+                className="btn btn-download"
+                onClick={() => handleDownload(userId, targetId)}
+            >
+            Preview PDF
+            </button>
+ 
+            {/* Render a download button if pdfUrl is available */}
+            {pdfUrl && (
+                <button
+                    className="btn btn-download"
+                    onClick={() => {
+                        const link = document.createElement('a');
+                        link.href = pdfUrl;
+                        link.download = 'vulnerability_report.pdf';
+                        link.click();
+                    }}
+                >
+                    <FaDownload /> Download PDF
+                </button>
+            )}
+        </div>
     );
 };
 

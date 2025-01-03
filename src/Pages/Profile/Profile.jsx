@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import "./Profile.css";
-import TwoFactorModal from './TwoFactorModal';
-import { account, databases, databaseId, collectionId, client, ID } from '../../lib/appwrite';
+import { account, databases, databaseId, collectionId, client, ID,bucketImageId } from '../../lib/appwrite';
 import { Storage } from 'appwrite';
 const storage = new Storage(client);
  
@@ -53,7 +52,7 @@ function Profile() {
  
           // Generate the file URL if the ID exists
           const profileImageURL = profileImageID
-            ? storage.getFileView('6772a791000718f7490d', profileImageID) // Replace with your bucket ID
+            ? storage.getFileView(bucketImageId, profileImageID) // Replace with your bucket ID
             : '';
  
           setProfile({
@@ -152,7 +151,7 @@ function Profile() {
  
         try {
           const fileUploadResponse = await storage.createFile(
-            '6772a791000718f7490d', // Replace with your bucket ID
+            bucketImageId, // Replace with your bucket ID
             ID.unique(),
             profile.profileImage
           );
@@ -250,7 +249,7 @@ function Profile() {
     try {
       // Step 1: Upload the selected file to Appwrite Storage
       const response = await storage.createFile(
-        '6772a791000718f7490d', // Replace with your bucket ID
+        bucketImageId, // Replace with your bucket ID
         ID.unique(),
         file
       );
