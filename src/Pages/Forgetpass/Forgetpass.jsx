@@ -15,7 +15,7 @@ const Forgetpass = () => {
             setSuccess('');
 
             // Attempt to create a recovery
-            await account.createRecovery(email, 'http://localhost:3000/update-password');
+            await account.createRecovery(email, 'https://security-product-a38zbrnxi-murali1818s-projects.vercel.app/update-password');
             setSuccess('Recovery email sent successfully. Please check your inbox.');
         } catch (err) {
             // Handle errors
