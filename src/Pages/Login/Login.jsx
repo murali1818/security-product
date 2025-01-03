@@ -52,8 +52,8 @@ const Login = () => {
     const handlegoogleLogin = () => {
         account.createOAuth2Session(
             "google",
-            "http://localhost:3000",
-            "http://localhost:3000"
+            "https://security-product-a38zbrnxi-murali1818s-projects.vercel.app/",
+            "https://security-product-a38zbrnxi-murali1818s-projects.vercel.app/"
         );
     };
 
@@ -103,7 +103,7 @@ const Login = () => {
                 //const userid=user.$id;
                 await account.deleteSession('current'); // Log out the user
                 setVerificationMessage('Two step verification is enabled. Please check your email for the verification code.');
-                await account.createMagicURLToken(ID.unique(), email, 'http://localhost:3000/authenticate');
+                await account.createMagicURLToken(ID.unique(), email, 'https://security-product-a38zbrnxi-murali1818s-projects.vercel.app/authenticate');
                 return;
             }
             if (twosteponeotp) {
@@ -143,7 +143,7 @@ const Login = () => {
         try {
             await account.createEmailPasswordSession(email, password);
             const user = await account.get();
-            await account.createVerification('http://localhost:3000/verify-email', user.email);
+            await account.createVerification('https://security-product-a38zbrnxi-murali1818s-projects.vercel.app/verify-email', user.email);
             setVerificationMessage(`A verification email has been sent to your ${user.email} address.`);
             await account.deleteSession('current');
         } catch (err) {
@@ -158,7 +158,7 @@ const Login = () => {
             await account.create(ID.unique(), email, password, name);
             await account.createEmailPasswordSession(email, password);
             const user = await account.get();
-            await account.createVerification('http://localhost:3000/verify-email', user.email);
+            await account.createVerification('https://security-product-a38zbrnxi-murali1818s-projects.vercel.app/verify-email', user.email);
             setVerificationMessage(`A verification email has been sent to your ${user.email} address.`);
             await account.deleteSession('current');
             setError('');
