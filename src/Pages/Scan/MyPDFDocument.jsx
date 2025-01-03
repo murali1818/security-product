@@ -1,44 +1,120 @@
 /* eslint-disable no-sequences */
 import React from 'react';
-import { Document, Page, Text, View, StyleSheet, Image } from '@react-pdf/renderer';
+import { Document, Page, Text, View, StyleSheet, Font, Image } from '@react-pdf/renderer';
+import calibriItalic from '../../fonts/calibri-font-family/calibri-italic.ttf';
+import calibriBold from '../../fonts/calibri-font-family/calibri-bold.ttf';
+import calibriRegular from '../../fonts/calibri-font-family/calibri-regular.ttf';
+import arialBlack from '../../fonts/arial-mt-cufonfonts/arialmt.ttf'
 import imageSrc from './image.png';
 
+
+Font.register({
+    family: 'ArialBlack',
+    src: arialBlack,
+});
+
+Font.register({
+    family: 'Calibri',
+    fonts: [
+        {
+            src: calibriItalic,
+            fontStyle: 'italic',
+        },
+        {
+            src: calibriBold,
+            fontWeight: 'bold',
+        },
+        {
+            src: calibriRegular,
+            fontWeight: 'normal'
+        }
+    ],
+});
 // PDF styles with colors and spacing
+
 const styles = StyleSheet.create({
     firstpage: {
         flexDirection: 'column',
         alignItems: 'left',
         backgroundColor: '#FFFFFF',
-        padding: 60,
+        padding: 70,
     },
     firstlogo: {
-        width: 200,
-        height: 50,
-        marginBottom: 50,
+        width: 400,
+        height: 100,
+        marginBottom: 80,
     },
 
     firstsubtitle: {
-        fontSize: 46,
-        fontWeight: 'ultrabold',
+        fontSize: 48,
+        fontFamily: 'Calibri',
+        fontWeight: 'bold',
         color: '#002D62',
     },
     firstfooter: {
-        fontSize: 14,
-        fontWeight: 'bold',
-        color: '#333333',
-        marginTop: 10,
+        fontFamily: 'Calibri',
+        fontWeight: 'normal',
+        fontSize: 23,
     },
+
+    firstfooterdate: {
+        fontFamily: 'Calibri',
+        fontWeight: 'normal',
+        fontSize: 16,
+    },
+    titleRestr: {
+        fontSize: 20,
+        marginBottom: 10,
+        textAlign: 'left',
+        fontFamily: 'ArialBlack',
+        color: '#073d57',
+        fontWeight: 'normal',
+        borderBottom: '2px solid gray',
+        paddingVertical: 10,
+
+    },
+    subtitleRestr: {
+        fontSize: 16,
+        fontFamily: 'ArialBlack',
+        fontWeight: 'normal',
+        textAlign: 'left',
+        color: '#073d57',
+
+    },
+    disclaimerText: {
+        fontSize: 11,
+        fontFamily: 'ArialBlack',
+        fontWeight: 'normal',
+        marginBottom: 10,
+        color: 'black',
+        paddingLeft: 10,
+    },
+    descriptionContent: {
+        fontSize: 13, // Increase font size for better readability
+        marginBottom: 5, // Increase bottom margin for spacing
+        color: 'black',
+        lineHeight: 1.4, // Increase line height for better readability
+        fontFamily: 'Calibri',
+        textAlign: 'justify',
+        //marginTop: 10,
+        //letterSpacing: 0.5, // Add space between letters for clarity
+    },
+
     page: {
         padding: 60,
-        backgroundColor: '#f8f9fa',
+        backgroundColor: '#ffffff',
         textAlign: 'justify',
-        letterSpacing: 0.3, // Add space between letters for better readability
+        letterSpacing: 0.3,
     },
+
     contentContainer: {
         flex: 1,
     },
+
     footer: {
         position: 'absolute',
+        fontFamily: 'Calibri',
+        fontWeight: 'normal',
         bottom: 30,
         left: 0,
         right: 0,
@@ -46,58 +122,43 @@ const styles = StyleSheet.create({
         fontSize: 10,
         color: 'gray',
     },
+
     topcontainer: {
         breakInside: 'avoid',
         pageBreakInside: 'avoid',
     },
+
     title: {
-        fontSize: 16, // Increase font size for better readability
-        marginBottom: 15, // Increase bottom margin for spacing
+        fontSize: 20, // Increase font size for better readability
+        marginBottom: 10, // Increase bottom margin for spacing
         textAlign: 'left',
+        fontFamily: 'ArialBlack',
         color: '#073d57',
-        fontWeight: 'extrabold',
         letterSpacing: 0.3, // Add letter spacing for clarity
     },
+
     descriptionTitle: {
-        fontSize: 14, // Increase font size for section titles
-        fontWeight: 'extrabold',
+        fontSize: 16, // Increase font size for section titles
+        fontFamily: 'ArialBlack',
         color: '#073d57',
         marginTop: 10, // Add top margin for better separation
         marginBottom: 10, // Add bottom margin for better separation
     },
-    descriptionContent: {
-        fontSize: 12, // Increase font size for better readability
-        marginBottom: 5, // Increase bottom margin for spacing
-        color: 'black',
-        lineHeight: 1.5, // Increase line height for better readability
-        textAlign: 'justify',
-        fontFamily: 'Helvetica',
-        fontWeight: '400',
-        letterSpacing: 0.5, // Add space between letters for clarity
-    },
+
+
+
     severity: {
         fontSize: 14,
         fontWeight: 'bold',
         marginLeft: 5,
         paddingVertical: 10, // Increase padding for better spacing
         paddingHorizontal: 12, // Increase padding for better spacing
-        borderRadius: 5,
+        border: '0.8px solid black', // Add border for better visibility
         color: '#fff',
         width: '100%',
         marginBottom: 15, // Increase bottom margin for spacing
     },
-    severityHigh: {
-        backgroundColor: '#dc3545',
-    },
-    severityMedium: {
-        backgroundColor: '#ffc107',
-    },
-    severityLow: {
-        backgroundColor: '#28a745',
-    },
-    severityinfos: {
-        backgroundColor: '#353ed2',
-    },
+
     pageNumber: {
         position: 'absolute',
         bottom: 30,
@@ -105,12 +166,14 @@ const styles = StyleSheet.create({
         fontSize: 10,
         color: 'gray',
     },
+
     dataItem: {
-        fontSize: 12, // Increase font size for better readability
+        fontSize: 12,
         color: '#495057',
-        lineHeight: 1.5, // Increase line height for readability
-        letterSpacing: 0.5, // Add letter spacing for clarity
+        lineHeight: 1.5,
+        letterSpacing: 0.5,
     },
+
     dataItemTitle: {
         fontWeight: 'bold',
         display: 'flex',
@@ -118,38 +181,10 @@ const styles = StyleSheet.create({
         color: '#007bff',
         letterSpacing: 0.5, // Add letter spacing for clarity
     },
-    nestedDataItem: {
-        fontSize: 12,
-        color: '#555',
-        lineHeight: 1.5, // Improve readability
-    },
-    listItem: {
-        display: 'flex',
-        flexDirection: 'column',
-        fontSize: 12, // Increase font size for better readability
-        marginBottom: 5, // Add bottom margin for spacing
-    },
-    listBullet: {
-        marginRight: 10,
-    },
-    titleRestr: {
-        fontSize: 16,
-        marginBottom: 15,
-        textAlign: 'left',
-        color: '#073d57',
-        fontWeight: 'bold',
-        borderBottom: '2px solid gray',
-        paddingVertical: 10,
 
-    },
-    subtitleRestr: {
-        fontSize: 16,
-        textAlign: 'left',
-        color: '#073d57',
-        fontWeight: 'bold',
-        paddingVertical: 10,
 
-    },
+
+
     subTitle: {
         fontSize: 20, // Slightly larger for better visibility
         marginBottom: 20, // Adjust spacing
@@ -184,23 +219,8 @@ const styles = StyleSheet.create({
         color: '#333',
         lineHeight: 1.5,
     },
-    disclaimerText: {
-        fontSize: 12,
-        marginBottom: 15,
-        color: 'black',
-        paddingLeft: 10,
-        fontStyle: 'italic',
-    },
-    disclaimerText1: {
-        fontSize: 12,
-        marginBottom: '30%',
-        color: '#495057',
 
-        fontStyle: 'italic',
-        textAlign: 'justify', // Add this line
-        paddingLeft: 5, // Padding on the left
-        paddingRight: 5, // Padding on the right
-    },
+
     section: {
         marginBottom: 15,
         padding: 15,
@@ -208,7 +228,6 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         backgroundColor: '#ffffff',
     },
-
 
     severityInfo: {
         backgroundColor: '#0066FF' // Informational severity
@@ -222,17 +241,14 @@ const styles = StyleSheet.create({
         marginTop: '50%',
         marginBottom: '50%',
     },
-    // Title for Methodology
-    // Methodology
+
     sectionText: {
         fontSize: 12,
-
         color: '#333',
         lineHeight: 1.5,
     },
 
 
-    // DEFINITION OF SEVERITY RATINGS
     table: {
         borderWidth: 1,
         borderColor: '#ddd',
@@ -261,26 +277,28 @@ const styles = StyleSheet.create({
         color: '#fff',
     },
     tableDescriptionText: {
-        fontSize: 12,
-        lineHeight: 1.3,
+        fontSize: 14,
+        lineHeight: 1.2,
         padding: 5,
-        letterSpacing: 0.3,
-        color: '#333',
+        fontFamily: 'Calibri',
+        fontWeight: 'normal',
+        letterSpacing: 0.2,
+        color: 'black',
     },
     criticalCell: {
-        backgroundColor: '#FF0000',
+        backgroundColor: '#d30501',
     },
     highCell: {
-        backgroundColor: '#FF9900',
+        backgroundColor: '#f9731c',
     },
     mediumCell: {
-        backgroundColor: '#FFD700',
+        backgroundColor: '#f5c816',
     },
     lowCell: {
-        backgroundColor: '#00FF00',
+        backgroundColor: '#03ad50',
     },
     infoCell: {
-        backgroundColor: '#0066FF',
+        backgroundColor: '#006ec0',
     },
     conclusionTitle: {
         fontSize: 16,
@@ -307,7 +325,8 @@ const styles = StyleSheet.create({
     },
     tableHeaderText: {
         color: '#fff',
-        fontSize: 14,
+        fontSize: 12,
+        fontFamily: 'Calibri',
         fontWeight: 'bold',
         textAlign: 'center',
     },
@@ -318,9 +337,11 @@ const styles = StyleSheet.create({
         borderColor: '#ddd',
     },
     tableText: {
-        fontSize: 10,
+        fontSize: 12,
+        fontFamily: 'Calibri',
+        fontWeight: 'normal',
         textAlign: 'center',
-        color:'black',
+        color: 'black',
     },
     linkText: {
         color: '#1a0dab',
@@ -384,14 +405,14 @@ const severityGroups = (findings) => {
 
 // PDF Document Component
 const MyPDFDocument = ({ report }) => {
-   // console.log(report);
+    // console.log(report);
     const groupedSeverity = severityGroups(report.vulnerableFindings);
     return (
         <Document>
             <Page style={styles.firstpage}>
                 <Image
                     style={styles.firstlogo}
-                    src='./infoziant-logo.png' // Replace with the correct path to your logo file
+                    src='./image.png' // Replace with the correct path to your logo file
                 />
                 <View style={{ marginBottom: '20' }} >
                     <Text style={styles.firstsubtitle}>Web Application</Text>
@@ -399,7 +420,7 @@ const MyPDFDocument = ({ report }) => {
                     <Text style={styles.firstsubtitle}>Testing Report</Text>
                 </View>
                 <Text style={styles.firstfooter}>Infoziant Internal</Text>
-                <Text style={styles.firstfooter}>Date: {formattedDate}</Text>
+                <Text style={styles.firstfooterdate}>Date: {formattedDate}</Text>
                 <Text style={styles.footer}>Confidential & Proprietary | Infoziant IT Solutions Inc</Text>
                 <Text style={styles.pageNumber}>1</Text>
             </Page>
@@ -433,58 +454,60 @@ const MyPDFDocument = ({ report }) => {
 
             {/* Third page: Table of Content */}
             <Page style={styles.firstpage}>
-                <Text style={styles.titleRestr}>Table of Content</Text>
-                <Text style={styles.disclaimerText}>1.EXECUTIVE SUMMARY</Text>
-                <Text style={styles.disclaimerText}>2.SUMMARY OF FINDING</Text>
+                <Text style={[styles.subtitleRestr, { marginBottom: 20 }]}>Table of Content</Text>
+                <Text style={styles.disclaimerText}>RESTRICTED USE</Text>
+                <Text style={styles.disclaimerText}>DISCLAIMERS</Text>
+                <Text style={styles.disclaimerText}>1. EXECUTIVE SUMMARY</Text>
+                <Text style={styles.disclaimerText}>2. SUMMARY OF FINDING</Text>
                 {report.vulnerableFindings.map((finding, index) => (
                     <Text key={index} style={styles.disclaimerText}>
-                        {index + 3}.{formatTitle(finding.title)}
+                        {index + 3}. {formatTitle(finding.title)}
                     </Text>
                 ))}
-                <Text style={styles.disclaimerText}>{report.vulnerableFindings.length + 3}.METHODOLOGY</Text>
-                <Text style={styles.disclaimerText}>{report.vulnerableFindings.length + 4}.CONCLUSION</Text>
+                <Text style={styles.disclaimerText}>{report.vulnerableFindings.length + 3}. METHODOLOGY</Text>
+                <Text style={styles.disclaimerText}>{report.vulnerableFindings.length + 4}. CONCLUSION</Text>
                 <Text style={styles.footer}>Confidential & Proprietary | Infoziant IT Solutions Inc</Text>
                 <Text style={styles.pageNumber}>3</Text>
             </Page>
 
             {/* Fourth page: EXECUTIVE SUMMARY and SUMMARY OF FINDINGS */}
-            <Page style={styles.firstpage}>
-                <Text style={styles.titleRestr}>1. EXECUTIVE SUMMARY</Text>
-                <Text style={[styles.descriptionContent, { fontStyle: 'italic', marginBottom: 20 }]}>
+            <Page style={styles.page}>
+                <Text style={styles.title}>1. EXECUTIVE SUMMARY</Text>
+                <Text style={[styles.descriptionContent, { marginBottom: 20 }]}>
                     Infoziant security team performed a Web Application Penetration Test for Infoziant Internal. This assessment utilized both commercial and proprietary tools for the initial mapping and reconnaissance the application, as well as custom tools and scripts for unique vulnerabilities. During the manual analysis, assessors attempted to leverage discovered vulnerabilities and test for key security flaws, including those listed in the OWASP Top 10 Vulnerabilities list. The following vulnerabilities were determined to be of highest risk, based on several factors including asset criticality, threat likelihood, and vulnerability severity.
                 </Text>
-               
-                    <Text style={styles.subtitleRestr}>THE SCOPE OF THE SECURITY ASSESSMENT</Text>
-                    <Text style={styles.descriptionContent}>
-                        The scope of the security assessment is to conduct Grey box security test on Application on below URL.
-                    </Text>
-                    <View style={styles.table}>
-                        <View style={styles.tableRow}>
-                            <View style={styles.tableHeaderCell}>
-                                <Text style={styles.tableHeaderText}>Type of Assessment</Text>
-                            </View>
-                            <View style={styles.tableHeaderCell}>
-                                <Text style={styles.tableHeaderText}>Type of Application</Text>
-                            </View>
-                            <View style={styles.tableHeaderCell}>
-                                <Text style={styles.tableHeaderText}>Application URL</Text>
-                            </View>
+
+                <Text style={styles.subtitleRestr}>THE SCOPE OF THE SECURITY ASSESSMENT</Text>
+                <Text style={[styles.descriptionContent, { marginBottom: 10, marginTop: 5 }]}>
+                    The scope of the security assessment is to conduct Grey box security test on Application on below URL.
+                </Text>
+                <View style={styles.table}>
+                    <View style={styles.tableRow}>
+                        <View style={styles.tableHeaderCell}>
+                            <Text style={styles.tableHeaderText}>Type of Assessment</Text>
                         </View>
-                        <View style={styles.tableRow}>
-                            <View style={styles.tableCell}>
-                                <Text style={styles.tableText}>Grey Box Security Assessment</Text>
-                            </View>
-                            <View style={styles.tableCell}>
-                                <Text style={styles.tableText}>Dynamic Application</Text>
-                            </View>
-                            <View style={styles.tableCell}>
-                                <Text style={[styles.tableText, styles.linkText]}>{report.domain}</Text>
-                            </View>
+                        <View style={styles.tableHeaderCell}>
+                            <Text style={styles.tableHeaderText}>Type of Application</Text>
+                        </View>
+                        <View style={styles.tableHeaderCell}>
+                            <Text style={styles.tableHeaderText}>Application URL</Text>
                         </View>
                     </View>
-              
-                <Text style={styles.titleRestr}>2. SUMMARY OF FINDINGS</Text>
-                <Text style={[styles.descriptionContent, { fontStyle: 'italic', marginBottom: 20 }]}>
+                    <View style={styles.tableRow}>
+                        <View style={styles.tableCell}>
+                            <Text style={styles.tableText}>Grey Box Security Assessment</Text>
+                        </View>
+                        <View style={styles.tableCell}>
+                            <Text style={styles.tableText}>Dynamic Application</Text>
+                        </View>
+                        <View style={styles.tableCell}>
+                            <Text style={[styles.tableText, styles.linkText]}>{report.domain}</Text>
+                        </View>
+                    </View>
+                </View>
+
+                <Text style={[styles.title, { marginTop: 20 }]}>2. SUMMARY OF FINDINGS</Text>
+                <Text style={styles.descriptionContent}>
                     Gray Box security assessment allowed to be finding various Critical, High, Low, Medium and Informational vulnerabilities.
                 </Text>
                 <View style={styles.table}>
@@ -495,10 +518,17 @@ const MyPDFDocument = ({ report }) => {
                                 <Text style={styles.tableCellText}>CRITICAL</Text>
                             </View>
                             <View style={styles.tableCellRight}>
-                                <Text style={styles.tableDescriptionText}>
-                                    {groupedSeverity.critical.map(finding => finding.title.replace(/_/g, ' ').replace(/\b\w/g, char => char.toUpperCase())).join(', ')}
-                                </Text>
+                                {groupedSeverity.critical.map((finding, index) => (
+                                    <View>
+                                    <Text key={index} style={styles.tableDescriptionText}>
+                                        {finding.title
+                                            .replace(/_/g, ' ')
+                                            .replace(/\b\w/g, char => char.toUpperCase())}
+                                    </Text>
+                                    </View>
+                                ))}
                             </View>
+
                         </View>
                     )}
                     {groupedSeverity.high.length > 0 && (
@@ -570,10 +600,11 @@ const MyPDFDocument = ({ report }) => {
                             </Text>
                             <Text style={[      // Apply styles based on severity
                                 styles.severity,
-                                finding.severity.toLowerCase() === 'high' && styles.severityHigh,
-                                finding.severity.toLowerCase() === 'info' && styles.severityinfos,
-                                finding.severity.toLowerCase() === 'medium' && styles.severityMedium,
-                                finding.severity.toLowerCase() === 'low' && styles.severityLow,
+                                finding.severity.toLowerCase() === 'critical' && styles.criticalCellCell,
+                                finding.severity.toLowerCase() === 'high' && styles.highCell,
+                                finding.severity.toLowerCase() === 'info' && styles.infoCell,
+                                finding.severity.toLowerCase() === 'medium' && styles.mediumCell,
+                                finding.severity.toLowerCase() === 'low' && styles.lowCell,
 
                             ]}>
 

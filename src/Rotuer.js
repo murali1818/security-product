@@ -7,6 +7,7 @@ import Reports from './Pages/Reports/Reports';
 import ScanPage from "./Pages/Scan/ScanPage"
 import Profile from './Pages/Profile/Profile';
 import Scandetails from './Pages/Scandetails/Scandetails';
+import MyPDFDocument from './Pages/Scan/MyPDFDocumentview';
 
 
 const Rotuer = () => {
@@ -18,6 +19,7 @@ const Rotuer = () => {
       <Route path='/*' element={<NoPages></NoPages>} />
       <Route path='/profile' element={<Profile />}/>
       <Route path='/scandetail' element={<Scandetails></Scandetails>}/>
+      <Route path='/pdf' element={<MyPDFDocument />}/>
     </Routes>
   );
 }
